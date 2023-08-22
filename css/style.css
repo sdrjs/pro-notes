@@ -1,0 +1,149 @@
+@import "header.css";
+@import "nav.css";
+
+@media (max-width: 575px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+a { color: #436ebd; }
+a:hover { text-decoration: underline; }
+
+.wrapper {
+    min-height: 100vh;
+    font-family: Montserrat;
+    line-height: 1.45;
+}
+
+._container {
+    margin: 0 auto;
+    max-width: 970px;
+    padding: 0 15px;
+}
+
+.ibg {
+    position: relative;
+    padding-bottom: 60%;
+    margin: 5px 0;
+}
+
+.ibg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.ibg30 {
+    padding-bottom: 30%;
+}
+
+.ibg90 {
+    padding-bottom: 90%;
+}
+
+.ibg100 img {
+    left: 20%;
+    width: 60%;
+}
+
+/* .page {} */
+/* .page__nav {} */
+/* .page__content {} */
+
+.content {
+    padding: 10px 0px 50px 0px;
+}
+
+.content ul > li {
+    margin-left: 20px;
+}
+
+.content li {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* .content__container {} */
+/* .content__section {} */
+/* .content__header {} */
+
+.content__title {
+    margin: 100px 0px 40px 0px;
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+
+@media (max-width: 767px) {
+    .content__title {
+        margin: 80px 0px 0px 0px;
+    }
+}
+
+@media (max-width: 575px) {
+    .content__title {
+        margin: 60px 0px -15px 0px;
+    }
+}
+
+.content__title::first-letter {
+    color: rgb(184, 0, 0);
+}
+
+/* .content__body {} */
+/* .content__chapter {} */
+/* .chapter {} */
+/* .chapter__header {} */
+
+.chapter__title {
+    margin: 60px 0px 25px 0px;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* .chapter__content {} */
+
+h4 {
+    margin: 15px 0px 10px 0px;
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+h5 {
+    margin: 12px 0px 5px 0px;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+p {
+    margin: 12px 0;
+    font-family: sans-serif;
+    overflow: auto;
+}
+
+ol > li {
+    position: relative;
+    left: 20px;
+    margin-left: 20px;
+    padding-right: 20px;
+}
+
+li {
+    margin: 7px 0;
+}
+
+code {
+    display: inline;
+    padding: 2px 4px;
+    letter-spacing: 0.2px;
+    font-family: Inconsolata;
+    background-color: #f7f4f3;
+}
+
+code.large {
+    display: block;
+    padding: 7px 4px;
+    white-space: pre;
+    overflow: auto;
+}

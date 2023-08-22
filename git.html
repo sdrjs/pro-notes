@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800,italic&display=swap&subset=cyrillic-ext" rel="stylesheet" /> <!-- .wrapper -->
+    <link href="https://fonts.googleapis.com/css?family=Wix+Madefor+Text:regular&display=swap&subset=cyrillic-ext" rel="stylesheet" /> <!-- .nav__list LI:before -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:regular,500&display=swap&subset=cyrillic-ext" rel="stylesheet" /> <!-- CODE -->
+    <title>Git</title>
+    <link rel="stylesheet" href="css/myreset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container _container">
+                <div class="header__body">
+                    <div class="header__logo">
+                        Notes
+                    </div>
+                    <div class="header__menu menu">
+                        <div class="menu__burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>     
+                        </div>
+                        <nav class="menu__body">
+                            <ul class="menu__list">
+                                <li>
+                                    <a href="index.html" class="menu__link">JavaScript</a>
+                                </li>
+                                <li>
+                                    <a href="browser.html" class="menu__link">DOM</a>
+                                </li>
+                                <li>
+                                    <a href="git.html" class="menu__link  _active">Git</a>
+                                </li>
+                                <li>
+                                    <a href="react.html" class="menu__link">React</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page">
+            <section class="page__nav nav">
+                <div class="nav__container _container">
+                    <div class="nav__header header-nav">
+                        <h1 class="header-nav__title">Git</h1>
+                        <div class="header-nav__description">О системе контроля версий Git</div>
+                    </div>
+                    <div class="nav__body">
+                        <div class="nav__row">
+                            <div class="nav__title">Введение</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#intro-what-is-git" class="nav__link">Что такое Git</a>
+                                    </li>
+                                    <li>
+                                        <a href="#intro-file-state" class="nav__link">Состояние файлов в Git</a>
+                                    </li>
+                                    <li>
+                                        <a href="#intro-configuration" class="nav__link">Конфигурация</a>
+                                    </li>
+                                    <li>
+                                        <a href="#intro-aliases" class="nav__link">Псевдонимы</a>
+                                    </li>
+                                    <li>
+                                        <a href="#intro-gitignore" class="nav__link">Файл .gitignore</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Основы Git</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#basics-repository" class="nav__link">Создание Git-репозитория</a>
+                                    </li>
+                                    <li>
+                                        <a href="#basics-tracking-changes" class="nav__link">Отслеживание изменений</a>
+                                    </li>
+                                    <li>
+                                        <a href="#basics-commit" class="nav__link">Коммит</a>
+                                    </li>
+                                    <li>
+                                        <a href="#basics-delete-rename-files" class="nav__link">Удаление и переименование файлов</a>
+                                    </li>
+                                    <li>
+                                        <a href="#basics-clean" class="nav__link">Очистка с git clean</a>
+                                    </li>
+                                    <li>
+                                        <a href="#basics-stash" class="nav__link">git stash</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Ветвление</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#branching-branch" class="nav__link">git branch</a>
+                                    </li>
+                                    <li>
+                                        <a href="#branching-checkout" class="nav__link">git checkout</a>
+                                    </li>
+                                    <li>
+                                        <a href="#branching-reset" class="nav__link">git reset</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Просмотр</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#viewing-pointers" class="nav__link">Указатели</a>
+                                    </li>
+                                    <li>
+                                        <a href="#viewing-reflog" class="nav__link">git reflog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#viewing-show" class="nav__link">git show</a>
+                                    </li>
+                                    <li>
+                                        <a href="#viewing-diff" class="nav__link">git diff</a>
+                                    </li>
+                                    <li>
+                                        <a href="#viewing-log" class="nav__link">git log</a>
+                                    </li>
+                                    <li>
+                                        <a href="#viewing-blame" class="nav__link">git blame</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Слияние коммитов</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#merging-merge" class="nav__link">git merge</a>
+                                    </li>
+                                    <li>
+                                        <a href="#merging-cherry-pick" class="nav__link">git cherry-pick</a>
+                                    </li>
+                                    <li>
+                                        <a href="#merging-rebase" class="nav__link">git rebase</a>
+                                    </li>
+                                    <li>
+                                        <a href="#merging-revert" class="nav__link">git revert</a>
+                                    </li>
+                                    <li>
+                                        <a href="#merging-rerere" class="nav__link">git rerere</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Работа с удаленными репозиториями</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#remote-remote" class="nav__link">git remote</a>
+                                    </li>
+                                    <li>
+                                        <a href="#remote-fetch-pull" class="nav__link">git fetch и git pull</a>
+                                    </li>
+                                    <li>
+                                        <a href="#remote-push" class="nav__link">git push</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page__content content">
+                <div class="content__container _container">
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Введение</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-what-is-git" class="chapter__title">Что такое Git</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Git — это VCS (version control system) — система, записывающая изменения файлов и позволяющая вернуться позже к определённой версии.</p>
+                                    <p>VCS можно разделить на централизованные и распределенные. Git относится ко второй категории.</p>
+                                    <p>В распределенных VCS у каждого разработчика локально хранится репозиторий (проект с файлами) с полной историей всех изменений в проекте. В такой схеме разработчики полностью независимы от удаленного сервера.</p>
+                                    <p>Каждый раз при сохранении состояния проекта, Git запоминает, как выглядит каждый файл в этот момент времени, как бы делая снимок всего проекта и сохраняет ссылку на этот снимок (коммит). Каждый коммит имеет ссылку на предыдущий, формируя цепочку, по которой можно отследить всю историю проекта.</p>
+                                    <h4>Как получить помощь</h4>
+                                    <p>Эти команды работают даже без подключения к сети.</p>
+                                    <p><code>git help &lt;команда></code> (или <code>git &lt;команда> --help</code>) Открыть страницу руководства по любой команде Git.</p>
+                                    <p><code>git &lt;команда> -h</code> Вывести список опций для команды с коротким описанием.</p>
+                                    <h4>Общие команды для работы с файлами</h4>
+                                    <p><code>cat &lt;file></code> Просмотр содержимого файла.</p>
+                                    <p><code>mkdir &lt;name></code> Создание каталога (папки).</p>
+                                    <p><code>touch &lt;file></code> Создание файла.</p>
+                                    <p><code>cd &lt;name></code> Переход в каталог.</p>
+                                    <p><code>cd ..</code> Выход из каталога.</p>
+                                    <p><code>rm &lt;file></code> Удаление файла.</p>
+                                    <p><code>rm -r &lt;file></code> Позволяет удалить директорию (папку).</p>
+                                    <h4>Навигация в Git Bash</h4>
+                                    <p>"Листалка по умолчанию", представленная двоеточием в нижнем левом углу Git Bash — программа LESS, которая позволяет выводить постранично информацию на экран. Основные команды:</p>
+                                    <ol>
+                                        <li><code>/</code> Поиск по строке или регулярному выражению
+                                            <ul>
+                                                <li><code>n</code> Поиск вперед (прокрутка вниз)</li>
+                                                <li><code>shift + n</code> Поиск назад (прокрутка вверх)</li>
+                                            </ul>
+                                        </li>
+                                        <li><code>q</code> Выход из программы</li>
+                                    </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-file-state" class="chapter__title">Состояние файлов в Git</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Файлы в рабочем каталоге могут быть <code>tracked</code> (под версионным контролем) и <code>untracked</code> (не под версионным контролем).</p>
+                                    <p>Отслеживаемые файлы могут находиться в одном из трех состояний: <code>modified</code> (изменён), <code>staged</code> (индексирован) и <code>committed</code> (зафиксирован).</p>
+                                    <div class="ibg">
+                                        <img src="img/GIT/Введение/Состояние файлов в Git/Жизненный цикл состояния файлов.PNG" alt="Жизненный цикл состояния файлов">
+                                    </div>
+                                    <p>Каждый Git проект имеет три секции:</p>
+                                    <p>Working Directory — директория для редактирования файлов.</p>
+                                    <p>Staging Area (область индексирования или Индекс) — файл, в котором содержится информация о том, что попадёт в следующий коммит.</p>
+                                    <p>Repository (каталог Git) — место, где Git хранит метаданные и базу объектов всего проекта.</p>
+                                    <div class="ibg">
+                                        <img src="img/GIT/Введение/Состояние файлов в Git/Секции проекта Git.PNG" alt="Секции проекта Git">
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-configuration" class="chapter__title">Конфигурация</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Команда <code>git config</code> позволяет настраивать параметры конфигурации Git, которые можно задать на трех уровнях:</p>
+                                    <ol>
+                                        <li><code>--system</code> Сохраняет общие для всех пользователей параметры в установочный файл <code>/etc/gitconfig</code>.</li>
+                                        <li><code>--global</code> Сохраняет параметры настроек пользователя в файл <code>C:\Users\&lt;username>\.gitconfig</code>.</li>
+                                        <li>[<code>--local</code>] Сохраняет параметры для конкретного проекта в файл <code>&lt;project>/.git/config</code>.</li>
+                                    </ol>
+                                    <p><code>git config &lt;name></code> Получить значение настройки по имени.</p>
+                                    <p><code>git config &lt;name> &lt;value></code> Установить параметр <code>name</code> со значением <code>value</code>.</p>
+                                    <p><code>git config --unset &lt;name></code> Удалить параметр.</p>
+                                    <p><code>git config --list</code> Список значений всех установленных настроек.</p>
+                                    <p><code>git config --global -e</code> Открыть для редактирования глобальный файл настроек.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git config --global user.name "Sergey Des"</code> Установить имя пользователя глобально.</p>
+                                    <p><code>git config --global core.editor "code -w"</code> Сделать VS Code редактором по умолчанию.</p>
+                                    <p><code>git config --global log.date format-local:'%Y-%m-%d %H:%M:%S'</code> Изменить формат вывода даты по умолчанию.</p>
+                                    <p><code>git config --global grep.patternType perl</code> Сделать регулярные выражения Perl-совместимыми по умолчанию.</p>
+                                    <p><code>git config --global commit.verbose true</code> По умолчанию добавлять в комментарий <code>git commit</code> изменения <code>diff</code>.</p>
+                                    <p><code>git config merge.ff false</code> Запретить слияние Fast-forward (аналог флага <code>--no-ff</code>).</p>
+                                    <p><code>git config --global branch.master.mergeoptions '--no-ff'</code> Запретить Fast-forward для ветки <code>master</code>.</p>
+                                    <p><code>git config --global core.autocrlf true</code> Конвертировать переносы строк CRLF в LF.</p>
+                                    <p>Перевод строки в Windows кодируется двумя байтами <code>0d 0a</code>, обозначаемыми как CRLF (carriage return + line feed), соответствует символам <code>\r\n</code>. Unix-системы (Mac, Linux), а также Git-репозиторий кодируют перевод строки одним байтом <code>0a</code> (LF), поэтому на Mac и Linux <code>core.autocrlf</code> ставят в другое значение (<code>input</code> или <code>false</code>).</p>
+                                    <p><code>git config rerere.enabled true</code> Включить reuse recorded resolution (запоминать, как были разрешены конфликты, чтобы при возникновении такого же конфликта снова они были разрешены автоматически).</p>
+                                    <p><code>git config pretty.my format:'%C(yellow)%h %C(dim green)%cd %C(cyan)%s%d %C(#667788)[%an]'</code> Добавить формат вывода.</p>
+                                    <p><code>git config format.pretty my</code> И сделать его форматом по умолчанию.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-aliases" class="chapter__title">Псевдонимы</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git config alias.&lt;name> &lt;command></code> Добавить псевдоним <code>name</code> для команды <code>command</code>.</p>
+                                    <p><code>git config alias.&lt;name> '!&lt;first>; &lt;second>'</code> Добавить псевдоним для нескольких команд.</p>
+                                    <p><code>git config --list | grep alias</code> Вывести список всех псевдонимов.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git config --global alias.last 'log -1 HEAD'</code> Назначить глобальный псевдоним <code>last</code> для вывода текущего коммита (<code>HEAD</code> указывать не обязательно).</p>
+                                    <p><code>git config alias.sayhi '!echo "hello"; echo "from git"'</code> Назначить псевдоним, который будет выводить <code>hello</code>, а затем, на следующей строке, <code>from git</code>.</p>
+                                    <p><code>git config --global alias.lg "log --pretty=format:'%C(#f3f89d)%h %C(#418d61)%cd %C(reset)|%C(#F78972)%d %C(#9aedf1)%s %C(#667788)[%an]' --date=format:'%F %R'"</code> Задать псевдоним для красивого вывода <code>git log</code>.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-gitignore" class="chapter__title">Файл .gitignore</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Для файлов и каталогов, которые не нужно автоматически добавлять в репозиторий и видеть в списке неотслеживаемых, используется файл <code>.gitignore</code>.</p>
+                                    <p>К шаблонам в файле <code>.gitignore</code> применяются следующие правила:</p>
+                                    <ul>
+                                        <li>Пустые строки, а также строки, начинающиеся с <code>#</code>, игнорируются</li>
+                                        <li>Стандартные шаблоны являются глобальными и применяются рекурсивно для всего дерева каталогов</li>
+                                        <li>Чтобы избежать рекурсии, используется слеш <code>/</code> в любом месте кроме конца шаблона</li>
+                                        <li>Чтобы применять правила только к каталогам, добавляется слеш <code>/</code> в конец шаблона</li>
+                                        <li><code>*</code> соответствует нулю или более символам в имени одного файла или директории</li>
+                                        <li><code>**</code> соответствует произвольному пути, но не части имени</li>
+                                        <li><code>[abc]</code> соответствует любому символу из указанных в скобках</li>
+                                        <li><code>?</code> соответствует одному произвольному символу</li>
+                                        <li><code>[0-9]</code> соответствуют одному символу из диапазона</li>
+                                        <li><code>a/**/z</code> указывает на то, что могут быть вложенные каталоги (например, <code>a/z</code>, <code>a/b/z</code>, <code>a/b/c/z</code>, и тд)</li>
+                                        <li><code>!</code> отменяет игнорирование, если только каталог с этим файлом не игнорируется целиком</li>
+                                    </ul>
+                                    <h5>Примеры</h5>
+                                    <p><code>*.a</code> Исключить все файлы с расширением <code>.a</code>.</p>
+                                    <p><code>!lib.a</code> Но отслеживать файл <code>lib.a</code> даже если он подпадает под исключение выше.</p>
+                                    <p><code>doc/**/*.txt</code> Игнорировать все <code>.txt</code> файлы в каталоге <code>doc/</code>.</p>
+                                    <h4>Вспомогательные команды</h4>
+                                    <p><code>git check-ignore -v &lt;file></code> Если файл попадает под правило в <code>.gitignore</code>, выводит строку с шаблоном, который за это отвечает (номер строки обернут в двоеточие).</p>
+                                    <p>Чтобы применить шаблоны в <code>.gitignore</code> к уже отслеживаемым файлам, необходимо выполнить команды <code>git rm --cached &lt;file></code> + <code>git commit</code>.</p>
+                                    <p><code>git update-index --skip-worktree &lt;file></code> Временнно прекратить отслеживание файла в репозитории.</p>
+                                    <p><code>git update-index --no-skip-worktree &lt;file></code> Возобновить отслеживание.</p>
+                                    <p><code>git ls-files -v . | findstr "^S"</code> Найти все временно неотслеживаемые файлы.</p>
+                                    <h4>.git/info/exclude</h4>
+                                    <p>Правила игнорирования, которые не должны передаваться в репозиторий, можно указать в файле <code>&lt;project>/.git/info/exclude</code>.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Основы Git</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basics-repository" class="chapter__title">Создание Git-репозитория</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git init</code> Создает пустой Git-репозиторий.</p>
+                                    <p><code>git clone &lt;url></code> Клонирует репозиторий, добавляя его под именем <code>origin</code>.</p>
+                                    <p><code>rm -rf .git</code> Удаляет локальный репозиторий.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basics-tracking-changes" class="chapter__title">Отслеживание изменений</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>git add</h4>
+                                    <p><code>git add &lt;file></code> Добавить под версионный контроль новый файл или индексировать измененный.</p>
+                                    <p><code>git add -p &lt;file></code> Индексировать только часть изменений в файле. Для каждого измененного фрагмента можно выбрать <code>y</code> (yes), <code>n</code> (no) или другие варианты (можно посмотреть, введя <code>?</code>).</p>
+                                    <p><code>git add -f &lt;file></code> Добавить файл в Индекс даже если он игнорируется <code>.gitignore</code>.</p>
+                                    <p><code>git add .</code> Добавить в Индекс все изменения в текущей директории.</p>
+                                    <p><code>git add -A</code> Добавить в Индекс все изменения, начиная с корня проекта.</p>
+                                    <p><code>git add -u</code> Добавить в Индекс все изменения в отслеживаемых файлах, начиная с корня проекта.</p>
+                                    <h4>git status</h4>
+                                    <p><code>git status</code> Отображает, состояние каких файлов изменилось с момента последнего коммита.</p>
+                                    <p><code>git status --short (или -s)</code> Отображает результат <code>git status</code> в виде двух столбцов, в левом указывается статус файла, а в правом модифицирован ли он после этого. Неотслеживаемые файлы помечены <code>??</code>, файлы в Индексе как <code>A</code>, измененные <code>M</code> и тд.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basics-commit" class="chapter__title">Коммит</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git commit</code> Фиксирует изменения в репозитории из Индекса. Открывает редактор с пустой строкой сверху и закомментированным результатом работы <code>git status</code>.</p>
+                                    <p><code>git commit -C &lt;hash></code> Делает коммит, беря описание и автора из уже существующего коммита <code>hash</code>. С флагом <code>-с</code> откроется редактор для изменения описания. Может использоваться после <code>git reset --soft @~</code> когда в последний коммит забыли добавить какие-то изменения, при этом вместо <code>hash</code> обычно указывается <code>ORIG_HEAD</code>. С флагом <code>--reset-author</code> берет из <code>hash</code> только сообщение.</p>
+                                    <p><code>git commit --amend</code> Заменяет последний коммит, применяя изменения из Индекса и открывает редактор с сообщением из последнего коммита. Соответствует командам <code>git reset --soft @~</code> + <code>git commit -c</code>. С флагом <code>--reset-author</code> делает текущего коммитера автором. С флагом <code>--no-edit</code> отменяет открытие редактора.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git commit -am 'Add changes'</code> Коммит всех отслеживаемых изменений.</p>
+                                    <p><code>git commit --author='John Smith &lt;john@me.com>' --date='2023-08-15 15:00'</code> Коммит с указанными автором и датой.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>-m &lt;message></code> Позволяет указать сообщение <code>message</code> без открытия редактора.</p>
+                                    <p><code>-v</code> Добавить в комментарий к коммиту дельту <code>diff</code> изменений.</p>
+                                    <p><code>--author</code> Позволяет указать данные автора в формате <code>name &lt;email></code>.</p>
+                                    <p><code>--date</code> Указать дату автора.</p>
+                                    <h4>Игнорирование индексации</h4>
+                                    <p><code>git commit &lt;file></code> Коммит уже отслеживаемого файла, позволяет обойтись без <code>git add</code>.</p>
+                                    <p><code>git commit -a</code> (или <code>--all</code>) Коммит всех уже отслеживаемых файлов, позволяет обойтись без <code>git add</code>.</p>
+                                    <h4>Хороший коммит</h4>
+                                    <p>Очень важно, чтобы коммит добавлял только одну вещь. Это свойство называют атомарностью (atomic).</p>
+                                    <p>Коммит должен быть консистентным (consistent), то есть логически завершенным изменением проекта.</p>
+                                    <p>Первая строка описания коммита считается его заголовком. Ее рекомендуется делать до 50 символов в длину, точка в конце не ставится. После заголовка, через двойной перевод строки, идет его описание. Ширину описания делают не более 72 символов для удобства просмотра в консоли.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basics-delete-rename-files" class="chapter__title">Удаление и переименование отслеживаемых файлов</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Удаление файлов</h4>
+                                    <p><code>git rm &lt;file></code> Удаляет файл из рабочей директории.</p>
+                                    <p><code>git rm -r &lt;file></code> Удаляет файл или папку из рабочей директории и сохраняет изменения в Индекс (эквивалентно <code>rm -r</code> + <code>git add</code>).</p>
+                                    <p><code>git rm -f &lt;file></code> Удаляет файл из рабочей директории и Индекса, сохраняя изменения в Индекс (эквивалентно <code>rm</code> + <code>git add</code>).</p>
+                                    <p><code>git rm --cached &lt;file></code> Удаляет файл из Индекса, файл становится неотслеживаемым.</p>
+                                    <h4>Переименование файлов</h4>
+                                    <p><code>git mv &lt;name1> &lt;name2></code> Переименовывает файл и сохраняет изменения в Индекс. Если <code>name2</code> содержит другой путь, файл будет перемещен.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basics-clean" class="chapter__title">Очистка с git clean</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git clean</code> удаляет все неотслеживаемые файлы. Обычно используется с флагами:</p>
+                                    <ul>
+                                        <li><code>-n</code> Показать список файлов, которые будут удалены</li>
+                                        <li><code>-f</code> Обязательный флаг для удаления файлов</li>
+                                        <li><code>-d</code> Выбрать не только файлы, но и директории</li>
+                                        <li><code>-x</code> Файлы, которые игнорируются <code>.gitignore</code></li>
+                                    </ul>
+                                    <h5>Пример</h5>
+                                    <p><code>git clean -nd</code> Просмотр файлов и директорий, которые будут удалены командой <code>git clean -fd</code>.</p>
+                                    <h4>Удаление "лишних" файлов и незакоммиченных изменений</h4>
+                                    <p>Для приведения проекта к тому же состоянию, который есть в репозитории, нужны две команды: <code>git reset --hard</code> + <code>git clean -dxf</code>.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basics-stash" class="chapter__title">git stash</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git stash</code> Собирает изменения в рабочей директории и Индексе, архивирует их в Git, очищая статус.</p>
+                                    <p><code>git stash -u</code> Позволяет архивировать неотслеживаемые файлы.</p>
+                                    <p><code>git stash save '&lt;title>'</code> Сохранить изменения под заголовком <code>title</code>.</p>
+                                    <p><code>git stash list</code> Просмотр припрятанных изменений.</p>
+                                    <p><code>git stash apply &lt;num></code> Извлекает изменения, которые хранятся под номером <code>num</code> (или <code>0</code>, если <code>num</code> не указан) в рабочую директорию и Индекс.</p>
+                                    <p><code>git checkout stash@{&lt;num>} -- &lt;file></code> Применить <code>git stash apply &lt;num></code> только для отслеживаемого файла <code>&lt;file></code>.</p>
+                                    <p><code>git stash pop &lt;num></code> Выполняет <code>git shash apply &lt;num></code> и очищает архив под указанным номером.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git stash save 'my changes' -u</code> Сохранить все изменения, включая неотслеживаемые файлы под именем <code>my changes</code>.</p>
+                                    <p><code>git stash apply</code> Применить последнее изменение, не удаляя его из архива.</p>
+                                    <p><code>git stash pop 2</code> Применить изменение, сохраненное под номером <code>2</code> и удалить его из архива.</p>
+                                    <p><code>git checkout stash@{0} -- index.html</code> Достать из последних припрятаных изменений только файл <code>index.html</code>.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Ветвление</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="branching-branch" class="chapter__title">git branch</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Создание и удаление веток</h4>
+                                    <p><code>git branch &lt;branch> &lt;hash></code> Создает ветку <code>branch</code> с указателем на коммит <code>hash</code>, или, если он не указан, на текущий коммит.</p>
+                                    <p><code>git branch -d &lt;branch></code> Удаляет ветку <code>branch</code>, если она объединена с текущей. Иначе для удаления потребуется флаг <code>-D</code>.</p>
+                                    <h5>Переименование веток</h5>
+                                    <p><code>git branch --move &lt;oldname> &lt;newname></code> Изменяет имя ветки с <code>oldname</code> на <code>newname</code>.</p>
+                                    <h4>Просмотр информации о ветках</h4>
+                                    <p><code>git branch</code> Выводит названия существующих веток.</p>
+                                    <p><code>git branch -v</code> Выводит названия веток и последний коммит в каждой из них.</p>
+                                    <p><code>git branch --merged</code> Выводит ветки, объединенные с текущей. Можно узнать такие ветки и удалить все, кроме текущей. Наработки из них уже включены в текущую ветку, так что ничего не потеряется.</p>
+                                    <p><code>git branch --no-merged</code> Выводит ветки, не объединенные с текущей.</p>
+                                    <h5>Ветки в удаленных репозиториях</h5>
+                                    <p><code>git branch -r</code> Просмотр только веток из удаленных репозиториев.</p>
+                                    <p><code>git branch -a</code> Просмотр всех веток в локальном и подключенных удаленных репозиториях.</p>
+                                    <p><code>git branch -vv</code> Просмотр локальных веток вместе с последним коммитом и ветками слежения.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="branching-checkout" class="chapter__title">git checkout</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Переключение между ветками</h4>
+                                    <p><code>git checkout &lt;hash></code> Переключение между коммитами по идентификатору (ветка, коммит, тег и тд).</p>
+                                    <p><code>git checkout -b &lt;branch> &lt;hash></code> Создает новую ветку и переключается на нее. Если задан <code>hash</code>, новая ветка будет указывать на него.</p>
+                                    <p><code>git checkout -B &lt;branch> &lt;hash></code> Позволяет переместить указатель ветки <code>branch</code> к идентификатору <code>hash</code>.</p>
+                                    <p><code>git checkout -</code> Обращается к рефлогу и переключается на предыдущую активную ветку.</p>
+                                    <h4>Откат состояния файлов</h4>
+                                    <p><code>git checkout -f &lt;hash></code> Отменяет все изменения с момента последнего коммита. Если указан <code>hash</code>, переключается на него.</p>
+                                    <p><code>git checkout &lt;hash> &lt;file></code> Восстанавливает состояние файла на момент коммита <code>hash</code> и добавляет изменения в Индекс.</p>
+                                    <p><code>git checkout -- &lt;file></code> Восстанавливает состояние файла на момент текущего коммита, если он не был изменен в Индексе. Двойной дефис явно указывает Git, что это путь, а не ветка или тег. Аналог команды <code>git restore &lt;file></code>.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="branching-reset" class="chapter__title">git reset</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Жесткий reset</h4>
+                                    <p><code>git reset --hard &lt;hash></code> Передвигает указатель текущей ветки на коммит <code>hash</code> и обновляет файлы в рабочей директории и Индексе (сбрасывает состояние файлов на момент коммита <code>hash</code>). Отменяет незакоммиченные изменения.</p>
+                                    <p><code>git reset --hard ORIG_HEAD</code> Отменяет предыдущую команду (незакоммиченные изменения возвращены не будут).</p>
+                                    <h4>Мягкий reset</h4>
+                                    <p><code>git reset --soft &lt;hash></code> Передвигает указатель текущей ветки на коммит <code>hash</code>, не меняя файлы в рабочей директории и Индексе. Обычно используется чтобы отменить последний неудачный коммит, не меняя файлы.</p>
+                                    <p><code>git reset --soft ORIG_HEAD</code> Отменяет предыдущую команду.</p>
+                                    <h4>Смешанный reset</h4>
+                                    <p><code>git reset &lt;hash></code> Передвигает указатель текущей ветки на коммит <code>hash</code>, обновляя файлы только в Индексе (не меняет состояние файлов в рабочей директории). Отменяет изменения в Индексе.</p>
+                                    <p><code>git reset &lt;hash> &lt;file></code> Изменяет файл в Индексе на момент коммита <code>hash</code>. Указатель ветки не передвигается.</p>
+                                    <p><code>git reset -- &lt;file></code> Отменяет изменения файла в Индексе. Аналог команды <code>get restore --staged &lt;file></code>. Если <code>file</code> не указан, отменяет все изменения в Индексе.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Просмотр</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="viewing-pointers" class="chapter__title">Указатели</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Теги</h4>
+                                    <p>Тег — это метка, которая всегда указывает на один и тот же коммит.</p>
+                                    <p>Легковесные теги содержат только контрольную сумму коммита; аннотированные хранят дополнительное сообщение и информацию о авторе тега.</p>
+                                    <p><code>git tag</code> Просмотр имеющихся тегов в алфавитном порядке.</p>
+                                    <p><code>git tag &lt;tag> &lt;hash></code> Создание легковесного тега на коммите <code>hash</code>.</p>
+                                    <p><code>git tag -d &lt;tag></code> Удаление тега (или нескольких тегов).</p>
+                                    <p><code>git show &lt;tag></code> Просмотр коммита вместе с сообщением, автором и датой аннотированного тега.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git tag v2</code> Создание легковесного тега <code>v2</code> на текущем коммите.</p>
+                                    <p><code>git tag -l -n "v1.8.5*"</code> Вывести все теги, начинающиеся с <code>v1.8.5</code> вместе с сообщением.</p>
+                                    <p><code>git tag v1.0.0 -a -m 'Version 1.0.0' fe33</code> Создание аннотированного тега на коммите <code>fe33</code>.</p>
+                                    <h5>Флаги</h5>
+                                    <p><code>-a</code> Указывается для создания аннотированного тега.</p>
+                                    <p><code>-m &lt;message></code> При создании аннотированного тега позволяет ввести сообщение без открытия редактора.</p>
+                                    <p><code>--contains &lt;hash></code> Показать только теги, которые содержит коммит <code>hash</code> и коммиты по цепочке выше.</p>
+                                    <p><code>-n&lt;число></code> Просмотр тега вместе с сообщением. Числом задается количество строк сообщения, по умолчанию 1.</p>
+                                    <p><code>-l '&lt;template>'</code> (или <code>--list '&lt;template>'</code>) Вывести теги по заданному шаблону.</p>
+                                    <h4>Ссылка на текущий коммит</h4>
+                                    <p><code>HEAD</code> (или <code>@</code>) Указатель на текущий коммит.</p>
+                                    <p><code>ORIG_HEAD</code> Указатель на <code>HEAD</code> до передвижения, находится в файле <code>.git/ORIG_HEAD</code>.</p>
+                                    <h4>Модификаторы</h4>
+                                    <p>Модификаторы задаются после указателя <code>hash</code> и позволяют работать с коммитом относительно запрашиваемого вместо него самого. Могут применяться несколько раз.</p>
+                                    <p><code>~&lt;n></code> Фигурирующий в команде <code>hash</code> заменяется на родительский <code>n</code> раз подряд.</p>
+                                    <p><code>^&lt;n></code> Используется для коммитов слияния, имеющих более одного родителя, позволяет выбрать <code>n</code>-го родителя.</p>
+                                    <p>Каретка <code>^</code> и тильда <code>~</code> без значения означают одно и то же.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git show @~</code> Просмотр данных предпоследнего коммита.</p>
+                                    <p><code>git diff HEAD^2</code> Сравнивает содержимое коммита, с которым произошло слияние и рабочей директории.</p>
+                                    <p><code>git log @^^</code> (или <code>git log @~2</code>) Выведет историю коммитов, не включая последние два.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="viewing-reflog" class="chapter__title">git reflog</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>История переключения веток</h4>
+                                    <p>Перемещение указателя <code>HEAD</code> каждый раз записывается в файл <code>.git/logs/HEAD</code> (журнал рефлогов) вместе с описанием того, что произошло. Рефлоги используются для восстановления данных и поиска потерянных коммитов.</p>
+                                    <p><code>git reflog &lt;branch></code> Выводит все рефлоги. Если указана ветка, выводит рефлоги только для нее.</p>
+                                    <p>Для обращения к записям из рефлога можно использовать не только <code>hash</code>, но и фигурные скобки.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git branch feature HEAD@{6}</code> Создание ветки <code>feature</code>, указывающей на коммит, соответствующий седьмому с конца (отсчет идет с нуля) перемещению <code>HEAD</code>.</p>
+                                    <p><code>git show HEAD@{'2023-08-06 14:00:00 +0300'}</code> Выводит информацию о ближайшем коммите, сделанном до этой даты.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>-&lt;n></code> Вывести только <code>n</code> последних записей.</p>
+                                    <p><code>--date</code> Выводит рефлоги вместе с датой. Необходимо задать значение, например, <code>iso</code> или <code>short</code>.</p>
+                                    <p><code>--no-decorate</code> Выводит рефлоги без текущих указателей (веток, тегов и тд).</p>
+                                    <h4>Сборка мусора</h4>
+                                    <p><code>git gc</code> Инициирует сборку мусора (удаление устаревших недостижимых коммитов). С флагом <code>--prune=now</code> очистит все коммиты. Однако, коммиты, достижимые из рефлога останутся.</p>
+                                    <p><code>git reflog expire --expire=all --all</code> Удаление всех коммитов из рефлога.</p>
+                                    <p>Рефлоги хранятся 90 дней для достижимых веток, если это не переопределено переменной <code>gc.reflogExpire</code>, и 30 для недостижимых, если это не переопределено  переменной <code>gc.reflogExpireUnreachable</code>.</p>
+                                    <p>Если коммит недостижим и в рефлоге о нем нет записей, он хранится в памяти как минимум 2 недели с момента его создания, если это не переопределено настройкой <code>gc.pruneExpire</code>. Такие коммиты можно найти с помощью команды <code>git fsck --unreachable</code>.</p>
+                                    <p>Если к коммиту можно получить доступ, то и его родительские коммиты тоже остаются в памяти.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="viewing-show" class="chapter__title">git show</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git show &lt;hash></code> Выводит данные о коммите <code>hash</code>. Если он не указан, выведет данные текущего коммита.</p>
+                                    <p><code>git show &lt;hash>:&lt;file></code> Просмотр файла на момент коммита <code>hash</code>. Если не указывать <code>hash</code>, выведет текущую версию файла в Индексе.</p>
+                                    <p><code>git show :/&lt;str></code> Поиск самого свежего коммита, в описании которого есть строка <code>str</code>.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git show master~</code> Просмотр родительского коммита ветки мастер.</p>
+                                    <p><code>git show :file.txt</code> Просмотр индексированной версии файла <code>file.txt</code>.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>-q</code> (или <code>--quiet)</code> Выводит информацию без изменений <code>diff</code>.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="viewing-diff" class="chapter__title">git diff</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Сравнение коммитов, веток, отслеживаемых файлов</h4>
+                                    <p><code>git diff &lt;hash1> &lt;hash2></code> (или <code>git &lt;hash1>..&lt;hash2></code>) Отображает изменения между <code>hash1</code> и <code>hash2</code>.</p>
+                                    <p><code>git diff &lt;hash1>...&lt;hash2></code> Ищет ближайший общий для <code>hash1</code> и <code>hash2</code> родительский коммит и отображает, что изменилось в <code>hash2</code> с момента этого коммита.</p>
+                                    <p><code>git diff &lt;hash></code> Сравнивает содержимое рабочей директории и репозитория на момент коммита <code>hash</code>.</p>
+                                    <p><code>git diff --staged &lt;hash></code> (или <code>git diff --cached &lt;hash></code>) Сравнивает содержимое Индекса с коммитом <code>hash</code>.</p>
+                                    <p><code>git diff</code> Отображает изменения, не добавленные в Индекс между текущим коммитом и рабочей директорией.</p>
+                                    <p><code>git diff -- &lt;file></code> Показывает изменения только для определенного файла, работает со всеми формами <code>git diff</code>.</p>
+                                    <h5>Сравнение файлов</h5>
+                                    <p><code>git diff &lt;hash1>:&lt;file1> &lt;hash2>:&lt;file2></code> Сравнивает два файла из разных (необязательно) коммитов.</p>
+                                    <p><code>git diff --no-index &lt;file1> &lt;file2></code> Сравнивает любые два файла. Для работы команды репозиторий не требуется!</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git diff master feature</code> Выводит все изменения, сделанные в <code>feature</code> c момента ответвления от <code>master</code>.</p>
+                                    <p><code>git diff HEAD</code> (или <code>git diff @</code>) Отображает изменения между текущим коммитом и рабочей директорией.</p>
+                                    <p><code>git diff --cached</code> Выводит все проиндексированные изменения, которых нет в текущем коммите.</p>
+                                    <p><code>git diff .</code> Отображает не добавленные в Индекс изменения в текущей директории.</p>
+                                    <p><code>git diff index.html --color-words</code> Отобразить изменения в <code>index.html</code> рабочей директории по словам.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>--word-diff</code> Показывать различия по словам (вместо различий по строкам).</p>
+                                    <p><code>--color-words</code> Показывать различия по словам без дополнительных скобок и знаков <code>+</code>, <code>-</code>.</p>
+                                    <p><code>--name-only</code> Вывести только имена различающихся файлов.</p>
+                                    <p>По умолчанию слово в Git - это любая последовательность символов без пробела, однако, такое определение может быть удобно не всегда. В файле <code>&lt;project>/.gitattributes</code> можно указать diff-драйвера, определяющие, что такое слово. Для некоторых языков существуют встроенные драйвера, для остальных можно написать свой. Пример содержимого файла:</p>
+                                    <code class="large">*.html diff=html
+*.css diff=css</code>
+                                    <p>Делать <code>.gitattributes</code> отслеживаемым не нужно, изменения будут применены и без этого.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="viewing-log" class="chapter__title">git log</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git log</code> Выводит историю коммитов, достижимых из <code>HEAD</code>.</p>
+                                    <p><code>git log &lt;hash></code> Выводит историю коммитов для одного или нескольких идентификаторов.</p>
+                                    <p><code>git log &lt;hash1> ^&lt;hash2></code> (или <code>git log &lt;hash2>..&lt;hash1></code>) Выводит коммиты для <code>hash1</code>, недостижимые из <code>hash2</code>.</p>
+                                    <p><code>git log &lt;hash1>...&lt;hash2></code> Выводит коммиты, достижимые для <code>hash1</code> и <code>hash2</code>, но не для них обоих одновременно.</p>
+                                    <p><code>git log -- &lt;file></code> Опция <code>&lt;file></code> указывается последней. Выводит только те коммиты, которые меняют указанный файл (или файлы). Фильтр по файлам работает со всеми вышеперечисленными вызовами <code>git log</code>.</p>
+                                    <p><code>git log --follow -- &lt;file></code> Если файл был переименован, выведет коммиты и после, и до переименования.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git log ..feature</code> (или <code>git log HEAD..feature</code>) Показывает все коммиты ветки <code>feature</code> после ответвления от текущей ветки.</p>
+                                    <p><code>git log feature..</code> (или <code>git log feature..HEAD</code>) Показывает все коммиты в текущей ветке с момента последнего общего коммита с <code>feature</code>.</p>
+                                    <p><code>git log master...feature --boundary --graph</code> Отображает в виде графа коммиты в ветках <code>master</code> и <code>feature</code> с момента их последнего общего коммита, включая этот коммит.</p>
+                                    <p><code>git log --all file.txt</code> Показать все коммиты, меняющие <code>file.txt</code>.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>--boundary</code> Включает в вывод последний общий для двух указателей коммит.</p>
+                                    <p><code>--first-parent</code> Для всех коммитов слияния выводит только их первого родителя.</p>
+                                    <p><code>--all</code> Вывод коммитов, достижимых для всех веток и тегов.</p>
+                                    <p><code>--graph</code> Рисует данные в виде графа, отображающего структуру изменений. Для больших репозиториев лучше использовать одну из графических утилит git gui.</p>
+                                    <p><code>-p</code> (или <code>--patch</code>) Добавляет в вывод изменения <code>diff</code> между коммитами.</p>
+                                    <p><code>--abbrev-commit</code> Сокращает идентификатор коммитов.</p>
+                                    <p><code>--pretty</code> Задает формат вывода. Значения:</p>
+                                    <ul>
+                                        <li><code>medium</code> Значение по умолчанию</li>
+                                        <li><code>oneline</code> Выводит коммиты в одну строку</li>
+                                        <li><code>full</code> Вместо даты коммита выводит коммитера</li>
+                                        <li><code>fuller</code> Выводит полную информацию об авторе и коммитере</li>
+                                    </ul>
+                                    <p><code>--oneline</code> Сокращение для <code>--pretty=oneline --abbrev-commit</code>.</p>
+                                    <h5>Формат дат</h5>
+                                    <p><code>--date</code> Задает формат вывода даты. Значение <code>short</code> будет выводить только дату.</p>
+                                    <p><code>--relative-date</code> (или <code>--date=relative</code>) Отображает дату в относительном формате.</p>
+                                    <p><code>--date=format:'&lt;str>'</code> Для задания пользовательского формата вывода даты используется вспомогательная функция strftime, не описанная в документации Git. Например, <code>%F</code> выведет дату, <code>%R</code> время.</p>
+                                    <h5>Формат указателей</h5>
+                                    <p><code>--decorate</code> Задает, как будут выводиться указатели на коммиты. Значения:</p>
+                                    <ul>
+                                        <li><code>short</code> Значение по умолчанию</li>
+                                        <li><code>no</code> Указатели на коммиты выводиться не будут</li>
+                                        <li><code>full</code> Вывод указателей вместе с их расположением</li>
+                                    </ul>
+                                    <p><code>--no-decorate</code> Соответствует опции <code>--decorate=no</code>.</p>
+                                    <h5>Другие флаги</h5>
+                                    <p><code>--stat</code> Выводит измененные файлы и количество измененных в них строк.</p>
+                                    <p><code>--shortstat</code> Отображает только количество изменений/вставок/удалений.</p>
+                                    <p><code>--name-only</code> Показывает только список измененных файлов.</p>
+                                    <p><code>--name-status</code> Показывает список файлов c кратким обозначением того, что они добавлены/изменены/удалены.</p>
+                                    <h4>Фильтр по сообщениям</h4>
+                                    <p><code>--grep &lt;str></code> Поиск по ключевым словам в коммите. Флаг <code>--grep</code> можно указать несколько раз.</p>
+                                    <p><code>--grep &lt;str> -i</code> Регистронезависимый поиск.</p>
+                                    <p><code>--grep &lt;regexp> -P</code> Позволяет использовать совместимые с Perl регулярные выражения.</p>
+                                    <p><code>--grep &lt;str> -F</code> Отключить поиск по регулярным выражениям, <code>str</code> будет интерпретироваться как обычная строка (даже если в конфигурации <code>grep.patternType</code> установлен в <code>true</code>).</p>
+                                    <h5>Дополнительные флаги</h5>
+                                    <p><code>--all-match</code> Поиск коммитов, удовлетворяющих всем указанным <code>--grep</code> шаблонам одновременно.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git log --grep add --grep hi --all</code> Выведет коммиты, в которых есть слово <code>add</code> или <code>hi</code> (или оба).</p>
+                                    <p><code>git log --grep add --grep hi --all-match</code> Выведет коммиты, в которых есть оба слова <code>hi</code> и <code>add</code>.</p>
+                                    <p><code>git log --grep 'h(i|ello)' -P -i</code> Выведет коммиты со словами <code>hi</code> и <code>hello</code> в любом регистре.</p>
+                                    <h4>Фильтр по изменениям в коммите</h4>
+                                    <p><code>-S &lt;str></code> Выводит коммиты, изменяющие строку <code>str</code> в их содержимом.</p>
+                                    <p><code>-G&lt;regexp></code> Позволяет отфильтровать коммиты по изменениям содержимого в них. Специальные символы необходимо экранировать с помощью <code>\</code>.</p>
+                                    <p><code>-L &lt;start>,&lt;end>:&lt;file></code> Выводит все коммиты, в <code>file</code> которых были измены строки от <code>start</code> до <code>end</code> (включительно) и покажет эти строки в формате <code>diff</code>.</p>
+                                    <p><code>-L '/&lt;regexp1>/','/&lt;regexp2>/':&lt;file></code> Выведет все коммиты, в которых были изменения между <code>regexp1</code> и <code>regexp2</code> в файле <code>file</code>.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git log -GsayHi -p</code> Вывод изменений <code>diff</code> коммитов, в которых была изменена строка <code>sayHi</code>.</p>
+                                    <p><code>git log -G'function sayHi\('</code> Вывод коммитов, в которых изменяется вызов функции <code>sayHi</code>.</p>
+                                    <p><code>git log -L 3,6:index.html</code> Вывести коммиты, в которых менялись строки с 3 по 6 в <code>index.html</code> и показать эти изменения.</p>
+                                    <p><code>git log -L '/&lt;head>/','/&lt;\/head>/':index.html</code> Поиск коммитов, изменяющих содержимое тега <code>head</code> в <code>index.html</code>.</p>
+                                    <p><code>git log -L '/^function sayHi/','/^}/':script.js</code> Поиск коммитов, изменяющих функцию <code>sayHi</code> в <code>script.js</code>.</p>
+                                    <h4>Другие фильтры</h4>
+                                    <p><code>-&lt;n></code> Ограничить количиство выводимых коммитов числом <code>n</code>.</p>
+                                    <p><code>--author</code> Фильтровать коммиты по имени или email автора.</p>
+                                    <p><code>--committer</code> Фильтровать коммиты по имени или email коммитера.</p>
+                                    <p><code>--before</code> (или <code>--until</code>) Фильтрация коммитов до определенной даты включительно.</p>
+                                    <p><code>--after</code> (или <code>--since</code>) Фильтрация коммитов, начиная с определенной даты.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git log --author=sergeydes@ -1</code> Вывести последний коммит автора, email которого начинается с sergeydes@.</p>
+                                    <p><code>git log --before '2023-08-15 08:30:00 +02'</code> Вывести коммиты до указанной даты.</p>
+                                    <p><code>git log --since '2 weeks 1 day'</code> Поиск коммитов, сделанных менее 2 недель и 1 дня назад.</p>
+                                    <h4>Задать другой формат вывода коммита</h4>
+                                    <p><code>git log --pretty=format:'&lt;str>'</code> Позволяет задать свой формат вывода в строке <code>str</code>. Параметры:</p>
+                                    <ul>
+                                        <li><code>%h</code> Сокращенный хэш коммита. <code>%H</code> выведет полный хэш</li>
+                                        <li><code>%t</code> Сокращенный хэш дерева. <code>%T</code> выведет полный хэш</li>
+                                        <li><code>%p</code> Сокращенный хэш родителя. %P выведет полный хэш</li>
+                                        <li><code>%an</code> Имя автора. <code>%ae</code> выведет email автора</li>
+                                        <li><code>%ad</code> Дата автора. <code>%ar</code> выведет относительную дату автора</li>
+                                        <li><code>%cn</code> Имя коммитера. <code>%ce</code> выведет email коммитера</li>
+                                        <li><code>%cd</code> Дата коммитера. <code>%cr</code> выведет относительную дату коммитера</li>
+                                        <li><code>%s</code> Заголовок сообщения коммита</li>
+                                        <li><code>%d</code> Указатели на коммит</li>
+                                        <li><code>%C(&lt;color>)</code> Задает цвет для остатка строки</li>
+                                    </ul>
+                                    <h5>Примеры</h5>
+                                    <code class="large">git log --pretty=format:'%h - %an, %ar : %s'
+git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)| %C(cyan)%s%d %C(#667788)[%an]' --date=format:'%F %R'</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="viewing-blame" class="chapter__title">git blame</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git blame &lt;file></code> Позволяет узнать, кто и когда написал строки кода в указанном файле.</p>
+                                    <h4>Опции</h4>
+                                    <p><code>--date</code> Позволяет настроить формат вывода даты.</p>
+                                    <p><code>-L &lt;start>,&lt;end></code> Позволяет вывести только определенные строки кода.</p>
+                                    <h5>Пример</h5>
+                                    <p><code>git blame file.txt --date=short -L 5,8</code> Вывести информацию о строках 5-8 в <code>file.txt</code> с датой в формате <code>short</code>.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Слияние коммитов</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="merging-merge" class="chapter__title">git merge</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git merge &lt;hash></code> Сливает текущую ветку с <code>hash</code>, создает коммит слияния и переносит туда указатель текущей ветки.</p>
+                                    <p><code>git merge-base &lt;hash1> &lt;hash2></code> Выведет общий для двух указатей хэш коммита, который будет использоваться при слиянии.</p>
+                                    <p><code>git reset --merge</code> (или <code>git merge --abort</code> (после <code>merge</code> без флага <code>--squash</code>)) Позволяет отменить слияние и откатить состояние файлов на момент до его начала вместе с незакоммиченными изменениями.</p>
+                                    <p><code>git merge --continue</code> Соответствует команде <code>git commit</code>, работает только из состояния слияния.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>--log</code> В описание коммита слияния добавить описания всех сливаемых коммитов.</p>
+                                    <p><code>--squash</code> Вместо коммита слияния создает обычный коммит со всеми изменениями и добавляет в описание информацию о сливаемых коммитах.</p>
+                                    <p><code>--no-commit</code> Перейти в состояние прерванного слияния чтобы исправить семантический (смысловой) конфликт.</p>
+                                    <p><code>--no-ff</code> Создать коммит слияния, даже если возможно слияние перемоткой.</p>
+                                    <p><code>--ff</code> Добавить возможность слияния перемоткой, если в конфигурации таковая отключена.</p>
+                                    <p><code>--no-edit</code> Отменяет открытие редактора.</p>
+                                    <h5>Пример</h5>
+                                    <p><code>git merge --no-ff --no-edit feature</code> Выполнить полноценное слияние с веткой <code>feature</code> без изменения описания коммита.</p>
+                                    <h4>Команды для разрешения конфликта</h4>
+                                    <p><code>git checkout --ours &lt;file></code> Применит изменения к файлу из текущей ветки.</p>
+                                    <p><code>git checkout --theirs &lt;file></code> Применит изменения к файлу из сливаемой ветки.</p>
+                                    <p><code>git checkout --merge &lt;file></code> Вернет версию файла с маркерами конфликта.</p>
+                                    <p><code>git checkout --conflict=diff3 --merge &lt;file></code> Добавит маркер <code>base</code> в файл с конфликтом.</p>
+                                    <h4>git show с коммитами слияния</h4>
+                                    <h5>В процессе слияния</h5>
+                                    <p>В состоянии прерванного слияния в Индексе находится сразу 3 версии файла.</p>
+                                    <p><code>git show :1:&lt;file></code> Покажет версию файла <code>base</code>.</p>
+                                    <p><code>git show :2:&lt;file></code> Покажет версию файла <code>ours</code>.</p>
+                                    <p><code>git show :3:&lt;file></code> Покажет версию файла <code>theirs</code>.</p>
+                                    <h5>После слияния</h5>
+                                    <p>С коммитом слияния, имеющим сразу двух (или более) родителей, <code>git show</code> работает иначе, показывая только те изменения <code>diff</code>, с которыми возник конфликт при слиянии. Если нужны различия между родителями, удобнее использовать <code>git diff</code>.</p>
+                                    <h4>Особенности merge</h4>
+                                    <p>Можно выделить 2 вида слияний:</p>
+                                    <ol>
+                                        <li>Слияние перемоткой (Fast-forward). Если текущая ветка сливается с коммитом, до которого можно добраться, двигаясь по истории вперёд, Git передвинет указатель текущий ветки к заданной.</li>
+                                        <li>Истинное (трехстороннее) слияние. Git ищет <code>base</code> коммит, общий для обоих веток, и добавляет к нему изменения из <code>ours</code>, текущей ветки, и <code>theirs</code>, ветки с которой идет слияние. Создается новый коммит, называемый коммитом слияния. Если файл менялся только в одной ветке, в результат слияния попадет измененная версия файла.</li>
+                                    </ol>
+                                    <h5>Конфликт слияния</h5>
+                                    <p>Если изменена одна и та же часть одного и того же файла по-разному в двух объединяемых ветках, Git не сможет их чисто объединить. Коммит слияния автоматически создан не будет, а проект окажется в состоянии прерванного слияния. Необходимо изменить конфликтующие файлы вручную, добавить в Индекс и сделать коммит.</p>
+                                    <p>Git запоминает коммит, с которым идет слияние в файле <code>.git/MERGE_HEAD</code>.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="merging-cherry-pick" class="chapter__title">git cherry-pick</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git cherry-pick &lt;hash></code> Применяет к текущему коммиту изменения <code>diff</code>, сделанные в <code>&lt;hash></code>. При этом будет создан новый коммит с тем же описанием и информацией об авторе.</p>
+                                    <p><code>git cherry-pick &lt;hash1>..&lt;hash2></code> (или <code>&lt;hash2> ^&lt;hash1></code>) Позволяет выбрать диапазон и применить все изменения из этого диапазона к текущему коммиту. При этом будет сделано соответствующее число новых коммитов.</p>
+                                    <h5>Пример</h5>
+                                    <p><code>git cherry-pick master~2..master</code> Применить изменения, взятые из последних двух коммитов ветки <code>master</code>.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>-e</code> (или <code>--edit</code>) Изменить описание коммита.</p>
+                                    <p><code>-n</code> (или <code>--no-commit</code>) Добавить все изменения в Индекс, но не делать коммит.</p>
+                                    <p><code>-x</code> Добавить в описание коммита строку c <code>&lt;hash></code> скопированного коммита.</p>
+                                    <h4>Команды при возникновении конфликта</h4>
+                                    <p><code>git cherry-pick --abort</code> Отменить применение изменений и вернуть состояние файлов обратно.</p>
+                                    <p><code>git cherry-pick --continue</code> Продолжить выполнение <code>cherry-pick</code>, когда конфликт разрешен.</p>
+                                    <p><code>git cherry-pick --quit</code> Остановиться на текущем состоянии, даже если не все изменения были применены.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="merging-rebase" class="chapter__title">git rebase</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git rebase &lt;hash></code> Перебазирование текущей ветки относительно <code>hash</code>.</p>
+                                    <p><code>git rebase &lt;hash> &lt;hash2></code> Перебазирование <code>hash2</code> относительно <code>hash</code> (<code>git checkout hash2</code> + <code>git rebase hash</code>).</p>
+                                    <p><code>git rebase --onto &lt;hash> &lt;hash1></code> Перебазирование относительно <code>hash</code> только тех коммитов из текущей ветки, которые следуют за <code>hash1</code>.</p>
+                                    <p><code>git rebase --onto &lt;hash> &lt;hash1> &lt;hash2></code> Перебазирование из <code>hash2</code>, относительно <code>hash</code>, только коммитов после <code>hash1</code> (<code>git checkout hash2</code> + <code>git rebase --onto hash hash1</code>).</p>
+                                    <p><code>git rebase -x '&lt;command>' &lt;hash></code> Позволяет указать произвольную команду, которая будет выполняться после каждого перебазированного коммита, обычно это запуск тестов. Если команда завершится со статусом, отличным от 0, типичным для упавших тестов, перебазирование остановится и проблемный коммит можно будет исправить.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>--rebase-merges</code> Перебазирует только основную часть ветки если в переносимой ветке есть коммиты слияния (применяются изменения только первых родителей таких коммитов).</p>
+                                    <p><code>--no-ff</code> Все коммиты будут скопированы (заменены на такие же), даже если ничего не изменялось.</p>
+                                    <h4>Интерактивное перебазирование</h4>
+                                    <p><code>git rebase -i &lt;hash></code> Перебазирование относительно <code>hash</code> с гибкой настройкой опций. Можно поменять порядок коммитов (поменяв местами строки в открывшемся файле <code>git-rebase-todo</code>), изменить коммиты или их описание, объединить, разбить на несколько, удалить и тд.</p>
+                                    <p><code>git rebase --edit-todo</code> Посмотреть оставшийся список действий и отредактировать его, если нужно. Основные опции:</p>
+                                    <ul>
+                                        <li><code>pick</code> Опция по умолчанию, применяет коммит без изменений</li>
+                                        <li><code>reword</code> Изменить только описание коммита</li>
+                                        <li><code>edit</code> Приостанавливает слияние, позволяя изменить коммит</li>
+                                        <li><code>squash</code> Объединить коммит с предыдующим, сохраняя описания обоих коммитов</li>
+                                        <li><code>fixup</code> Объединить коммит с предыдущим, не сохраняя описание текущего коммита</li>
+                                    </ul>
+                                    <h5>Пример</h5>
+                                    <p><code>git reflog feature</code> Найти старую вершину <code>feature</code>, чтобы отменить <code>rebase</code> переносом указателя <code>feature</code> обратно. В простых ситуациях, когда конфликтов не было, можно использовать <code>git reset --hard ORIG_HEAD</code>.</p>
+                                    <h5>Другие флаги</h5>
+                                    <p><code>--fixup=&lt;hash></code> Используется вместе с командой <code>git commit</code> чтобы при следующем интерактивном перебазировании с флагом <code>--autosquash</code> Git автоматически поставил этот коммит после коммита <code>hash</code> (который нужно исправить) с опцией <code>fixup</code>. <code>--squash=&lt;hash></code> делает то же самое, но для <code>hash</code> поставит опцию <code>squash</code>.</p>
+                                    <p><code>--autosquash</code> Берет все коммиты, сделанные с флагом <code>--fixup</code> или <code>--squah</code> и добавляет их в список в нужном месте с соответствующей опцией.</p>
+                                    <h4>Команды при возникновении конфликта</h4>
+                                    <p><code>git rebase --abort</code> Отмена перебазирования с возвращением в исходное состояние.</p>
+                                    <p><code>git rebase --quit</code> Отмена перебазирования, файлы в рабочем каталоге и указатель <code>HEAD</code> остаются как есть.</p>
+                                    <p><code>git rebase --continue</code> Продолжить перебазирование, вызывается после разрешения конфликта, когда необходимые изменения в Индекс уже добавлены.</p>
+                                    <p><code>git rebase --skip</code> Пропускает применение текущего изменения (коммита) и переходит к следующему.</p>
+                                    <p>В процессе перебазирования Git переходит в состоянии detached (отделенного) <code>HEAD</code>, так как указатель <code>HEAD</code> переносится не к ветке, а к коммиту напрямую, относительно которого выполняется перебазирование.</p>
+                                    <h4>Особенности rebase</h4>
+                                    <p>Команда <code>rebase</code> берет изменения из перебазируемой ветки и применяет их поверх другой, аналогично команде <code>cherry-pick</code>, при этом указатель текущей ветки переносится в новое место.</p>
+                                    <p>При перебазировании Git пропускает коммиты слияния. Поэтому если в этих коммитах были какие-то правки, они применены в итоге не будут.</p>
+                                    <h5>Отличия rebase от merge</h5>
+                                    <ol>
+                                        <li>Упрощение истории разработки.</li>
+                                        <li>Можно использовать только для приватных веток, с которыми работаете только вы.</li>
+                                        <li>Операция слияния безопасна, так как не перезаписывает существующие коммиты. При перебазировании возможны ошибки в получившихся коммитах (например, если в другой ветке было изменено имя функции), при которых конфликта слияния не возникнет, но получившиеся коммиты окажутся "сломанными". Избежать такой ситуации помогают автоматизированные тесты.</li>
+                                    </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="merging-revert" class="chapter__title">git revert</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Команда отменяет коммиты, которые нельзя удалить, так как они были отправлены другим людям.</p>
+                                    <p><code>git revert &lt;hash></code> Создает обычный коммит, отменяющий изменения, сделанные в <code>hash</code>.</p>
+                                    <p><code>git revert &lt;hash1>..&lt;hash2></code> Задать диапазон коммитов, будет создано соответствующее число новых коммитов.</p>
+                                    <h5>Пример</h5>
+                                    <p><code>git revert 06d0 -m 1</code> Отменить изменения от первого родителя в коммите <code>06d0</code>.</p>
+                                    <h4>Флаги</h4>
+                                    <p><code>-n</code> (или <code>--no-commit</code>) Применить все изменения, но не делать коммит.</p>
+                                    <p><code>-m</code> Указывает, изменения какого родителя нужно отменить, если это коммит слияния.</p>
+                                    <h4>Команды при возникновении конфликта</h4>
+                                    <p><code>git revert --abort</code> Отменить применение изменений и вернуть состояние файлов обратно.</p>
+                                    <p><code>git revert --continue</code> Продолжить выполнение <code>cherry-pick</code>, когда конфликт разрешен.</p>
+                                    <p><code>git revert --quit</code> Остановиться на текущем состоянии, даже если не все изменения были применены.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="merging-rerere" class="chapter__title">git rerere</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git rerere forget &lt;file></code> Удаляет запись о том, как разрешался конфликт в файле <code>&lt;file></code>.</p>
+                                    <p><code>git checkout --merge</code> Возвращает версию файла с маркерами конфликта.</p>
+                                    <p>REuse REcorded REsolution позволяет автоматически разрешать конфликты слияния таким же образом, как они были решены до этого. Для Git не важно, каким способом было сделано слияние. Если возникает повторяющийся конфликт, файлы в рабочей директории изменятся, как если бы он уже был разрешен, однако в Индекс их нужно будет добавить самостоятельно.</p>
+                                    <p>Все данные о разрешенных конфликтах хранятся в директории <code>.git/rr-cache</code>. Они хранятся 60 дней, если это не переопределено переменной <code>rerere.rerereResolved</code>.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Работа с удаленными репозиториями</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="remote-remote" class="chapter__title">git remote</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>git remote</code> Отображает имена доступных удалённых репозиториев. С флагом <code>-v</code> показывает адреса для чтения и записи.</p>
+                                    <p><code>git remote add &lt;remote> &lt;url></code> Добавляет удаленный репозиторий и присваивает ему имя.</p>
+                                    <p><code>git remote remove &lt;remote></code> Отключает удаленный репозиторий.</p>
+                                    <p><code>git remote rename &lt;oldname> &lt;newname></code> Переименовывает удаленный репозиторий.</p>
+                                    <p><code>git remote show &lt;remote></code> Выводит информацию о репозитории.</p>
+                                    <p><code>git remote prune &lt;remote></code> Удалить старые ветки слежения, которых больше нет в удаленном репозитории.</p>
+                                    <h5>Пример</h5>
+                                    <p><code>git remote add upstream https://github.com/RusJstudent/depthVSbreadth.git</code> Добавление удаленного репозитория под именем <code>upstream</code>.</p>
+                                    <h4>Просмотр</h4>
+                                    <p><code>git ls-remote &lt;remote></code> Полный список указателей на ветки и теги в удаленном репозитории.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="remote-fetch-pull" class="chapter__title">git fetch и git pull</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Команды <code>git fetch</code> и <code>get pull</code> получают изменения из удаленного репозитория.</p>
+                                    <p><code>git fetch &lt;remote></code> Синхронизирует ветки слежения с удаленным репозиторием, передвигая их указатели.</p>
+                                    <p><code>git fetch --all</code> Сихронизировать ветки слежения со всеми удаленными репозиториями.</p>
+                                    <p><code>git pull &lt;remote> &lt;branch></code> Синхронизирует изменения для ветки <code>branch</code> и пытается слить их с текущим кодом.</p>
+                                    <h5>Примеры</h5>
+                                    <p><code>git pull</code> Сихронизирует изменения веток слежения с <code>origin</code> и включает их в локальную копию проекта.</p>
+                                    <p><code>git pull upstream master</code> Получает все изменения для ветки <code>master</code> в репозитории <code>upstream</code> и делает <code>merge</code>.</p>
+                                    <h4>Терминология</h4>
+                                    <p>pull request — живой запрос на прием последних изменений из нашего удаленного fork репозитория в исходный, обычно называющийся <code>upstream</code>. При обновлении fork обновляется и pull request.</p>
+                                    <p>Ветки слежения — это ссылки на определённое состояние удалённых веток. Их нельзя перемещать вручную. Git перемещает их автоматически при любой коммуникации с удалённым репозиторием.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="remote-push" class="chapter__title">git push</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Команда <code>git push</code> отправляет изменения на удаленный сервер.</p>
+                                    <p><code>git push &lt;remote> &lt;branch></code> Добавляет изменения на удаленный репозиторий.</p>
+                                    <p><code>git push -f</code> Позволяет переписать историю в удаленной ветке, сихронизируя ее с локальной.</p>
+                                    <p><code>git push &lt;remote> --delete &lt;branch></code> Удаляет ветку из удаленного репозитория.</p>
+                                    <h5>Добавление веток слежения</h5>
+                                    <p><code>git push --set-upstream &lt;remote> &lt;branch></code> (или <code>git push -u &lt;remote> &lt;branch></code>) Связывает локальную ветку <code>branch</code> с удаленной и выполняет <code>push</code>. В дальнейшем, для добавления измененений из такой ветки, достаточно команды <code>git push</code>.</p>
+                                    <h4>Обмен тегами</h4>
+                                    <p><code>git push &lt;remote> &lt;tag></code> Добавление тега в удаленный репозиторий.</p>
+                                    <p><code>git push &lt;remote> --delete &lt;tag></code> Удаление тега из удаленного репозитория.</p>
+                                    <p><code>git push &lt;remote> --tags</code> Добавление всех тегов на удаленный репозиторий, если их там нет.</p>
+                                    <p><code>git push &lt;remote> --follow-tags</code> Добавление только аннотированных тегов.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

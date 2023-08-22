@@ -1,0 +1,83 @@
+.nav {
+    padding: 40px 0px 0px 0px;
+}
+
+/* .nav__container {} */
+
+.nav__header {
+    margin: 0px 0px 30px 0px;
+}
+
+/* .header-nav {} */
+
+.header-nav__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.header-nav__title:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+}
+
+/* .header-nav__description {} */
+
+.nav__body {
+    counter-reset: a;
+}
+
+/* .nav__row {} */
+
+.nav__row:not(:last-child) {
+    margin: 0px 0px 30px 0px;
+}
+
+.nav__title {
+    margin: 0px 0px 15px 0px;
+    font-weight: 700;
+}
+
+.nav__content {
+    counter-increment: a;
+}
+
+.nav__list {
+    columns: 3;
+    counter-reset: b;
+}
+
+@media (max-width: 920px) {
+    .nav__list {
+        columns: 2;
+    }
+}
+
+@media (max-width: 610px) {
+    .nav__list {
+        columns: 1;
+    }
+}
+
+.nav__list li {
+    position: relative;
+    margin: 0px 0px 5px 0px;
+    padding: 0px 10px 0px 35px;
+    line-height: 1.5;
+}
+
+.nav__list li::before {
+    position: absolute;
+    left: 0;
+    top: 3.2px;
+
+    content: counter(a)"."counter(b);
+    counter-increment: b;
+    
+    font-family: "Wix Madefor Text";
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+.nav__link {
+    font-size: 0.95rem;
+    letter-spacing: -0.3px;
+}

@@ -1,0 +1,129 @@
+.header {
+    border-bottom: 2px solid #d9d6d5;
+}
+
+/* .header__container {} */
+
+.header__body {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    flex: 0 1 50px;
+    overflow: hidden;
+}
+
+.header__logo img {
+    max-width: 100%;
+}
+
+/* .header__menu {} */
+/* .menu {} */
+/* .menu__burger {} */
+/* .menu__body {} */
+
+.menu__list {
+    display: flex;
+}
+
+.menu__list li {
+    margin: 0px 0px 0px 20px;
+}
+
+.menu__link {
+    text-transform: uppercase;
+    color: #716f6e;
+}
+
+.menu__link:hover {
+    text-decoration: none;
+    color: #c4433a;
+}
+
+.menu__link._active {
+    color: #c4433a;
+}
+
+@media (max-width: 767px) {
+    .menu__body {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        z-index: 1;
+
+        padding: 60px 10px 20px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: transform 0.3s ease;
+    }
+
+    .menu__body._active {
+        transform: translate(0, 100%);
+    }
+
+    .menu__list {
+        display: block;
+    }
+
+    .menu__list li {
+        margin: 0px 0px 20px 0px;
+    }
+
+    .menu__link {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+    
+    .menu__burger {
+        position: relative;
+        z-index: 2;
+
+        height: 18px;
+        width: 30px;
+
+        cursor: pointer;
+    }
+
+    .menu__burger span {
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 0;
+
+        height: 2px;
+        width: 100%;
+        
+        background-color: #15005b;
+        transition: all 0.3s ease;
+    }
+
+    .menu__burger span:first-child {
+        top: 0;
+    }
+
+    .menu__burger span:last-child {
+        top: auto;
+        bottom: 0;
+    }
+
+    .menu__burger._active span {
+        transform: scale(0);
+    }
+
+    .menu__burger._active span:first-child {
+        top: calc(50% - 1px);
+        transform: rotate(45deg);
+    }
+
+    .menu__burger._active span:last-child {
+        top: calc(50% - 1px);
+        transform: rotate(-45deg);
+    }
+}
