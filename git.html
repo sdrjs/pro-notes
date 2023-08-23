@@ -598,7 +598,7 @@
                                     <p><code>git diff HEAD</code> (или <code>git diff @</code>) Отображает изменения между текущим коммитом и рабочей директорией.</p>
                                     <p><code>git diff --cached</code> Выводит все проиндексированные изменения, которых нет в текущем коммите.</p>
                                     <p><code>git diff .</code> Отображает не добавленные в Индекс изменения в текущей директории.</p>
-                                    <p><code>git diff index.html --color-words</code> Отобразить изменения в <code>index.html</code> рабочей директории по словам.</p>
+                                    <p><code>git diff --color-words -U0 index.html</code> Изменения в <code>index.html</code> рабочей директории по словам, без контекста.</p>
                                     <h4>Флаги</h4>
                                     <p><code>--word-diff</code> Показывать различия по словам (вместо различий по строкам).</p>
                                     <p><code>--color-words</code> Показывать различия по словам без дополнительных скобок и знаков <code>+</code>, <code>-</code>.</p>
