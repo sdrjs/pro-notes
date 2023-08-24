@@ -573,7 +573,7 @@
                                     <p><code>git show &lt;hash>:&lt;file></code> Просмотр файла на момент коммита <code>hash</code>. Если не указывать <code>hash</code>, выведет текущую версию файла в Индексе.</p>
                                     <p><code>git show :/&lt;str></code> Поиск самого свежего коммита, в описании которого есть строка <code>str</code>.</p>
                                     <h5>Примеры</h5>
-                                    <p><code>git show master~</code> Просмотр родительского коммита ветки мастер.</p>
+                                    <p><code>git show master~</code> Просмотр родительского коммита ветки <code>master</code>.</p>
                                     <p><code>git show :file.txt</code> Просмотр индексированной версии файла <code>file.txt</code>.</p>
                                     <h4>Флаги</h4>
                                     <p><code>-q</code> (или <code>--quiet)</code> Выводит информацию без изменений <code>diff</code>.</p>
@@ -595,10 +595,10 @@
                                     <p><code>git diff &lt;hash1>:&lt;file1> &lt;hash2>:&lt;file2></code> Сравнивает два файла из разных (необязательно) коммитов.</p>
                                     <p><code>git diff --no-index &lt;file1> &lt;file2></code> Сравнивает любые два файла. Для работы команды репозиторий не требуется!</p>
                                     <h5>Примеры</h5>
-                                    <p><code>git diff master feature</code> Выводит все изменения, сделанные в <code>feature</code> c момента ответвления от <code>master</code>.</p>
-                                    <p><code>git diff HEAD</code> (или <code>git diff @</code>) Отображает изменения между текущим коммитом и рабочей директорией.</p>
-                                    <p><code>git diff --cached</code> Выводит все проиндексированные изменения, которых нет в текущем коммите.</p>
-                                    <p><code>git diff .</code> Отображает не добавленные в Индекс изменения в текущей директории.</p>
+                                    <p><code>git diff master feature</code> Выводит все изменения, сделанные в <code>feature</code> относительно ветки <code>master</code>.</p>
+                                    <p><code>git diff HEAD</code> (или <code>git diff @</code>) Отображает все изменения между текущим коммитом и рабочей директорией.</p>
+                                    <p><code>git diff --cached</code> Выводит только проиндексированные изменения, которых нет в текущем коммите.</p>
+                                    <p><code>git diff .</code> Отображает только не добавленные в Индекс изменения в текущей директории.</p>
                                     <p><code>git diff --color-words -U0 index.html</code> Изменения в <code>index.html</code> рабочей директории по словам, без контекста.</p>
                                     <h4>Флаги</h4>
                                     <p><code>-U&lt;n></code> (или <code>--unified=&lt;n></code>) Задать количество строк контекста (до и после), по умолчанию 3.</p>
