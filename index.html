@@ -2691,7 +2691,7 @@ try {
 .finally(() => console.log(1)) // 1, срабатывает первым
 .then(result => console.log(result)); // 2</code>
                                     <p>Значение, возвращаемое <code>finally</code>, игнорируется. Однако, если <code>finally</code> завершится с ошибкой, эта ошибка будет передана следующему обработчику вместо предыдущего результата.</p>
-                                    <p>Обработчики промисов <code>.then</code>/<code>.catch</code>/<code>.finally</code> всегда асинхронны.</p>
+                                    <p>Обработчики промисов <code>.then</code> / <code>.catch</code> / <code>.finally</code> всегда асинхронны.</p>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
@@ -2758,10 +2758,12 @@ new Promise((resolve, reject) => {
                                     <h4>Необработанные ошибки</h4>
                                     <p>Если ошибка в промисе не была перехвачена (не обработана в конце очереди микрозадач), скрипт умирает с сообщением в консоли.</p>
                                     <p>В браузере можно поймать такие ошибки, используя событие <code>unhandledrejection</code>. Объект события имеет два специальных свойства:</p>
-                                    <p><code>promise</code> - промис, который сгенерировал ошибку</p>
-                                    <p><code>reason</code> - объект ошибки, которая не была обработана</p>
+                                    <ul>
+                                        <li><code>promise</code> - промис, который сгенерировал ошибку</li>
+                                        <li><code>reason</code> - объект ошибки, которая не была обработана</li>
+                                    </ul>
                                     <code class="large">window.addEventListener('unhandledrejection', function(event) {
-    console.log(event.promise); // Promise <rejected>: Error: Ошибка!
+    console.log(event.promise); // Promise &lt;rejected>: Error: Ошибка!
     console.log(event.reason); // Error: Ошибка!
 });
 
@@ -2777,16 +2779,16 @@ new Promise(function() {
                                 </div>
                                 <div class="chapter__content">
                                     <p>В классе <code>Promise</code> есть 6 статических методов.</p>
-                                    <h5>Promise.all</h5>
+                                    <h4>Promise.all</h4>
                                     <p><code>Promise.all(iterable)</code> - принимает перебираемый объект с промисами (разрешено передавать не-промисы) и возвращает новый промис. Новый промис завершится, когда завершится весь переданный список промисов, и его результатом будет массив их результатов.</p>
                                     <code class="large">Promise.all([1, new Promise( r => setTimeout(() => r(2), 1000) ), 3])
 .then(result => console.log(result)); // [1, 2, 3]</code>
                                     <p>Частый прием - пропустить массив данных через map-функцию, возвращающую промис для каждого элемента, затем обернуть получившийся массив в <code>Promise.all</code>.</p>
                                     <p>Если любой из промисов завершится с ошибкой, то промис, возвращённый <code>Promise.all</code>, немедленно завершается с этой ошибкой.</p>
-                                    <h5>Promise.allSettled</h5>
+                                    <h4>Promise.allSettled</h4>
                                     <p><code>Promise.allSettled(iterable)</code> - всегда ждет завершения всех промисов. В массиве результатов будет:</p>
-                                    <p><code>{status: "fulfilled", value: any}</code> - для успешно завершившихся промисов</p>
-                                    <p><code>{status: "rejected", reason: err}</code> - для промисов с ошибкой</p>
+                                    <p><code>{status: "fulfilled", value: any}</code> - для успешно завершившихся промисов.</p>
+                                    <p><code>{status: "rejected", reason: err}</code> - для промисов с ошибкой.</p>
                                     <p>Если браузер не поддерживает <code>Promise.allSettled</code>, для него легко сделать полифил:</p>
                                     <code class="large">if (!Promise.allSettled) {
     Promise.allSettled = function(promises) {
@@ -2799,20 +2801,20 @@ new Promise(function() {
         }))));
     };
 }</code>
-                                    <h5>Promise.race</h5>
+                                    <h4>Promise.race</h4>
                                     <p><code>Promise.race(iterable)</code> - ждёт только первый выполненный промис.</p>
                                     <code class="large">Promise.race([
     new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
     new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ошибка!")), 2000)),
     new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
 ]).then(result => console.log(result)); // 1</code>
-                                    <h5>Promise.any</h5>
+                                    <h4>Promise.any</h4>
                                     <p><code>Promise.any(iterable)</code> - ждет только первый успешно выполенный промис. Если ни один из переданных промисов не завершится успешно, тогда возвращённый промис будет отклонён с помощью <code>AggregateError</code> – специального объекта ошибок, который хранит все ошибки промисов в своём свойстве <code>errors</code>.</p>
                                     <code class="large">Promise.any([
     new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ошибка!")), 1000)),
     new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ошибка!")), 2000)),
 ]).catch(err => console.log(err)); // AggregateError: All promises were rejected</code>
-                                    <h5>Promise.resolve/reject</h5>
+                                    <h4>Promise.resolve/reject</h4>
                                     <p><code>Promise.resolve(value)</code> создаёт успешно выполненный промис с результатом <code>value</code>.</p>
                                     <p><code>Promise.reject(error)</code> создаёт промис, завершённый с ошибкой <code>error</code>.</p>
                                 </div>
