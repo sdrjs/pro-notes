@@ -2467,8 +2467,7 @@ console.log(arr.constructor === Array); // true</code>
                                     <h4>Оператор instanceof</h4>
                                     <p><code>obj instanceof Class</code> - вернёт <code>true</code>, если <code>obj</code> принадлежит классу <code>Class</code> или наследующему от него.</p>
                                     <p>То есть, он сравнивает <code>Class.prototype</code> с <code>obj.__proto__</code>, <code>obj.__proto__.__proto__</code> и тд.</p>
-                                    <p>Но если <code>Class</code> имеет статический метод <code>Symbol.hasInstance</code>, то вызывается он:</p>
-                                    <p><code>instanceof</code> вернет <code>true</code>, если <code>Symbol.hasInstance</code> вернет <code>truthy</code>, иначе <code>false</code></p>
+                                    <p>Но если <code>Class</code> имеет статический метод <code>Symbol.hasInstance</code>, то вызывается он: <code>instanceof</code> вернет <code>true</code>, если <code>Symbol.hasInstance</code> вернет <code>truthy</code>, иначе <code>false</code>.</p>
                                     <code class="large">class Animal {
     static [Symbol.hasInstance](obj) {
         if (obj.canEat) return true;
