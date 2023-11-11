@@ -1845,7 +1845,7 @@ Object.defineProperty(user, "name", { value: "John" });
 let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 console.log(descriptor); // {value: 'John', writable: false, enumerable: false, configurable: false}</code>
                                     <h4>Только для чтения</h4>
-                                    <p>Сделаем свойство user.name доступным только для чтения. Для этого изменим флаг <code>writable</code>:</p>
+                                    <p>Сделаем свойство <code>user.name</code> доступным только для чтения. Для этого изменим флаг <code>writable</code>:</p>
                                     <code class="large">let user = { name: "John" };
 Object.defineProperty(user, "name", { writable: false });
 
@@ -1853,7 +1853,7 @@ user.name = "Pete"; // TypeError: Cannot assign to read only property 'name' of 
                                     <p>Ошибка появляется только в строгом режиме. Но без <code>'use strict'</code> операция записи в свойство «только для чтения» всё равно не будет выполнена успешно.</p>
                                     <h4>Неперечислимое свойство</h4>
                                     <p>Встроенный метод <code>toString</code> в объектах – неперечислимый, его не видно в цикле <code>for..in</code>.</p>
-                                    <p>Мы можем написать свой <code>toString</code>, который будет неперечислымым.</p>
+                                    <p>Мы можем написать свой <code>toString</code>, который будет неперечислимым.</p>
                                     <code class="large">let user = {
     name: "John",
     toString() {
