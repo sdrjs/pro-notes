@@ -2325,7 +2325,7 @@ new Animal(); // animal
 new Rabbit(); // animal</code>
                                     <p>На момент вызова <code>console.log(this.name)</code> поле <code>name</code> родительского класса еще не было переопределено дочерним, поэтому вызов <code>new Rabbit()</code> возвращает <code>'animal'</code>.</p>
                                     <h4>Устройство super, [[HomeObject]]</h4>
-                                    <p>Когда функция объявяется как метод внутри класса или объекта, она получает свойство <code>[[HomeObject]]</code>, равное этому объекту.</p>
+                                    <p>Когда функция объявляется как метод внутри класса или объекта, она получает свойство <code>[[HomeObject]]</code>, равное этому объекту.</p>
                                     <code class="large">let animal = {
     name: "Животное",
     eat() { // animal.eat.[[HomeObject]] == animal
