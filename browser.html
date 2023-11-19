@@ -251,7 +251,7 @@ document.documentElement.parentNode === document</code>
                                     <h5>HTLMCollection vs NodeList</h5>
                                     <p>"Живая" коллекция - всегда отражает текущее состояние документа и автоматически обновляется при его изменении.</p>
                                     <p><code>HTMLCollection</code> - всегда "живая" коллекция и хранит только узлы-элементы.</p>
-                                    <p><code>NodeList</code> может быть как "живой", так и статической коллекцией и хранит любые типы узлов. Есть методы <code>forEach()</code>, <code>values()</code></p>
+                                    <p><code>NodeList</code> может быть как "живой", так и статической коллекцией и хранит любые типы узлов. Есть методы <code>forEach()</code>, <code>entries()</code>, <code>keys()</code> и <code>values()</code>.</p>
                                     <p><code>childNodes</code> и <code>document.getElementsByName()</code> возвращают "живую" коллекцию <code>NodeList</code>.</p>
                                     <p><code>querySelectorAll()</code> возвращает статическую коллекцию <code>NodeList</code>.</p>
                                     <code class="large">let elems = document.body.childNodes;
@@ -475,7 +475,8 @@ console.log( document.body.getAttribute('style') ); // 'width: 200px; background
     document.body.clientHeight, document.documentElement.clientHeight
 );</code>
                                     <h4>Получение текущей прокрутки</h4>
-                                    <p>Свойства <code>window.pageXOffset</code>/<code>window.pageYOffset</code> содержат текущую прокрутку документа.</p>
+                                    <p>Свойства <code>window.scrollX</code>/<code>window.scrollY</code> содержат текущую прокрутку документа.</p>
+                                    <p><code>window.pageXOffset</code>/<code>window.pageYOffset</code> - устаревшие свойства для поддержки IE.</p>
                                     <h4>Прокрутка: scrollTo, scrollBy, scrollIntoView</h4>
                                     <p>Метод <code>scrollBy(x, y)</code> прокручивает страницу относительно её текущего положения.</p>
                                     <p>Метод <code>scrollTo(pageX, pageY)</code>/<code>scrollTo(options)</code> прокручивает страницу на абсолютные координаты, заданные <code>pageX</code>, <code>pageY</code> или объектом <code>options</code> со свойствами <code>left</code>, <code>top</code>, <code>behavior</code>.</p>
@@ -497,7 +498,7 @@ console.log( document.body.getAttribute('style') ); // 'width: 200px; background
                                     <h3 data-title="document-coordinates" class="chapter__title">Координаты</h3>
                                 </div>
                                 <div class="chapter__content">
-                                    <p>Для получения координат элемента относительно документа, необходимо текущую прокрутку документа <code>window.pageXOffset/pageYOffset</code> сложить с координатами относительно окна.</p>
+                                    <p>Для получения координат элемента относительно документа, необходимо текущую прокрутку документа <code>window.scrollX</code>/<code>window.scrollY</code> сложить с координатами относительно окна.</p>
                                     <h4>Координаты относительно окна: getBoundingClientRect</h4>
                                     <p>Метод <code>elem.getBoundingClientRect()</code> возвращает объект с координатами элемента относительно окна. Свойства:</p>
                                     <p><code>x</code>/<code>y</code> – X/Y-координаты начала прямоугольника относительно окна.</p>
