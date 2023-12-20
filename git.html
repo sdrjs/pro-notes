@@ -449,7 +449,7 @@
                                 </div>
                                 <div class="chapter__content">
                                     <h4>Создание и удаление веток</h4>
-                                    <p><code>git branch &lt;branch> &lt;hash></code> Создает ветку <code>branch</code> с указателем на коммит <code>hash</code>, или, если он не указан, на текущий коммит.</p>
+                                    <p><code>git branch &lt;branch> &lt;hash></code> Создает ветку <code>branch</code> с указателем на коммит <code>hash</code>, или, если он не указан, на текущий коммит. С флагом <code>-f</code> позволяет переместить существующую ветку.</p>
                                     <p><code>git branch -d &lt;branch></code> Удаляет ветку <code>branch</code>, если она объединена с текущей. Иначе для удаления потребуется флаг <code>-D</code>.</p>
                                     <h5>Переименование веток</h5>
                                     <p><code>git branch --move &lt;oldname> &lt;newname></code> Изменяет имя ветки с <code>oldname</code> на <code>newname</code>.</p>
