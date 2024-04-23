@@ -1104,7 +1104,7 @@ table.onmouseout = function(event) {
                                     <code class="large">elem.ondragstart = () => false;</code>
                                     <p>Событие <code>mousemove</code> должно отслеживаться на <code>document</code>, чтобы из-за быстрого движения указатель не слетел с элемента (так как <code>mousemove</code> не генерирутся для каждого пикселя).</p>
                                     <h5>Правильное позиционирование</h5>
-                                    <p>Чтобы изначальный сдвиг курсора относительно элемента сохранялся, при mousedown необходимо запомнить расстояние от курсора до левого верхнего угла переносимого элемента в переменных <code>shiftX</code>/<code>shiftY</code>.</p>
+                                    <p>Чтобы изначальный сдвиг курсора относительно элемента сохранялся, при <code>mousedown</code> необходимо запомнить расстояние от курсора до левого верхнего угла переносимого элемента в переменных <code>shiftX</code>/<code>shiftY</code>.</p>
                                     <code class="large">let shiftX = event.clientX - elem.getBoundingClientRect().left;
 let shiftY = event.clientY - elem.getBoundingClientRect().top;</code>
                                     <p>Далее, при переносе элемента он должен позиционироваться с тем же относительным сдвигом:</p>
@@ -1118,7 +1118,7 @@ elem.style.top = event.pageY - shiftY + 'px';</code>
                                     <code class="large">elem.hidden = true;
 let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
 elem.hidden = false;</code>
-                                    <p>Зная, над каким draggable произошло событие, цель переноса можно подсветить, обработать окончание переноса, когда оно случится и тд.</p>
+                                    <p>Зная, над каким droppable произошло событие, цель переноса можно подсветить, обработать окончание переноса, когда оно случится и тд.</p>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
