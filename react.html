@@ -54,15 +54,125 @@
                 <div class="nav__container _container">
                     <div class="nav__header header-nav">
                         <h1 class="header-nav__title">React</h1>
-                        <div class="header-nav__description">Здесь пока пусто</div>
+                        <div class="header-nav__description">Конспект официальной документации по библиотеке React.</div>
                     </div>
                     <div class="nav__body">
                         <div class="nav__row">
-                            <div class="nav__title">Заголовок</div>
+                            <div class="nav__title">Введение</div>
                             <nav class="nav__content">
                                 <ul class="nav__list">
                                     <li>
-                                        <a href="#link" class="nav__link">Заголовок2</a>
+                                        <a href="#intro-react-basics" class="nav__link">Основы React</a>
+                                    </li>
+                                    <li>
+                                        <a href="#intro-create-app" class="nav__link">Создание приложения</a>
+                                    </li>
+                                    <li>
+                                        <a href="#intro-deploy-gh-pages" class="nav__link">Деплой на github pages</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Добавление интерактивности</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#interactivity-events" class="nav__link">Responding to events</a>
+                                    </li>
+                                    <li>
+                                        <a href="#interactivity-state" class="nav__link">State: A Component's Memory</a>
+                                    </li>
+                                    <li>
+                                        <a href="#interactivity-state-snapshot" class="nav__link">State as a Snapshot</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Управление состоянием</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#state-preserving-resetting" class="nav__link">Preserving and resetting state</a>
+                                    </li>
+                                    <li>
+                                        <a href="#state-reducer" class="nav__link">Extracting State Logic into a Reducer</a>
+                                    </li>
+                                    <li>
+                                        <a href="#state-context" class="nav__link">Passing Data Deeply with Context</a>
+                                    </li>
+                                    <li>
+                                        <a href="#state-reducer-context" class="nav__link">Scaling Up with Reducer and Context</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Escape hatches</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#escape-refs" class="nav__link">Referencing Values with Refs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#escape-refs-dom" class="nav__link">Manipulating the DOM with Refs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#escape-effects" class="nav__link">Synchronizing with Effects</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Hooks</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#hooks-id" class="nav__link">useId</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-layouteffect" class="nav__link">useLayoutEffect</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-memo" class="nav__link">useMemo</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-callback" class="nav__link">useCallback</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-imperativehandle" class="nav__link">useImperativeHandle</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-debugvalue" class="nav__link">useDebugValue</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-deferredvalue" class="nav__link">useDeferredValue</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-transition" class="nav__link">useTransition</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-insertioneffect" class="nav__link">useInsertionEffect</a>
+                                    </li>
+                                    <li>
+                                        <a href="#hooks-syncexternalstore" class="nav__link">useSyncExternalStore</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Разное</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#reconciliation" class="nav__link">Reconciliation</a>
+                                    </li>
+                                    <li>
+                                        <a href="#error-strict-mode" class="nav__link">Strict mode</a>
+                                    </li>
+                                    <li>
+                                        <a href="#error-boundaries" class="nav__link">Error boundaries</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -74,15 +184,1415 @@
                 <div class="content__container _container">
                     <section class="content__section">
                         <div class="content__header">
-                            <h2 class="content__title">Заголовок</h2>
+                            <h2 class="content__title">Введение</h2>
                         </div>
                         <div class="content__body">
                             <section class="content__chapter chapter">
                                 <div class="chapter__header">
-                                    <h3 data-title="link" class="chapter__title">Заголовок2</h3>
+                                    <h3 data-title="intro-react-basics" class="chapter__title">Основы React</h3>
                                 </div>
                                 <div class="chapter__content">
-                                    Контент
+                                    <p>React - JavaScript библиотека для отображения интерфейса пользователя (UI).</p>
+                                    <h5>React vs JavaScript</h5>
+                                    <p>JavaScript: императивный подход — достижение результата с помощью выполнения последовательности действий.</p>
+                                    <p>React: декларативный подход — подробное описание конечного результата.</p>
+                                    <h4>Компоненты</h4>
+                                    <p>Приложения на React состоят из компонентов. Компонент - это часть пользовательского интерфейса, которая имеет свою логику и внешний вид. Он может быть маленьким, как кнопка, или большим, как целая страница.</p>
+                                    <p>Если часть UI используется несколько раз или достаточно сложна сама по себе, ее делают отдельным компонентом.</p>
+                                    <p>Компонент React представляет собой JavaScript функцию, возвращающую разметку. Имя компонента всегда начинается с заглавной буквы, в то время как HTML-тег должен начинаться с маленькой.</p>
+                                    <h4>Написание JSX разметки</h4>
+                                    <p>JSX представляет из себя объекты. Babel компилирует JSX в вызовы <code>React.createElement()</code>.</p>
+                                    <code class="large">const element = &lt;h1 className="greeting">Привет, мир!&lt;/h1>;
+
+const element = React.createElement(
+    'h1',
+    { className: 'greeting' },
+    'Привет, мир!'
+);</code>
+                                    <p>Синтаксис JSX необязателен, однако способствует читаемости кода, так как очень похож на HTML, но более строгий к синтаксису.</p>
+                                    <p>JSX позволяет вкладывать в него JavaScript с помощью фигурных скобок. Значения атрибутов в JSX также могут быть JavaScript выражениями, для этого вместо кавычек необходимо использовать фигурные скобки.</p>
+                                    <h5>Написание тегов</h5>
+                                    <p>Необходимо всегда закрывать одинарные теги, такие как <code>&lt;br /></code>.</p>
+                                    <p>Компонент не может возвращать несколько JSX тегов. Необходимо обернуть их в общий родительский или использовать пустую обертку <code>&lt;>...&lt;/></code> (React Fragment).</p>
+                                    <h5>Установка атрибутов</h5>
+                                    <p>Установка атрибутов с помощью JSX происходит в стиле camelCase:</p>
+                                    <code class="large">const element = &lt;div tabIndex="0">&lt;/div>;</code>
+                                    <h5>Написание стилей</h5>
+                                    <p>Инлайн стили можно передать в виде объекта со свойствами в camelCase:</p>
+                                    <code class="large">&lt;div style={{ backgroundColor: 'black', color: 'red'}}>&lt;/div></code>
+                                    <h4>Еще больше о JSX</h4>
+                                    <h5>Логические значения, null и undefined игнорируются</h5>
+                                    <p>Эти выражения будут представлены одной и той же строкой:</p>
+                                    <code class="large">&lt;div />
+&lt;div>&lt;/div>
+&lt;div>{false}&lt;/div>
+&lt;div>{null}&lt;/div>
+&lt;div>{undefined}&lt;/div>
+&lt;div>{true}&lt;/div></code>
+                                    <p>Для того, чтобы вывести их явно, необходимо использовать преобразование в строку:</p>
+                                    <code class="large">&lt;div>
+    Моя переменная JavaScript: {String(myVariable)}.
+&lt;/div></code>
+                                    <h5>Строковые литералы</h5>
+                                    <p>JSX удаляет пробел в начале и конце строки, также удаляя пустые строки, а новые линии в середине строки конвертируются в единственный пробел.</p>
+                                    <p>Следующие два выражения эквивалентны:</p>
+                                    <code class="large">&lt;div>
+    Hello
+
+    World
+&lt;/div>
+&lt;div>Hello World&lt;/div></code>
+                                    <h4>Свойства props</h4>
+                                    <p>Когда React видит элемент, представляющий пользовательский компонент, он передаёт JSX-атрибуты этому компоненту в виде единственного объекта, называемого props. Свойства объекта props доступны только для чтения.</p>
+                                    <code class="large">export default function App() {
+    return (
+        &lt;div>
+            &lt;Welcome name="Сара" />
+            &lt;Welcome name="Эдит" />
+        &lt;/div>
+    );
+}
+
+function Welcome(props) {
+    return &lt;h1>Привет, {props.name}&lt;/h1>;
+}</code>
+                                    <h5>Свойство children</h5>
+                                    <p>В свойстве <code>children</code> содержатся вложенные в компонент элементы, о которых сам компонент может не знать.</p>
+                                    <code class="large">export default function App() {
+    return (
+        &lt;div>
+            &lt;Welcome name="Сара">Привет,&lt;/Welcome>
+            &lt;Welcome name="Эдит">Привет,&lt;/Welcome>
+        &lt;/div>
+    );
+}
+
+function Welcome(props) {
+    return &lt;h1>{props.children} {props.name}&lt;/h1>;
+}</code>
+                                    <h5>Свойства по умолчанию</h5>
+                                    <p>Если не передать значение в JSX, оно по умолчанию будет <code>true</code>. Следующие два выражения эквивалентны:</p>
+                                    <code class="large">&lt;MyTextBox autocomplete />
+&lt;MyTextBox autocomplete={true} /></code>
+                                    <h4>Отрисовка по условию</h4>
+                                    <p>Для написания условий используется синтаксис JavaScript: <code>if..else</code>, тернарный оператор, логическое И.</p>
+                                    <code class="large">let content;
+if (isLoggedIn) {
+    content = &lt;AdminPanel />;
+} else {
+    content = &lt;LoginForm />;
+}
+return (
+    &lt;div>
+        {content}
+    &lt;/div>
+);</code>
+                                    <h4>Отрисовка списка</h4>
+                                    <p>Элемент списка должен иметь атрибут <code>key</code> c уникальным значением. Значение атрибута <code>key</code> должно быть уникальным только среди соседних элементов, а не глобально. Лучше всего для этого подойдет <code>id</code> элемента..</p>
+                                    <p>Чтобы для каждого элемента списка отобразить несколько DOM-узлов, необходимо явно импортировать Fragment (сокращенный синтаксис <code>&lt;>&lt;/></code> не позволяет указывать атрибут <code>key</code>):</p>
+                                    <code class="large">import { Fragment } from 'react';
+
+// ...
+
+const listItems = people.map(person =>
+  &lt;Fragment key={person.id}>
+    &lt;h1>{person.name}&lt;/h1>
+    &lt;p>{person.bio}&lt;/p>
+  &lt;/Fragment>
+);</code>
+                                    <h4>Чистые компоненты</h4>
+                                    <p>Некоторые JavaScript функции называются чистыми. Чистые функции:</p>
+                                    <ol>
+                                        <li>Не изменяют переменные снаружи функции.</li>
+                                        <li>Для одинаковых входных данных результат работы функции будет неизменным.</li>
+                                    </ul>
+                                    <p>Компоненты, написанные как чистые функции, позволяют избежать многих ошибок и непредсказуемого поведения по мере роста приложения.</p>
+                                    <p>Например, если требуется использовать методы <code>push</code>, <code>pop</code>, <code>reverse</code>, <code>sort</code> для данных в props, необходимо сначала сделать копию этих данных.</p>
+                                    <h4>Обновление отрисованного элемента</h4>
+                                    <p>React-элементы неизменяемы. Создав однажды элемент, нельзя изменить его дочерние элементы или атрибуты. Единственный способ обновить интерфейс — создать новый элемент и передать его в <code>ReactDOM.render()</code>.</p>
+                                    <code class="large">function tick() {
+    const element = (
+        &lt;div>
+            &lt;h1>Привет, мир!&lt;/h1>
+            &lt;h2>Сейчас {new Date().toLocaleTimeString()}.&lt;/h2>
+        &lt;/div>
+    );
+    ReactDOM.createRoot(document.getElementById('root')).render(element);
+}
+
+setInterval(tick, 1000);</code>
+                                    <p>На практике большинство приложений React только один раз вызывают метод <code>render()</code>.</p>
+                                    <h5>React обновляет только то, что необходимо</h5>
+                                    <p>DOM React сравнивает элемент и его дочерние элементы с предыдущими и применяет только обновления DOM, необходимые для преобразования DOM в желаемое состояние.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-create-app" class="chapter__title">Создание приложения</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Чтобы начать использовать React, можно воспользоваться готовыми утилитами или выполнить настройку проекта вручную.</p>
+                                    <h4>Create React App</h4>
+                                    <code class="large">npx create-react-app &lt;project-directory></code>
+                                    <p><code>npm start</code> запускает локальный сервер.</p>
+                                    <h5>Использование с Typescript</h5>
+                                    <code class="large">npx create-react-app &lt;project-directory> --template typescript</code>
+                                    <h4>Vite</h4>
+                                    <code class="large">npm create vite@latest</code>
+                                    <p>Далее перейти в папку с проектом <code>cd &ltproject-directory></code> и установить зависимости <code>npm install</code>.</p>
+                                    <p><code>npm run dev</code> запускает локальный сервер.</p>
+                                    <h4>Настройка вручную</h4>
+                                    <p>Пример пошаговой настройки проекта вручную:</p>
+                                    <ol>
+                                        <li><code>npm init</code> создать package.json.</li>
+                                        <li><code>npm i react react-dom</code> установить необходимые пакеты.</li>
+                                        <li><code>npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin</code> установить пакеты для разработки.</li>
+                                        <li>Добавить в package.json скрипты: <code class="large">"dev": "webpack serve --mode development",
+"build": "webpack --mode production",</code></li>
+                                        <li>Создать в корне проекта папку src, а в ней файл index.js.</li>
+                                        <li>В index.js написать: <code class="large">import React from 'react' 
+import ReactDOM from 'react-dom/client'
+
+ReactDOM.createRoot(document.getElementById('root')).render(&lt;div>Контент&lt;/div>)</code></li>
+                                        <li>Создать в корне папку public, а в ней index.html.</li>
+                                        <li>В index.html создать структуру страницы и добавить корневой элемент <code>&lt;div id="root">&lt;/div></code>.</li>
+                                        <li><code>npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader</code> установить Babel.</li>
+                                        <li>Создать в корне проекта файл конфига .babelrc с содержимым: <code class="large">{
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+}</code></li>
+                                        <li>Создать в корне проекта файл конфига webpack.config.js c содержимым: <code class="large">const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+
+module.exports = {
+    mode: "development",
+    entry: "./src/index.js",
+    output: {
+        filename: 'bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(jsx|js)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                },
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    resolve: {
+        extensions: [".js", ".jsx"],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+        }),
+    ],
+    devServer: {
+        port: 3000,
+        static: {
+            directory: path.join(__dirname, "dist"),
+        },
+        hot: true,
+        open: true,
+    },
+};</code></li>
+                                        <li><code>npm i -D style-loader css-loader</code> добавить поддержку CSS-модулей (использование: <code>import * as classes from './&lt;file>.module.css'</code>).</li>
+                                        <li>Добавить файл .gitignore с содержимым: <code class="large">/node_modules/
+/dist/</code></li>
+                                    </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intro-deploy-gh-pages" class="chapter__title">Деплой на github pages</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Create React App</h4>
+                                    <p>Последовательность действий:</p>
+                                    <ol>
+                                        <li><code>npm install gh-pages --save-dev</code></li>
+                                        <li>Добавить в package.json:
+<code class="large">"homepage": "https://&lt;username>.github.io/&lt;repo>/",
+...
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  ...
+}</code></li>
+                                        <li>Выполнить команду <code>npm run deploy</code>.</li>
+                                    </ol>
+                                    <h5>React Router</h5>
+                                    <p>При использовании библиотеки react-router-dom следует заменить <code>BrowserRouter</code> на <code>HashRouter</code>.</p>
+                                    <h4>Vite app</h4>
+                                    <p>Добавить <code>base: "/&lt;repo>/",</code> в vite.config.js, затем выполнить те же шаги, что и для Create React App.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Добавление интерактивности</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="interactivity-events" class="chapter__title">Responding to events</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Naming event handler props</h4>
+                                    <p>Принято соглашение, по которому props, в которые передаются обработчики событий, следует именовать с префиксом <code>on</code>, после которого с заглавной буквы идет название свойства, например, <code>onPlayMovie</code>.</p>
+                                    <h4>Capture phase events</h4>
+                                    <p>Чтобы назначить обработчик в фазе погружения (Capturing phase), необходимо в конец имени события дописать <code>Capture</code>.</p>
+                                    <code class="large">export default function App() {
+    function handleClick(e) {
+        e.stopPropagation();
+        console.log('BUTTON');
+    }
+
+    return (
+        &lt;div onClickCapture={() => console.log('DIV') /* этот обработчик запустится раньше */}>
+            &lt;button onClick={handleClick}>Клик!&lt;/button>
+        &lt;/div>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="interactivity-state" class="chapter__title">State: A Component's Memory</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Когда обычной переменной недостаточно</h4>
+                                    <p>Локальных переменных часто может быть недостаточно:</p>
+                                    <ol>
+                                        <li>Локальные переменные не сохраняются между рендерингами.</li>
+                                        <li>Когда React повторно рендерит компонент, он рендерит его с нуля — не учитывая изменения в локальных переменных.</li>
+                                    </ol>
+                                    <p>Чтобы обновить данные компонента, необходимо сделать две вещи:</p>
+                                    <ol>
+                                        <li>Сохранить данные между рендерингами.</li>
+                                        <li>Заставить React выполнить рендеринг компонента с новыми данными.</li>
+                                    </ol>
+                                    <p>Хук <code>useState</code> решает обе этих задачи, предоставляя:</p>
+                                    <ol>
+                                        <li>Переменную <code>state</code> для сохранения данных между рендерингами.</li>
+                                        <li>Фукнцию для обновления <code>state</code> и запуска нового рендеринга.</li>
+                                    </ol>
+                                    <h4>Первый хук</h4>
+                                    <p>В React <code>useState</code>, как и любая другая функция, начинающаяся с <code>use</code>, называется хуком.</p>
+                                    <p>Хуки позволяют использовать состояние и другие возможности React, не объявляя класс. Внутри классов они не работают.</p>
+                                    <p>Хуки можно использовать только на верхнем уровне компонентов (или кастомных хуков). React полагается на порядок вызова хуков.</p>
+                                    <p>Чтобы использовать хук, его необходимо импортировать в начале файла:</p>
+                                    <code class="large">import { useState } from 'react';</code>
+                                    <h4>Добавление состояния</h4>
+                                    <p>Синтаксис:</p>
+                                    <code class="large">const [state, setState] = useState(initialState)</code>
+                                    <p><code>state</code> - состояние компонента.</p>
+                                    <p><code>setState</code> - функция, которая обновляет состояние и запускает новый рендеринг. Принимает новое значение <code>state</code>.</p>
+                                    <p><code>initialState</code> - <code>state</code> при первом рендеринге. Если <code>initialState</code> - функция, в <code>state</code> будет записан результат ее вызова.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState } from 'react';
+
+export default function Counter() {
+    const [number, setNumber] = useState(0);
+
+    return (
+        &lt;>
+            &lt;h1>{number}&lt;/h1>
+            &lt;button onClick={() => setNumber(number + 1)}>+1&lt;/button>
+        &lt;/>
+    );
+}</code>
+                                    <h5>Обновление объектов в state</h5>
+                                    <p>Если в <code>state</code> находится объект, то вместо того, чтобы менять его свойства, необходимо создать новый объект на основе предыдущего.</p>
+                                    <h4>Очередь обновлений состояния</h4>
+                                    <p>Изменение state запланирует новый рендеринг. Однако, иногда необходимо выполнить несколько изменений state сразу.</p>
+                                    <p>Это можно сделать, передав в <code>setState</code> функцию. Она получает старое значение <code>state</code> и должна вовращать новое:</p>
+                                    <code class="large">import { useState } from 'react';
+
+export default function Counter() {
+    const [number, setNumber] = useState(0);
+
+    function handleClick() {
+        setNumber(n => n + 1);
+        setNumber(n => n + 1);
+        setNumber(n => n + 1);
+    }
+
+    return (
+        &lt;>
+            &lt;h1>{number}&lt;/h1>
+            &lt;button onClick={handleClick}>+3&lt;/button>
+        &lt;/>
+    );
+}</code>
+                                    <h5>Обновления состояния объединяются</h5>
+                                    <p>React может выполнять несколько вызовов <code>setState</code> за одно обновление для лучшей производительности .</p>
+                                    <h4>Изолированность состояния</h4>
+                                    <p>Состояние является локальным для каждого компонента. Если отобразить один и тот же компонент дважды, каждая копия будет иметь полностью изолированный state. Изменение state одного компонента не повлияет на state другого компонента.</p>
+                                    <code class="large">export default function App() {
+    return (
+        &lt;div>
+            &lt;Counter />
+            &lt;Counter />
+        &lt;/div>
+    );
+}</code>
+                                    <h4>Поднятие состояния</h4>
+                                    <p>Общий state у разных компонентов достигается путём его перемещения до ближайшего общего предка и передачи state обратно в качестве props.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="interactivity-state-snapshot" class="chapter__title">State as a Snapshot</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Значение <code>state</code> никогда не изменяется в пределах рендеринга, даже если код, который запрашивает <code>state</code>, асинхронный:</p>
+                                    <code class="large">import { useState } from 'react';
+
+export default function App() {
+    const [number, setNumber] = useState(0);
+
+    function handleClick() {
+        setNumber(number + 5);
+        setTimeout(() => console.log(number), 2000); // 0
+    }
+
+    return (
+        &lt;>
+            &lt;div>Число: {number}&lt;/div>
+            &lt;button onClick={handleClick}>Клик!&lt;/button>
+        &lt;/>
+    );
+}</code>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Управление состоянием</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="state-preserving-resetting" class="chapter__title">Preserving and Resetting State</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h5>Сохранение состояния</h5>
+                                    <p>Состояние компонента сохраняется при рендеринге компонента на том же месте в дереве элементов, но с другими props.</p>
+                                    <h5>Сброс состояния</h5>
+                                    <p>Состояние компонента сбрасывается при:</p>
+                                    <ol>
+                                        <li>Удалении компонента.</li>
+                                        <li>Рендеринге компонента на другом месте в дереве элементов.</li>
+                                        <li>Рендеринге компонента с другим ключом <code>key</code>.</li>
+                                    </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="state-reducer" class="chapter__title">Extracting State Logic into a Reducer</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хуки <code>useState</code> и <code>useReducer</code> используются для управления состоянием и делают одно и то же.</p>
+                                    <p>Отличия синтаксиса <code>useState</code> от <code>useReducer</code>:</p>
+                                    <code class="large">const [state, setState] = useState(initialState);
+const [state, dispatch] = useReducer(reducer, initialState);</code>
+                                    <p><code>dispatch</code> - функция, которая принимает изменения <code>action</code> в качестве единственного аргумента.</p>
+                                    <p><code>reducer</code> - функция, которая принимает <code>prevState</code> и <code>action</code>. Возвращает новый state.</p>
+                                    <ul>
+                                        <li><code>prevState</code> - старое состояние state</li>
+                                        <li><code>action</code> - изменения, который отправлены с помощью <code>dispatch</code></li>
+                                    </ul>
+                                    <h5>useState -> useReducer</h5>
+                                    <p><code>useReducer</code> - иной способ управления состоянием. Чтобы перейти от использования <code>useState</code> к <code>useReducer</code> необходимо:</p>
+                                    <ol>
+                                        <li>Вместо <code>setState</code> использовать <code>dispatch</code>, передав в качестве аргумента изменения <code>action</code>.</li>
+                                        <li>Написать <code>reducer</code> функцию, которая на основе <code>prevState</code> и <code>action</code> возвращает новый state.</li>
+                                        <li>Заменить <code>useState</code> на <code>useReducer</code>.</li>
+                                    </ol>
+                                    <h5>useReducer изнутри</h5>
+                                    <p>Внутреннее устройство <code>useReducer</code> выглядит примерно так:</p>
+                                    <code class="large">function useReducer(reducer, initialState) {
+    const [state, setState] = useState(initialState);
+
+    function dispatch(action) {
+        setState(state => reducer(state, action));
+    }
+
+    return [state, dispatch];
+}</code>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, useReducer } from 'react';
+
+let nextId = 2;
+const initialTasks = [
+    { id: 0, text: 'Visit Kafka Museum' },
+    { id: 1, text: 'Watch a puppet show' },
+];
+
+export default function TaskApp() {
+    const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+
+    function handleAddTask(text) {
+        dispatch({
+            type: 'added',
+            id: nextId++,
+            text: text,
+        });
+    }
+
+    function handleDeleteTask(taskId) {
+        dispatch({
+            type: 'deleted',
+            id: taskId,
+        });
+    }
+
+    return (
+        &lt;>
+            &lt;AddTask onAddTask={handleAddTask} />
+            &lt;TaskList tasks={tasks} onDeleteTask={handleDeleteTask} />
+        &lt;/>
+    );
+}
+
+function tasksReducer(tasks, action) {
+    switch (action.type) {
+        case 'added': {
+            return [
+                ...tasks,
+                {
+                    id: action.id,
+                    text: action.text,
+                },
+            ];
+        }
+        case 'deleted': {
+            return tasks.filter((t) => t.id !== action.id);
+        }
+    }
+}
+
+function AddTask({ onAddTask }) {
+    const [input, setInput] = useState('');
+
+    return (
+        &lt;div>
+            &lt;input value={input} onChange={e => setInput(e.target.value)} />
+            &lt;button onClick={() => { setInput(''); onAddTask(input) }}>Add&lt;/button>
+        &lt;/div>
+    );
+}
+
+function TaskList({ tasks, onDeleteTask }) {
+    return (
+        &lt;div>
+            {tasks.map(task => 
+                &lt;div key={task.id}>
+                    {task.text}
+                    &lt;button onClick={() => onDeleteTask(task.id)}>Delete&lt;/button>
+                &lt;/div>
+            )}
+        &lt;/div>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="state-context" class="chapter__title">Passing Data Deeply with Context</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Контекст позволяет компоненту предоставлять некоторую информацию всему дереву под ним.</p>
+                                    <p>Для передачи контекста необходимо:</p>
+                                    <ol>
+                                        <li>Создать и экспортировать его: <code>export const MyContext = createContext(defaultValue)</code>.</li>
+                                        <li>Передать его в <code>useContext(MyContext)</code> в любом дочернем компоненте, независимо от того, насколько глубоко он находится.</li>
+                                        <li>Обернуть дочерние компоненты в <code>&lt;MyContext.Provider value={...}></code>, чтобы они могли использовать контекст.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, createContext, useContext } from 'react';
+
+const places = [
+    { id: 0, name: 'Bo-Kaap', imageId: 'K9HVAGH' }, 
+    { id: 1, name: 'Rainbow Village', imageId: '9EAYZrt'},
+    { id: 2, name: 'Macromural de Pachuca', imageId: 'DgXHVwu'},
+];
+
+const ImageSizeContext = createContext(500);
+
+export default function App() {
+    const [isLarge, setIsLarge] = useState(false);
+    const imageSize = isLarge ? 150 : 100;
+
+    return (
+        &lt;ImageSizeContext.Provider value={imageSize}>
+            &lt;label>
+                &lt;input type="checkbox" checked={isLarge} onChange={e => setIsLarge(e.target.checked)} />
+                Use large images
+            &lt;/label>
+            &lt;List />
+        &lt;/ImageSizeContext.Provider>
+    )
+}
+
+function List() {
+    const listItems = places.map(place =>
+        &lt;li key={place.id}>
+            &lt;Place place={place} />
+        &lt;/li>
+    );
+
+    return &lt;ul>{listItems}&lt;/ul>;
+}
+
+function Place({ place }) {
+    return (
+        &lt;>
+            &lt;p>{place.name}&lt;/p>
+            &lt;PlaceImage place={place} />
+        &lt;/>
+    );
+}
+
+function PlaceImage({ place }) {
+    const imageSize = useContext(ImageSizeContext);
+    
+    return (
+        &lt;img
+            src={`https://i.imgur.com/${place.imageId}l.jpg`}
+            alt={place.name}
+            width={imageSize}
+            height={imageSize}
+        />
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="state-reducer-context" class="chapter__title">Scaling Up with Reducer and Context</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Чтобы объединить Reducer с Context, необходимо:</p>
+                                    <ol>
+                                        <li>Создать state и dispatch контекст.</li>
+                                        <li>Предоставить контекст с помощью <code>Context.Provider</code>.</li>
+                                        <li>Использовать контекст в любом дочернем компоненте.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, createContext, useContext, useReducer } from 'react';
+
+const TasksContext = createContext(null);
+const TasksDispatchContext = createContext(null);
+
+let nextId = 2;
+const initialTasks = [
+    { id: 0, text: 'Philosopher’s Path' },
+    { id: 1, text: 'Visit the temple' },
+];
+
+export default function TaskApp() {
+    return (
+        &lt;TasksProvider>
+            &lt;AddTask />
+            &lt;TaskList />
+        &lt;/TasksProvider>
+    );
+}
+
+function TasksProvider({ children }) {
+    const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+
+    return (
+        &lt;TasksContext.Provider value={tasks}>
+            &lt;TasksDispatchContext.Provider value={dispatch}>
+                {children}
+            &lt;/TasksDispatchContext.Provider>
+        &lt;/TasksContext.Provider>
+    );
+}
+
+function tasksReducer(tasks, action) {
+    switch (action.type) {
+        case 'added': {
+            return [...tasks, {
+                id: action.id,
+                text: action.text,
+                done: false
+            }];
+        }
+        case 'deleted': {
+            return tasks.filter(t => t.id !== action.id);
+        }
+    }
+}
+
+function AddTask() {
+    const [text, setText] = useState('');
+    const dispatch = useContext(TasksDispatchContext);
+
+    return (
+        &lt;>
+            &lt;input value={text} onChange={e => setText(e.target.value)} />
+            &lt;button onClick={() => {
+                setText('');
+                dispatch({ type: 'added', id: nextId++, text: text });
+            }}>Add&lt;/button>
+        &lt;/>
+    );
+}
+
+
+function TaskList() {
+    const tasks = useContext(TasksContext);
+
+    return (
+        &lt;ul>
+            {tasks.map(task => (
+                &lt;li key={task.id}>
+                    &lt;Task task={task} />
+                &lt;/li>
+            ))}
+        &lt;/ul>
+    );
+}
+
+function Task({ task }) {
+    const dispatch = useContext(TasksDispatchContext);
+
+    return (
+        &lt;label>
+            {task.text}
+            &lt;button onClick={() => dispatch({ type: 'deleted', id: task.id })}>
+                Delete
+            &lt;/button>
+        &lt;/label>
+    );
+}</code>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Escape hatches</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="escape-refs" class="chapter__title">Referencing Values with Refs</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useRef</code> позволяет компоненту запоминать какую-либо информацию, не запуская новый рендеринг при ее изменении.</p>
+                                    <p>Синтаксис:</p>
+                                    <code class="large">const ref = useRef(initialValue)</code>
+                                    <p><code>ref</code> - объект вида <code>{ current: initialValue }</code>.</p>
+                                    <p>Если необходимо читать или записывать в <code>ref.current</code> во время рендеринга, то вместо этого лучше использовать state.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, useRef } from 'react';
+
+export default function App() {
+    const [counter, setCounter] = useState(0);
+    const ref = useRef(0);
+
+    return (
+        &lt;>
+            &lt;button onClick={() => setCounter(counter + 1)}>{counter}&lt;/button>
+            &lt;button onClick={() => ref.current++}>Ref: {ref.current}&lt;/button>
+        &lt;/>
+    )
+}</code>
+                                    <h5>Использование</h5>
+                                    <p>Хук <code>useRef</code> используется в следующих случаях:</p>
+                                    <ol>
+                                        <li>Хранение идентификаторов <code>timerId</code>.</li>
+                                        <li>Хранение элементов DOM и управление ими.</li>
+                                        <li>Хранение других объектов, которые не нужны для вычисления JSX.</li>
+                                    </ol>
+                                    <h5>useRef изнутри</h5>
+                                    <p>Фунциональность <code>useRef</code> можно реализовать при помощи <code>useState</code>, создав кастомный хук:</p>
+                                    <code class="large">function useRef(initialValue) {
+    const [ref, unused] = useState({current: initialValue});
+    return ref;
+};</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="escape-refs-dom" class="chapter__title">Manipulating the DOM with Refs</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>С помощью атрибута <code>ref</code> можно сохранить ссылку на элемент в <code>myRef.current</code>.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useRef } from 'react';
+
+export default function Form() {
+    const inputRef = useRef(null);
+
+    function handleClick() {
+        inputRef.current.focus();
+    }
+
+    return (
+        &lt;>
+            &lt;input ref={inputRef} />
+            &lt;button onClick={handleClick}>Focus the input&lt;/button>
+        &lt;/>
+    );
+}
+</code>
+                                    <h4>Accessing another component’s DOM nodes</h4>
+                                    <p>С помощью атрибута <code>ref</code> можно легко получать ссылки на встроенные компоненты. Если же передать атрибут <code>ref</code> другому компоненту, в <code>myRef.current</code> запишется <code>null</code>, потому что элемент явно не указан.</p>
+                                    <p>Компонент, которому передан атрибут <code>ref</code>, должен явно указать элемент, который будет записан в <code>myRef.current</code>. Для этого он:</p>
+                                    <ol>
+                                        <li>Должен быть объявлен с помощью <code>forwardRef</code>, получив <code>myRef</code> вторым аргументом.</li>
+                                        <li>Передать <code>myRef</code> нужному элементу.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useRef, forwardRef } from 'react';
+
+export default function Form() {
+    const inputRef = useRef(null);
+
+    function handleClick() {
+        inputRef.current.focus();
+    }
+
+    return (
+        &lt;>
+            &lt;MyInput ref={inputRef} />
+            &lt;button onClick={handleClick}>Focus the input&lt;/button>
+        &lt;/>
+    );
+}
+
+const MyInput = forwardRef((props, ref) => {
+    return &lt;input ref={ref} />;
+});</code>
+                                    <h5>Exposing a subset of the API with an imperative handle</h5>
+                                    <p>С помощью хука <code>useImperativeHandle</code> можно предоставлять только необходимую часть функциональности для взаимодействия с элементом.</p>
+                                    <h4>How to manage a list of refs using a ref callback</h4>
+                                    <p>Чтобы получить ссылку на каждый элемент списка, длина которого неизвестна, следует передавать в атрибут <code>ref</code> callback. Callback будет запускаться при рендеринге со значением элемента и при удалении из React DOM со значением <code>null</code>.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useRef, useState } from "react";
+
+export default function CatFriends() {
+    const itemsRef = useRef(new Map());
+    const [catList, setCatList] = useState(setupCatList);
+
+    function scrollToCat(cat) {
+        const node = itemsRef.current.get(cat);
+        node.scrollIntoView({ behavior: "smooth", inline: "center" });
+    }
+
+    return (
+        &lt;>
+            &lt;nav>
+                &lt;button onClick={() => scrollToCat(catList[0])}>Tom&lt;/button>
+                &lt;button onClick={() => scrollToCat(catList[5])}>Maru&lt;/button>
+                &lt;button onClick={() => scrollToCat(catList[9])}>Jellylorum&lt;/button>
+            &lt;/nav>
+            &lt;div style={{ display: 'flex', overflow: 'auto' }}>
+                {catList.map(cat => (
+                    &lt;img
+                        key={cat}
+                        src={cat}
+                        ref={node => {
+                            const map = itemsRef.current;
+                            if (node) {
+                                map.set(cat, node);
+                            } else {
+                                map.delete(cat);
+                            }
+                        }}
+                    />
+                ))}
+            &lt;/div>
+        &lt;/>
+    );
+}
+
+function setupCatList() {
+    const catList = [];
+    for (let i = 0; i < 10; i++) {
+        catList.push("https://loremflickr.com/320/240/cat?lock=" + i);
+    }
+
+    return catList;
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="escape-effects" class="chapter__title">Synchronizing with Effects</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useEffect</code> позволяет запускать некоторый код после рендеринга для того, чтобы синхронизировать свой компонент с какой-либо системой за пределами React.</p>
+                                    <p>Синтаксис:</p>
+                                    <code class="large">useEffect(fn, dependencies?)</code>
+                                    <p><code>fn</code> - функция, которая будет вызвана после рендеринга.</p>
+                                    <p><code>dependencies</code> - необязательный аргумент с массивом зависимостей.</p>
+                                    <p>При изменении любой из зависимостей (сравнение происходит с помощью <code>Object.is</code>) <code>fn</code> будет вызвана заново. Если <code>dependencies</code> не указан, <code>fn</code> будет запускаться после каждого рендеринга. Если <code>dependencies</code> - пустой массив, <code>fn</code> запустится только после первоначального рендеринга.</p>
+                                    <p>Из <code>useEffect</code> можно вернуть функцию очистки. Она будет вызвана либо перед следующим срабатыванием <code>useEffect</code>, либо при удалении компонента из React DOM.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useEffect } from 'react';
+
+function createConnection() {
+    // A real implementation would actually connect to the server
+    return {
+        connect() {
+            console.log('✅ Connected');
+        },
+        disconnect() {
+            console.log('❌ Disconnected');
+        }
+    };
+}
+
+export default function ChatRoom() {
+    useEffect(() => {
+        const connection = createConnection();
+        connection.connect();
+
+        return () => connection.disconnect();
+    }, []);
+
+    return &lt;h1>Welcome to the chat!&lt;/h1>;
+}</code>
+                                    <h5>Глобальные переменные</h5>
+                                    <p>Изменяемые глобальные переменные нельзя указывать в зависимостях. Во-первых, они вне потока данных, о которых известно React, во-вторых тем замым нарушается принцип "чистого" рендеринга.</p>
+                                    <p>Если необходимо узнавать об изменении внешней переменной, стоит использовать хук <code>useSyncExternalStore</code>.</p>
+                                    <h4>Выполнение асинхронных запросов</h4>
+                                    <p>С помощью <code>useEffect</code> можно отправлять <code>fetch</code>-запросы, но необходимо предусмотреть отмену:</p>
+                                    <code class="large">useEffect(() => {
+    let ignore = false;
+    
+    fetchResults(query, page).then(json => {
+        if (!ignore) {
+            setResults(json);
+        }
+    });
+
+    return () => {
+        ignore = true;
+    };
+}, [query, page]);</code>
+                                    <h4>Когда useEffect не нужен</h4>
+                                    <p>Если можно что-то вычислить во время рендеринга, <code>useEffect</code> не нужен.</p>
+                                    <p>Код, который выполняется не из-за отображения компонента, должен находиться в обработчиках событий.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Hooks</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-id" class="chapter__title">useId</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useId</code> используется для создания уникальных идентификаторов.</p>
+                                    <code class="large">const id = useId()</code>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Создание уникальных идентификаторов для атрибутов доступности (a11y).</li>
+                                        <li>Создание идентификаторов для нескольких связанных элементов.</li>
+                                        <li>Использование одинаковых <code>id</code> на клиенте и на сервере.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useId } from 'react';
+
+function PasswordField() {
+    const passwordHintId = useId();
+    
+    return (
+        &lt;>
+            &lt;label>
+                Password:
+                &lt;input type="password" aria-describedby={passwordHintId} />
+            &lt;/label>
+            &lt;p id={passwordHintId}>
+                The password should contain at least 8 characters
+            &lt;/p>
+        &lt;/>
+    );
+}
+
+export default function App() {
+    return (
+        &lt;>
+            &lt;h2>Choose password&lt;/h2>
+            &lt;PasswordField />
+            &lt;h2>Confirm password&lt;/h2>
+            &lt;PasswordField />
+        &lt;/>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-layouteffect" class="chapter__title">useLayoutEffect</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useLayoutEffect</code> - аналог <code>useEffect</code>, но позволяет получить доступ к элементу до его отрисовки браузером.</p>
+                                    <code class="large">useLayoutEffect(fn, dependencies?)</code>
+                                    <p>React гарантирует, что код внутри <code>useLayoutEffect</code> и любые обновления состояния, запланированные внутри него, будут обработаны до того, как браузер перерисует экран.</p>
+                                    <p>Это позволяет отобразить элемент на экране, измерить его и повторно отобразить так, чтобы пользователь не заметил первого отображения. Другими словами, <code>useLayoutEffect</code> блокирует отображение в браузере.</p>
+                                    <p>Может негативно сказываться на производительности, поэтому, если возможно, лучше использовать <code>useEffect</code>.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Получение размеров элемента до обновления DOM.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useRef, useLayoutEffect } from 'react';
+
+export default function ScrollToBottom() {
+    const ref = useRef(null);
+
+    useLayoutEffect(() => {
+        ref.current.scrollTo({ top: ref.current.scrollHeight });
+    }, [])
+
+    return (
+        &lt;div ref={ref} style={{ height: 100, width: 100, overflow: 'auto' }}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non optio eum tempore amet nulla?
+        &lt;/div>
+    );
+};</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-memo" class="chapter__title">useMemo</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useMemo</code> позволяет сократить число вызовов функции.</p>
+                                    <code class="large">const savedValue = useMemo(fn, dependencies)</code>
+                                    <p><code>fn</code> - функция без аргументов. Вызывается только при изменении <code>dependencies</code>.</p>
+                                    <p><code>savedValue</code> - значение, которое вернула <code>fn</code>.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Пропуск дорогостоящих повторных вычислений.</li>
+                                        <li>Кеширование зависимости другого хука.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">function TodoList({ todos, filter, theme }) {
+    const visibleTodos = useMemo(() => {
+        return getFilteredTodos(todos, filter);
+    }, [todos, filter]);
+
+    return (
+        &lt;div className={theme}>
+            &lt;List items={visibleTodos} />
+        &lt;/div>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-callback" class="chapter__title">useCallback</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useCallback</code> позволяет сохранять одну и ту же функцию между ререндерингами.</p>
+                                    <code class="large">const cachedFn = useCallback(fn, dependencies)</code>
+                                    <p><code>fn</code> - функция, которую необходимо кешировать.</p>
+                                    <p><code>cachedFn</code> - кешированная версия <code>fn</code>.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Предотвращение слишком частого срабатывания эффекта.</li>
+                                        <li>Оптимизация кастомного хука. Рекомендуется обернуть все функции, которые возвращает кастомный хук, в <code>useCallback</code>.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">function ProductPage({ productId, referrer, theme }) {
+    const handleSubmit = useCallback(orderDetails => {
+        post('/product/' + productId + '/buy', {
+            referrer,
+            orderDetails,
+        });
+    }, [productId, referrer]);
+
+    return (
+        &lt;div className={theme}>
+            &lt;ShippingForm onSubmit={handleSubmit} />
+        &lt;/div>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-imperativehandle" class="chapter__title">useImperativeHandle</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useImperativeHandle</code> позволяет настроить предоставляемый в <code>ref</code> функционал.</p>
+                                    <code class="large">useImperativeHandle(ref, createHandle, dependencies?)</code>
+                                    <p><code>ref</code> - ссылка, которую нужно изменить. Как правило, это второй аргумент компонента, обернутого в <code>forwardRef</code>.</p>
+                                    <p><code>createHandle</code> - функция без аргументов, которая возвращает то, что будет записано в <code>ref.current</code>.</p>
+                                    <p><code>dependencies</code> - необязательный аргумент с массивом зависимостей.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Предоставление только определенных свойств элемента внешнему компоненту.</li>
+                                        <li>Предоставление кастомных императивных методов.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useRef, forwardRef, useImperativeHandle } from 'react';
+
+export default function Form() {
+    const inputRef = useRef(null);
+
+    return (
+        &lt;>
+            &lt;MyInput ref={inputRef} />
+            &lt;button onClick={() => inputRef.current.focus()}>Focus&lt;/button>
+            &lt;button onClick={() => inputRef.current.remove() /* Ошибка */}>Remove&lt;/button>
+        &lt;/>
+    );
+}
+
+const MyInput = forwardRef((props, ref) => {
+    const realInputRef = useRef(null);
+
+    useImperativeHandle(ref, () => ({
+        focus() {
+            realInputRef.current.focus();
+        },
+    }));
+
+    return &lt;input ref={realInputRef} />;
+});</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-debugvalue" class="chapter__title">useDebugValue</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useDebugValue</code> позволяет упростить отладку кода при использовании React Dev Tools.</p>
+                                    <code class="large">useDebugValue(value, format?)</code>
+                                    <p><code>value</code> - значение, которое нужно отобразить.</p>
+                                    <p><code>format</code> - необязательная функция, которая вызывается только при инспектировании компонента. Принимает <code>value</code> и возвращает значение, которое будет отображено в итоге. Позволяет избежать потенциально дорогостоящей операции форматирования до того, как компонент будет проинспектирован в React Dev Tools.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Отображение метки для кастомного хука в React Dev Tools.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">function useCustomHook() {
+    const [name, setName] = useState('');
+
+    useDebugValue(name ? 'name задано' : 'name не задано');
+
+    return {name, setName};
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-deferredvalue" class="chapter__title">useDeferredValue</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useDeferredValue</code> позволяет отложить обновление части UI.</p>
+                                    <code class="large">const deferredValue = useDeferredValue(value)</code>
+                                    <p><code>value</code> - значение, которое нужно отложить.</p>
+                                    <p>Во время первоначального рендеринга <code>deferredValue</code> будет таким же, как и <code>value</code>.</p>
+                                    <p>Во время обновлений <code>deferredValue</code> будет “отставать” от последнего значения. В частности, React сначала выполнит рендеринг без обновления <code>deferredValue</code>, а затем попытается выполнить рендеринг с вновь полученным значением в фоновом режиме.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Отображение резервного контента во время загрузки содержимого.</li>
+                                        <li>Отображение устаревшего контента во время загрузки нового.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, useDeferredValue, memo } from 'react';
+
+export default function App() {
+    const [text, setText] = useState('');
+    const deferredText = useDeferredValue(text);
+    
+    return (
+        &lt;>
+            &lt;input value={text} onChange={e => setText(e.target.value)} />
+            &lt;SlowList text={deferredText} />
+        &lt;/>
+    );
+}
+
+const SlowList = memo(function SlowList({ text }) {
+    let items = [];
+    for (let i = 0; i < 25; i++) {
+        items.push(&lt;SlowItem key={i} text={text} />);
+    }
+
+    return (
+        &lt;ul>{items}&lt;/ul>
+    );
+});
+
+function SlowItem({ text }) {
+    let startTime = performance.now();
+    while (performance.now() - startTime < 10) {
+        // Do nothing for 10 ms per item to emulate extremely slow code
+    }
+
+    return (
+        &lt;li>Text: {text}&lt;/li>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-transition" class="chapter__title">useTransition</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useTransition</code> позволяет обновлять состояние не блокируя UI.</p>
+                                    <code class="large">const [isPending, startTransition] = useTransition()</code>
+                                    <p><code>isPending</code> - флаг, который говорит, есть ли в данный момент transition.</p>
+                                    <p><code>startTransition</code> - функция, которая позволяет начать transition. Принимает один параметр - функцию без аргументов, которая обновляет state посредством вызова одной или нескольких <code>setState</code> функций.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Отложенное обновление состояний, которые не являются срочными для того, чтобы не блокировать UI.</li>
+                                        <li>Создание отзывчивого UI даже на медленных устройствах.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, useTransition, memo } from 'react';
+
+export default function TabContainer() {
+    const [isPending, startTransition] = useTransition();
+    const [tab, setTab] = useState('about');
+
+    function selectTab(nextTab) {
+        startTransition(() => setTab(nextTab));
+    }
+
+    return (
+        &lt;>
+            &lt;TabButton
+                isActive={tab === 'about'}
+                onClick={() => selectTab('about')}
+            >
+                About
+            &lt;/TabButton>
+            &lt;TabButton
+                isActive={tab === 'posts'}
+                onClick={() => selectTab('posts')}
+            >
+                Posts (slow)
+            &lt;/TabButton>
+            &lt;TabButton
+                isActive={tab === 'contact'}
+                onClick={() => selectTab('contact')}
+            >
+                Contact
+            &lt;/TabButton>
+            &lt;hr />
+            {tab === 'about' && &lt;AboutTab />}
+            {tab === 'posts' && &lt;PostsTab />}
+            {tab === 'contact' && &lt;ContactTab />}
+        &lt;/>
+    );
+}
+
+function TabButton({ children, isActive, onClick }) {
+    if (isActive) {
+        return &lt;b>{children}&lt;/b>;
+    }
+
+    return (
+        &lt;button onClick={onClick}>
+            {children}
+        &lt;/button>
+    );
+}
+
+function AboutTab() {
+    return (
+        &lt;p>Welcome to my profile!&lt;/p>
+    );
+}
+
+const PostsTab = memo(function PostsTab() {
+    let items = [];
+
+    for (let i = 0; i < 50; i++) {
+        items.push(&lt;SlowPost key={i} index={i} />);
+    }
+
+    return (
+        &lt;ul>{items}&lt;/ul>
+    );
+});
+
+function SlowPost({ index }) {
+    let startTime = performance.now();
+    while (performance.now() - startTime < 10) {
+        // Do nothing for 10 ms per item to emulate extremely slow code
+    }
+
+    return (
+        &lt;li>Post #{index + 1}&lt;/li>
+    );
+}
+
+function ContactTab() {
+    return (
+        &lt;>
+            &lt;p>You can find me online here:&lt;/p>
+            &lt;ul>
+                &lt;li>admin@mysite.com&lt;/li>
+                &lt;li>+123456789&lt;/li>
+            &lt;/ul>
+        &lt;/>
+    );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-insertioneffect" class="chapter__title">useInsertionEffect</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useInsertionEffect</code> используется для вставки стилей авторами CSS-in-JS библиотек.</p>
+                                    <code class="large">useInsertionEffect(fn, dependencies?)</code>
+                                    <p><code>fn</code> - вызывается при добавлении компонента в DOM, но до запуска layout-эффектов. Может возвращать функцию очистки.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Вставка элементов в DOM до запуска layout-эффектов.</li>
+                                        <li>Внедрение динамических стилей из CSS-in-JS библиотек.</li>
+                                    </ol>
+                                    <p>Особенности:</p>
+                                    <ol>
+                                        <li>Хук <code>useInsertionEffect</code> не должен обновлять state.</li>
+                                        <li>Когда <code>useInsertionEffect</code> выполняется, refs еще не связаны с элементами.</li>
+                                        <li>Хук предназначен для использования библиотеками, а не кодом приложения.</li>
+                                    </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-syncexternalstore" class="chapter__title">useSyncExternalStore</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useSyncExternalStore</code> позволяет отслеживать изменение данных во внешнем хранилище, например, в браузере.</p>
+                                    <code class="large">useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)</code>
+                                    <p><code>subscribe</code> - функция, которая принимает единственный аргумент - <code>callback</code>, предоставляемый самим React. В <code>subscribe</code> необходимо подписать <code>callback</code> на соответствующее событие и вернуть функцию отмены от подписки.</p>
+                                    <p><code>getSnapshot</code> - функция, которая возвращает данные из внешнего хранилища. Если хранилище изменяется и возвращаемое значение отличается, React заново рендерит компонент.</p>
+                                    <p><code>getServerSnapshot</code> - необязательная функция, которая возвращает первоначальное состояние данных в хранилище. Без этого аргумента рендеринг компонента на стороне сервера выбросит ошибку.</p>
+                                    <p>Использование:</p>
+                                    <ol>
+                                        <li>Позволяет подписаться на некоторое изменяющееся значение, предоставлямое внешним хранилищем.</li>
+                                    </ol>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useCallback, useSyncExternalStore } from 'react';
+
+function useMediaQuery(query) {
+    const subscribeMediaQuery = useCallback(onChange => {
+        const mql = window.matchMedia(query);
+        mql.addEventListener("change", onChange);
+    
+        return () => mql.removeEventListener("change", onChange);
+    }, [query]);
+
+    const matches = useSyncExternalStore(
+        subscribeMediaQuery,
+        () => window.matchMedia(query).matches
+    );
+
+    return matches;
+}
+
+export default function App() {
+    const matches = useMediaQuery("(max-width: 991px)");
+
+    return &lt;div>{'matches: ' + matches}&lt;/div>;
+}</code>
+                                    <p>Больше об использовании <code>useSyncExternalStore</code> можно узнать в этой <a target="_blank" href="https://habr.com/ru/companies/timeweb/articles/720136/">статье</a>.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Разное</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="reconciliation" class="chapter__title">Reconciliation</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Reconciliation - это алгоритм, с помощью которого React определяет наиболее эффективный способ обновления UI в результате изменения данных.</p>
+                                    <p>Метод <code>render()</code> создает дерево React-элементов. При следующем обновлении state или props, <code>render()</code> возвращает другое дерево React-элементов. Далее React должен выяснить, как эффективно обновить UI для соответствия последнему дереву элементов.</p>
+                                    <p>Существуют общие решения для алгоритмической проблемы вычисления минимального количества операций по преобразованию одного дерева в другое, однако сложность такого алгоритма <code>O(n^3)</code>, где <code>n</code> - количество элементов дерева. Поэтому React использует вместо этого эвристический алгоритм со сложностью <code>O(n)</code>, основанный на двух допущениях:</p>
+                                    <ol>
+                                        <li>Два элемента разных типов создают разные деревья.</li>
+                                        <li>Разработчик может намекнуть, какие дочерние элементы не будут меняться при рендере с помощью свойства <code>key</code>.</li>
+                                    </ol>
+                                    <h5>Элементы разных типов</h5>
+                                    <p>Если корневые элементы имеют разные типы (например, <code>p</code> и <code>div</code>) React сотрет старое дерево и создаст новое с нуля. При стирании дерева, старые DOM узлы и связанный с предыдущим деревом state удаляются.</p>
+                                    <h5>DOM элементы одного типа</h5>
+                                    <p>При сравнении двух элементов одного типа React смотрит на атрибуты каждого и обновляет только их.</p>
+                                    <h5>Рекурсия по дочерним элементами</h5>
+                                    <p>Сравнивая дочерние элементы, React проходится по каждому элементу списка и заменяет элементы в случае изменений.</p>
+                                    <h5>Ключи</h5>
+                                    <p>React поддерживает атрибут <code>key</code>. Если у дочерних элементов он есть, React использует его для эффективного сравнения и изменения двух деревьев.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="error-strict-mode" class="chapter__title">Strict mode</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Строгий режим в React - это инструмент для подсвечивания потенциальных проблем при написании кода.</p>
+                                    <p>Для активации строгого режима достаточно обернуть код в тег <code>React.StrictMode</code>, он будет активирован только для вложенных в него дочерних элементов. Строгий режим не влияет на production сборку.</p>
+                                    <p>Функции, который выполняет строгий режим:</p>
+                                    <ol>
+                                        <li>Идентификация компонентов с небезопасными жизненными циклами.</li>
+                                        <li>Обнаружение неожиданных побочных эффектов.</li>
+                                        <li>Предупреждение об использовании устаревших API.</li>
+                                    </ol>
+                                    <h5>Строгий режим в процессе разработки</h5>
+                                    <p>В строгом режиме React повторно рендерит каждый компонент (state и DOM-дерево сохраняются). Это помогает находить эффекты, требующие очистки, и выявлять ошибки на ранней стадии. Кроме того, при сохранении файла в процессе разработки, React повторно рендерит используемые в нем компоненты.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="error-boundaries" class="chapter__title">Error boundaries</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Error boundaries работают только внутри классовых компонентов.</p>
+                                    <p>Простейший классовый компонент:</p>
+                                    <code class="large">class Welcome extends React.Component {
+    render() {
+        return &lt;h1>Привет, {this.props.name}&lt;/h1>;
+    }
+}</code>
+                                    <p>Error boundaries - возможность ловить ошибки JavaScript внутри их дочерних компонентов и отображать интерфейс, предназначенный для этого.</p>
+                                    <p>Классовый компонент становится Error boundary если определяет как минимум один из методов жизненного цикла: </p>
+                                    <ul>
+                                        <li><code>static getDerivedStateFromError()</code> - отображает резервный интерфейс</li>
+                                        <li><code>componentDidCatch()</code> - выводит информацию</li>
+                                    </ul>
                                 </div>
                             </section>
                         </div>
