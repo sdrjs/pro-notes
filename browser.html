@@ -206,6 +206,9 @@
                                         <a href="#event-loop" class="nav__link">Событийный цикл: микрозадачи и макрозадачи</a>
                                     </li>
                                     <li>
+                                        <a href="#localstorage-sessionstorage" class="nav__link">LocalStorage, sessionStorage</a>
+                                    </li>
+                                    <li>
                                         <a href="#animations" class="nav__link">Анимации</a>
                                     </li>
                                 </ul>
@@ -1594,6 +1597,44 @@ document.getSelection().addRange(range);</code>
                                     <p>Для длительных тяжёлых вычислений, которые не должны блокировать событийный цикл, можно использовать Web Workers. Это способ исполнить код в другом, параллельном потоке.</p>
                                     <p>Web Workers могут обмениваться сообщениями с основным процессом, но они имеют свои переменные и свой событийный цикл.</p>
                                     <p>Web Workers не имеют доступа к DOM, поэтому основное их применение – вычисления. Они позволяют задействовать несколько ядер процессора одновременно.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="localstorage-sessionstorage" class="chapter__title">LocalStorage, sessionStorage</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Объекты веб-хранилища <code>localStorage</code> и <code>sessionStorage</code> позволяют хранить пары ключ/значение в браузере.</p>
+                                    <p>Данные, которые в них записаны, сохраняются после обновления страницы, а при использовани <code>localStorage</code> - даже после перезапуска браузера.</p>
+                                    <p>Большинство браузеров могут хранить до 5 мегабайт данных. Они не имеют срока давности, по которому истекают и удаляются.</p>
+                                    <p>Хранилище привязано к источнику (домен/протокол/порт). Разные протоколы или поддомены определяют разные объекты хранилища, и они не могут получить доступ к данным друг друга.</p>
+                                    <p>Ключ и значение должны быть строками. Если использовать другой тип данных, он автоматически преобразуется в строку.</p>
+                                    <h4>API</h4>
+                                    <p><code>localStorage</code> и <code>sessionStorage</code> предоставляют одинаковые свойства и методы:</p>
+                                    <ul>
+                                        <li><code>setItem(key, value)</code> – сохраняет значение <code>value</code> под ключом <code>key</code></li>
+                                        <li><code>getItem(key)</code> – возвращает значение по ключу <code>key</code>, либо <code>null</code> если ключ не существует</li>
+                                        <li><code>removeItem(key)</code> – удаляет значение по ключу <code>key</code></li>
+                                        <li><code>clear()</code> – очищает объект хранилища</li>
+                                        <li><code>key(index)</code> – возвращает имя ключа на позиции <code>index</code></li>
+                                        <li><code>length</code> – возвращает количество элементов в хранилище</li>
+                                    </ul>
+                                    <h4>SessionStorage</h4>
+                                    <p>Используется реже, чем <code>localStorage</code>, так как имеет свои ограничения:</p>
+                                    <ol>
+                                        <li>Существует только в рамках текущей вкладки браузера. Другая вкладка с той же страницей будет иметь другое хранилище. Но оно разделяется между ифреймами на той же вкладке (если они из одного и того же источника).</li>
+                                        <li>Данные продолжают существовать после перезагрузки страницы, но не после закрытия/открытия вкладки.</li>
+                                    </ol>
+                                    <h4>Событие storage</h4>
+                                    <p>Событие <code>storage</code> генерируется при обновлении данных в <code>localStorage</code> или <code>sessionStorage</code>.</p>
+                                    <p>Событие срабатывает на всех остальных объектах <code>window</code>, где доступно хранилище, кроме того окна, которое его вызвало. Это позволяет разным окнам одного источника обмениваться сообщениями.</p>
+                                    <p>Объект события <code>event</code> имеет свойства, содержащие все данные о произошедшем обновлении (<code>key</code>, <code>oldValue</code>, <code>newValue</code>, <code>url</code>) и объект хранилища <code>storageArea</code>:</p>
+                                    <code class="large">window.addEventListener('storage', function(e) {
+    console.log(e);
+});
+
+localStorage.setItem('test', '111');</code>
+                                    <p>Для связи между окнами одного источника современные браузеры также поддерживают более полнофункциональный Broadcast channel API.</p>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
