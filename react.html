@@ -177,6 +177,16 @@
                                 </ul>
                             </nav>
                         </div>
+                        <div class="nav__row">
+                            <div class="nav__title">Библиотеки для React</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#libraries-react-router" class="nav__link">React Router</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1593,6 +1603,107 @@ export default function App() {
                                         <li><code>static getDerivedStateFromError()</code> - отображает резервный интерфейс</li>
                                         <li><code>componentDidCatch()</code> - выводит информацию</li>
                                     </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Библиотеки для React</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="libraries-react-router" class="chapter__title">React Router</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>React Router - библиотека для маршрутизации в React.</p>
+                                    <p><code>npm i react-router-dom</code> - установка.</p>
+                                    <h4>Использование</h4>
+                                    <p>Чтобы начать использовать React Router, необходимо выполнить следующие шаги:</p>
+                                    <ol>
+                                        <li>Настроить роутер. Достаточно обернуть все приложение в компонент <code>&lt;BroserRouter /></code>: 
+<code class="large">ReactDOM.createRoot(document.getElementById('root')).render(
+    &lt;BrowserRouter>
+        &lt;App />
+    &lt;/BrowserRouter>
+);</code>
+                                        </li>
+                                        <li>Прописать маршруты. Добавить компонент <code>&lt;Routes /></code>, а в нем дочерние <code>&lt;Route /></code> со свойствами <code>path</code> и <code>element</code>:
+<code class="large">&lt;Routes>
+    &lt;Route path="/" element={&lt;Home />} />
+    &lt;Route path="/cart" element={&lt;Cart />} />
+    &lt;Route path="*" element={&lt;NotFound />} />
+&lt;/Routes></code></li>
+                                        <li>Управление навигацией. Заменить ссылки <code>a</code> на компоненты <code>&lt;Link /></code> со свойством <code>to</code>:
+<code class="large">&lt;nav>
+    &lt;ul>
+        &lt;li>&lt;Link to="/">Home&lt;/Link>&lt;/li>
+        &lt;li>&lt;Link to="/cart">Cart&lt;/Link>&lt;/li>
+    &lt;/ul>
+&lt;/nav></code></li>
+                                    </ol>
+                                    <h4>Хуки</h4>
+                                    <h5>useNavigate</h5>
+                                    <p>Хук <code>useNavigate</code> возвращает функцию, которую можно использовать для программной навигации (в императивном ключе, в отличии навигации с помощью компонента <code>&lt;Link /></code>).</p>
+                                    <code class="large">function Info() {
+    const navigate = useNavigate();
+
+    return &lt;button onClick={() => navigate("/")}>Вернуться назад&lt;/button>;
+}</code>
+                                    <h5>useLocation</h5>
+                                    <p>Хук <code>useLocation</code> возвращает текущий объект <code>window.location</code>.</p>
+                                    <p>При изменении <code>location</code> происходит новый рендеринг компонента, использующего этот хук.</p>
+                                    <code class="large">function Header() {
+    const location = useLocation();
+
+    return (
+        &lt;header>
+            &lt;Logo />
+            {location.pathname === '/' && &lt;Search />}
+        &lt;/header>
+    )
+}</code>
+                                    <h5>useParams</h5>
+                                    <p>Хук <code>useParams</code> возвращает объект, содержащий динамические параметры текущего URL-адреса, заданные с помощью свойства <code>path</code> компонента <code>&lt;Route /></code>.</p>
+                                    <code class="large">function App() {
+    return (
+        &lt;Routes>
+            &lt;Route path="/" element={&lt;Home />} />
+            &lt;Route path="/:id" element={&lt;Product />} />
+        &lt;/Routes>
+    );
+}
+
+function Product() {
+    const params = useParams();
+
+    return &lt;h2>Product #{params.id}&lt;/h2>;
+}</code>
+                                    <h4>Компоненты</h4>
+                                    <h5>Outlet</h5>
+                                    <p>Компонент <code>&lt;Outlet /></code> следует использовать в родительских <code>&lt;Route /></code> элементах.</p>
+                                    <p>На месте <code>&lt;Outlet /></code> будет рендериться дочерний <code>&lt;Route /></code>, что позволяет писать вложенный UI.</p>
+                                    <code class="large">function AppLayout() {
+    return (
+        &lt;>
+            &lt;Header />
+            &lt;Outlet />
+        &lt;/>
+    );
+}
+
+function App() {
+    return (
+        &lt;Routes>
+            &lt;Route path="/" element={&lt;AppLayout />}>
+                &lt;Route path="" element={&lt;Home />} />
+                &lt;Route path="cart" element={&lt;Cart />} />
+                &lt;Route path="*" element={&lt;NotFound />} />
+            &lt;/Route>
+        &lt;/Routes>
+    );
+}</code>
                                 </div>
                             </section>
                         </div>
