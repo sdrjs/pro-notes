@@ -780,7 +780,7 @@ readMap.set(messages[0], new Date(2017, 1, 1));</code>
                                     <h3 data-title="data-types-destructuring-assignment" class="chapter__title">Деструктурирующее присваивание</h3>
                                 </div>
                                 <div class="chapter__content">
-                                   <p>Это специальный синтаксис, который позволяет «распаковать» массивы или объекты в несколько переменных.</p>
+                                   <p>Это специальный синтаксис, который позволяет «распаковать» перебираемые объекты в несколько переменных.</p>
                                    <h4>Деструктуризация массива</h4>
                                    <code class="large">let [first, second] = [1, 2]; // first === 1, second === 2</code>
                                    <p>Ненужные элементы массива могут быть отброшены через запятую.</p>
@@ -796,6 +796,7 @@ console.log(rest); // ['Consul', 'Me']</code>
                                    <p>Значения по умолчанию.</p>
                                    <code class="large">let [name = "Guest", info = prompt('')] = []; // info - результат prompt</code>
                                    <h4>Деструктуризация объекта</h4>
+                                   <p>Деструктурирующее присваивание также работает с объектами.</p>
                                    <code class="large">let {height = 100, width} = { width: 200 }; // height === 100, width === 200</code>
                                    <p>Можно присвоить свойство объекта переменной с другим названием.</p>
                                    <code class="large">let { title: t } = { title: "Menu" }; // t === "Menu"</code>
