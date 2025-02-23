@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800,italic&display=swap&subset=cyrillic-ext" rel="stylesheet" /> <!-- .wrapper -->
+    <link href="https://fonts.googleapis.com/css?family=Wix+Madefor+Text:regular&display=swap&subset=cyrillic-ext" rel="stylesheet" /> <!-- .nav__list LI:before -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:regular,500&display=swap&subset=cyrillic-ext" rel="stylesheet" /> <!-- CODE -->
+    <title>Git</title>
+    <link rel="stylesheet" href="css/myreset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container _container">
+                <div class="header__body">
+                    <div class="header__logo">
+                        Notes
+                    </div>
+                    <div class="header__menu menu">
+                        <div class="menu__burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>     
+                        </div>
+                        <nav class="menu__body">
+                            <ul class="menu__list">
+                                <li>
+                                    <a href="index.html" class="menu__link">JavaScript</a>
+                                </li>
+                                <li>
+                                    <a href="browser.html" class="menu__link">DOM</a>
+                                </li>
+                                <li>
+                                    <a href="canvas.html" class="menu__link _active">Canvas</a>
+                                </li>
+                                <li>
+                                    <a href="git.html" class="menu__link">Git</a>
+                                </li>
+                                <li>
+                                    <a href="react.html" class="menu__link">React</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="page">
+            <section class="page__nav nav">
+                <div class="nav__container _container">
+                    <div class="nav__header header-nav">
+                        <h1 class="header-nav__title">Canvas</h1>
+                        <div class="header-nav__description">Основное из <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">серии статей по canvas на MDN</a>.</div>
+                    </div>
+                    <div class="nav__body">
+                        <div class="nav__row">
+                            <div class="nav__title">Canvas API</div>
+                            <nav class="nav__content">
+                                <ul class="nav__list">
+                                    <li>
+                                        <a href="#drawing-shapes" class="nav__link">Drawing shapes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#applying-styles" class="nav__link">Applying styles</a>
+                                    </li>
+                                    <li>
+                                        <a href="#drawing-text" class="nav__link">Drawing text</a>
+                                    </li>
+                                    <li>
+                                        <a href="#using-images" class="nav__link">Using images</a>
+                                    </li>
+                                    <li>
+                                        <a href="#transformations" class="nav__link">Transformations</a>
+                                    </li>
+                                    <li>
+                                        <a href="#compositing-clipping" class="nav__link">Compositing and clipping</a>
+                                    </li>
+                                    <li>
+                                        <a href="#basic-animations" class="nav__link">Basic animations</a>
+                                    </li>
+                                    <li>
+                                        <a href="#pixel-manipulation" class="nav__link">Pixel manipulation</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page__content content">
+                <div class="content__container _container">
+                    <section class="content__section">
+                        <div class="content__header">
+                            <h2 class="content__title">Canvas API</h2>
+                        </div>
+                        <div class="content__body">
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="drawing-shapes" class="chapter__title">Drawing shapes</h3>
+                                </div>
+                                <div class="chapter__content">
+<code class="large">const ctx = canvas.getContext("2d", {
+    alpha: false,
+}); - создание 2d контекста с настройками</code>
+                                    <h4>Drawing rectangles</h4>
+                                    <p><code>ctx.fillRect(x, y, width, height)</code> - рисует закрашенный прямоугольник.</p>
+                                    <p><code>ctx.strokeRect(x, y, width, height)</code> - рисует прямоугольник.</p>
+                                    <p><code>ctx.clearRect(x, y, width, height)</code> - заменяет выбранную область цветом по умолчанию (прозначным либо черным).</p>
+                                    <h4>Paths</h4>
+                                    <p>Path - список точек, соединенных линиями, которые могут иметь разные формы.</p>
+                                    <h5>Создание path</h5>
+                                    <p><code>ctx.beginPath()</code> - создает новый path. Будущие команды по отрисовке будут относиться к этому path.</p>
+                                    <h5>Методы для отрисовки path</h5>
+                                    <p><code>ctx.moveTo(x, y)</code> - переносит карандаш (кисть) в заданную точку.</p>
+                                    <p><code>ctx.lineTo(x, y)</code> - проводит прямую линию из текущей точки к заданной.</p>
+                                    <p><code>ctx.arc(x, y, radius, startAngle, endAngle, counterclockwise)</code> - рисует дугу окружности с центром в заданной точке. Углы задаются в радианах (<code>Math.PI</code> - это <code>180</code> градусов).</p>
+                                    <p><code>ctx.arcTo(x1, y1, x2, y2, radius)</code> - рисует дугу окружности с заданным радиусом по двум опорным точкам.</p>
+                                    <p><code>ctx.closePath()</code> - чертит прямую линию из текущей точки в начальную координату текущего path.</p>
+                                    <p><code>ctx.rect(x, y, width, height)</code> - вызывает <code>ctx.moveTo(x, y)</code> и добавляет к текущему пути прямоугольник.</p>
+                                    <h5>Отображение path на холсте</h5>
+                                    <p><code>ctx.stroke()</code> - обводит текущий path линией с заданными <code>stroke</code> стилями.</p>
+                                    <p><code>ctx.fill(fillRule)</code> - вызывает <code>ctx.closePath()</code> и закрашивает содержимое контура path.</p>
+                                    <ul>
+                                        <li><code>fillRule = ['nonzero'] | 'evenodd'</code> - правило заполнение контура</li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="applying-styles" class="chapter__title">Applying styles</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Line styles</h4>
+                                    <p><code>ctx.strokeStyle</code> - задает цвет <code>color</code> контура фигуры при выполнении <code>ctx.stroke()</code>.</p>
+                                    <p><code>ctx.fillStyle</code> - задает цвет <code>color</code> окрашивания фигуры при выполнении <code>ctx.fill()</code>.</p>
+                                    <ul>
+                                        <li>
+                                            <code>color</code> - строковое представление CSS-цвета. Цвет по умолчанию - черный. Можно установить цвет с альфа-каналом, например <code>'rgb(100 100 100 / 0.7)'</code>. Прозрачность также можно задать свойством <code>ctx.globalAlpha</code>
+                                        </li>
+                                    </ul>
+                                    <p><code>ctx.lineCap</code> - задает тип <code>type</code> концов линии.</p>
+                                    <ul>
+                                        <li><code>type = ['butt'] | 'round' | 'square'</code></li>
+                                    </ul>
+                                    <p><code>ctx.lineJoin</code> - задает тип <code>value</code> соединения линий.</p>
+                                    <ul>
+                                        <li><code>value = ['miter'] | 'bevel' | 'round'</code></li>
+                                    </ul>
+                                    <p><code>ctx.setLineDash(sequence)</code> - задает стиль для пунктирной линии.</p>
+                                    <ul>
+                                        <li><code>sequence</code> - массив, задающий длину линий и расстояние между в <code>px</code>, например, <code>[3, 10, 7, 10]</code></li>
+                                    </ul>
+                                    <p><code>ctx.lineDashOffset</code> - задает смещение пунктирной линии.</p>
+                                    <h4>Shadows</h4>
+                                    <p><code>ctx.shadowOffsetX</code> - задает смещание тени по горизонтали, по умолчанию <code>0</code>.</p>
+                                    <p><code>ctx.shadowOffsetY</code> - задает смещение тени по вертикали, по умолчанию <code>0</code>.</p>
+                                    <p><code>ctx.shadowBlur</code> - задает величину размытия тени, по умолчанию <code>0</code>.</p>
+                                    <p><code>ctx.shadowColor</code> - задает цвет тени, по умолчанию прозрачный.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="drawing-text" class="chapter__title">Drawing text</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>ctx.fillText(text, x, y [, maxWidth])</code> - отрисовывает текст по указанным координатам.</p>
+                                    <p><code>ctx.strokeText(text, x, y [, maxWidth])</code> - отрисовывает контур текста по указанным координатам.</p>
+                                    <p><code>ctx.font</code> - задает стиль отрисованного текста, по умолчанию <code>'10px sans-serif'</code>.</p>
+                                    <p><code>ctx.textAlign</code> - задает выравнивание <code>align</code> текста по горизонтали относительно координаты <code>x</code>.</p>
+                                    <ul>
+                                        <li><code>align = ['start'] | 'end' | 'left' | 'right' | 'center'</code></li>
+                                    </ul>
+                                    <p><code>ctx.textBaseline</code> - задает выравнивание <code>align</code> текста по вертикали относительно координаты <code>y</code>.</p>
+                                    <ul>
+                                        <li><code>align = 'top' | 'hanging' | 'middle' | ['alphabetic'] | 'ideographic' | 'bottom'</code></li>
+                                    </ul>
+                                    <h4>Text measurements</h4>
+                                    <p><code>ctx.measureText(text)</code> - возвращает объект, содержащий ширину текста и другие параметры до его отрисовки.</p>
+                                    <code class="large">const text = ctx.measureText("hello canvas");
+console.log(text.width); // 55.5908203125</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="using-images" class="chapter__title">Using images</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Создание изображения</h4>
+                                    <code class="large">const img = new Image();
+img.src = "myImage.png";
+img.onload = () => { ... }; // после загрузки изображения, можно приступать к его отрисовке</code>
+                                    <h4>Отрисовка изображения</h4>
+                                    <p>Для отрисовки используется метод <code>drawImage</code>, который может вызываться в 3 разных вариантах:</p>
+                                    <p><code>ctx.drawImage(image, x, y)</code> - отрисовывает изображение по заданным координатам.</p>
+                                    <p><code>ctx.drawImage(image, x, y, width, height)</code> - отрисовывает изображение с заданной шириной и высотой.</p>
+                                    <p><code>ctx.drawImage(image, sx, sy, sWidth, sHeight, x, y, width, height)</code> - отрисовывает часть изображения.</p>
+                                    <ul>
+                                        <li><code>image</code> - изображение</li>
+                                        <li><code>x</code>, <code>y</code> - координаты для отрисовки</li>
+                                        <li><code>width</code>, <code>height</code> - ширина и высота отрисовываемого изображения</li>
+                                        <li><code>sx</code>, <code>sy</code> - координаты части исходного изображения</li>
+                                        <li><code>sWidth</code>, <code>sHeight</code> - ширина и высота части исходного изображения</li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="transformations" class="chapter__title">Transformations</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Сохранение и восстановление состояния</h4>
+                                    <p>Состояния canvas хранятся в стеке. Каждый раз при вызове <code>ctx.save()</code> текущее состояние добавляется в стек (аналог метода push). А при вызове <code>ctx.restore()</code> - достается из стека (аналог метода pop). Состояние включает в себя текущие трансформации, <code>stokeStyle</code>, <code>fillStyle</code>, <code>lineWidth</code> и другие атрибуты.</p>
+                                    <p><code>ctx.save()</code> - сохраняет состояние в стек.</p>
+                                    <p><code>ctx.restore()</code> - восставнавливает последнее состояние в стеке и удаляет его из стека.</p>
+                                    <h4>Смещение</h4>
+                                    <p><code>ctx.translate(x, y)</code> - перемещает начало координат canvas на заданную величину. Перед вызовом рекомендуется сохранить состояние, а после выполнения всех операций его восстановить.</p>
+                                    <h4>Вращение</h4>
+                                    <p><code>ctx.rotate(rad)</code> - вращает координатную сетку canvas по часовой стрелке на заданное число радиан относительно начала координат.</p>
+                                    <p>Чтобы повернуть прямоугольник относительно центра, сначала необходимо выполнить <code>ctx.translate(xCenter, yCenter)</code>, затем <code>ctx.rotate(Math.PI / 180 * angle)</code>, затем вернуть начало координат через <code>ctx.translate(-xCenter, -yCenter)</code> и отрисовать прямоугольник через <code>ctx.drawRect</code>.</p>
+                                    <h4>Масштабирование</h4>
+                                    <p><code>ctx.scale(x, y)</code> - увеличивает canvas в <code>x</code> раз по горизонтали и в <code>y</code> раз по вертикали.</p>
+                                    <p>Используя отрицательные <code>x</code>, <code>y</code> можно выполнить зеркальное отражение оси.</p>
+                                    <h4>Матрица трансформации</h4>
+                                    <p><code>ctx.transform(a, b, c, d, e, f)</code> - позволяет задать сразу несколько трансформаций, в том числе искажение <code>skewing</code>. Значения по умолчанию: <code>(1, 0, 0, 1, 0, 0)</code>.</p>
+                                    <ul>
+                                        <li><code>a</code> - горизонтальное масштабирование</li>
+                                        <li><code>b</code> - горизонтальное искажение (<code>skewing</code>)</li>
+                                        <li><code>c</code> - вертикальное искажение (<code>skewing</code>)</li>
+                                        <li><code>d</code> - вертикальное масштабирование</li>
+                                        <li><code>e</code> - горизонтальное смещение</li>
+                                        <li><code>f</code> - вертикальное смещение</li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="compositing-clipping" class="chapter__title">Compositing and clipping</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>globalCompositeOperation</h4>
+                                    <p>Свойство устанавливает то, как новое изображение будет нарисовано поверх существующего содержимого.</p>
+                                    <p><code>ctx.globalCompositeOperation</code> - задает тип операции, который будет использован в режиме наложения. Имеет любое из следующих значений:</p>
+                                    <ul>
+                                        <li><code>'source-over'</code> - значение по умолчанию, при котором новые фигуры отображаются поверх существующего содержимого холста</li>
+                                        <li><code>'source-in'</code> - новая фигура отображается только в том месте, где и она, и целевой холст накладываются друг на друга, все остальное становится прозрачным</li>
+                                        <li><code>'source-out'</code> - новая фигура рисуется там, где она не перекрывает существующее содержимое холста</li>
+                                        <li><code>'source-atop'</code> - новая фигура рисуется только там, где она перекрывает существующее содержимое холста</li>
+                                        <li><code>'destination-over'</code> - новые фигуры рисуются позади существующего содержимого холста</li>
+                                        <li><code>'destination-in'</code> - существующее содержимое холста сохраняется там, где новая фигура и существующее содержимое холста пересекаются. Все остальное становится прозрачным</li>
+                                        <li><code>'destination-out</code>' - существующий контент сохраняется там, где он не перекрывает новую форму</li>
+                                        <li><code>'destination-atop'</code> - существующее содержимое холста сохраняется только там, где оно перекрывает новую фигуру. Новая фигура отображается позади содержимого холста</li>
+                                        <li><code>'lighter'</code> - цвет определяется путем сложения цветов там, где обе фигуры пересекаются</li>
+                                        <li><code>'copy'</code> - показывать только новую фигуру</li>
+                                        <li><code>'xor'</code> - фигуры становятся прозрачными там, где они накладываются друг на друга</li>
+                                        <li><code>'multiply'</code> - пиксели верхнего слоя умножаются на соответствующий пиксель нижнего слоя. В результате изображение получается более темным</li>
+                                        <li><code>'screen'</code> - пиксели инвертируются, перемножаются и снова инвертируются. В результате получается более светлое изображение (похож на <code>lighter</code>)</li>
+                                        <li><code>'overlay'</code> - комбинация значений <code>multiply</code> и <code>screen</code>. Темные участки становятся темнее, а светлые - светлее</li>
+                                        <li><code>'darken'</code> - сохраняет самые темные пиксели обоих слоев (похож на <code>multiply</code>)</li>
+                                        <li><code>'lighten'</code> - сохраняет самые светлые пиксели обоих слоев (похож на <code>lighter</code>)</li>
+                                        <li><code>'color-dodge'</code> - разделяет нижний слой на перевернутый верхний слой</li>
+                                        <li><code>'color-burn'</code> - делит перевернутый нижний слой на верхний, а затем инвертирует результат</li>
+                                        <li><code>'hard-light'</code> - комбинация значений <code>multiply</code> и <code>screen</code> как в значении <code>overlay</code>, но с перестановкой верхнего и нижнего слоев</li>
+                                        <li><code>'soft-light'</code> - более мягкая версия значения <code>hard-light</code>. Чистый черный или белый цвет не приводит к получению абсолютно черного или белого цвета</li>
+                                        <li><code>'difference'</code> - вычитает нижний слой из верхнего или наоборот, чтобы всегда получать положительное значение</li>
+                                        <li><code>'exclusion'</code> - как значение <code>difference</code>, но с меньшим контрастом</li>
+                                        <li><code>'hue'</code> - сохраняет яркость и насыщенность цвета нижнего слоя, при этом беря оттенок верхнего слоя. <code>luma</code>, <code>saturation</code> - не меняются, <code>hue</code> - меняется</li>
+                                        <li><code>'saturation'</code> - сохраняет яркость и оттенок цвета нижнего слоя, при этом беря насыщенность верхнего слоя. <code>luma</code>, <code>hue</code> - не меняются, <code>saturation</code> - меняется</li>
+                                        <li><code>'luminosity'</code> - сохраняет оттенок и насыщенность цвета нижнего слоя, при этом беря яркость верхнего слоя. <code>hue</code>, <code>saturation</code> - не меняются, <code>luma</code> - меняется</li>
+                                        <li><code>'color'</code> - сохраняет яркость цвета нижнего слоя, при этом беря насыщенность верхнего слоя. <code>luma</code> - не меняется, <code>saturation</code> - меняется</li>
+                                    </ul>
+                                    <h4>Clipping</h4>
+                                    <p><code>ctx.clip()</code> - превращает текущий path в маску, используется вместо <code>ctx.closePath()</code>.</p>
+                                    <p>Маска хранится в состоянии canvas.</p>
+                                    <p>Для инвертирования маски (отрисовки содержимого снаружи) нет специального свойства. Однако можно сделать маской фигуру с отверстием внутри.</p>
+                                    <p>Чтобы отрисовать фигуру с отверстием, внешняя и внутреняя фигуры должны быть нарисованы в разных направлениях.</p>
+                                    <p>Прямоугольник, нарисованный через <code>ctx.rect()</code> предполагает направление по часовой стрелке.</p>
+                                    <p>Пример такой маски:</p>
+                                    <code class="large">ctx.beginPath();
+ctx.rect(-75, -75, 150, 150); // Outer rectangle
+ctx.arc(0, 0, 60, 0, Math.PI * 2, true); // Hole anticlockwise
+ctx.clip();</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="basic-animations" class="chapter__title">Basic animations</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Последовательность шагов:</p>
+                                    <ol>
+                                        <li>Если фигуры не будут занимать все пространство, очистить холст через <code>ctx.clearRect()</code>.</li>
+                                        <li>Сохранить текущий state (если будут применяться новые стили, трансформации и тд).</li>
+                                        <li>Отрисовать анимированные фигуры.</li>
+                                        <li>Восстановить сохраненный state.</li>
+                                    </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="pixel-manipulation" class="chapter__title">Pixel manipulation</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p><code>ImageData</code> - объект, который позволяет напрямую работать с пикселями. Имеет следующие read-only свойства:</p>
+                                    <ul>
+                                        <li><code>width</code> - количество пикселей в ширину</li>
+                                        <li><code>height</code> - количество пикселей в высоту</li>
+                                        <li><code>data</code> - одноразмерный массив <code>Uint8ClampedArray</code>, в котором каждые 4 элемента со значениями от <code>0</code> до <code>255</code> содержат информацию об одном пикселе (RGBA). Порядок пикселей - слева направо, затем сверху вниз. Массив содержит <code>height * width * 4</code> байтов данных (и столько же элементов)</li>
+                                    </ul>
+                                    <h4>Создание пустого массива</h4>
+                                    <p><code>const myImageData = ctx.createImageData(width, height)</code> - создание объекта <code>ImageData</code> с указанными размерами. Всем пикселям предварительно задан прозрачный черный цвет <code>rgb(0 0 0 / 0%)</code>, то есть массив хранит одни нули.</p>
+                                    <p><code>const myImageData = ctx.createImageData(anotherImageData)</code> - создание объекта <code>ImageData</code> с размерами <code>anotherImageData</code> и пикселями прозрачного черного цвета.</p>
+                                    <h4>Получение пиксельных данных из контекста</h4>
+                                    <p><code>const myImageData = ctx.getImageData(x, y, width, height)</code> - возвращает объект <code>ImageData</code> с пиксельными данными заданной области холста.</p>
+                                    <h4>Отрисовка пиксельных данных в контексте</h4>
+                                    <p><code>ctx.putImageData(myImageData, x, y)</code> - отрисовывает пиксели из <code>myImageData</code> начиная с координат <code>x</code> и <code>y</code>.</p>
+                                    <h4>Сохранение изображений</h4>
+                                    <p>Метод <code>toDataURL()</code> объекта <code>canvas</code> возвращает представление изображения в виде строки <code>data URL</code>.</p>
+                                    <p><code>canvas.toDataURL('image/png')</code> - значение по умолчанию.</p>
+                                    <p><code>canvas.toDataURL('image/jpeg', quality)</code> - JPG формат, позволяет задать необязательный параметр <code>quality</code> со значением от <code>0</code> до <code>1</code>, где <code>0</code> - изображение в плохом качестве, но небольшое по размеру.</p>
+                                    <p>Пример использования:</p>
+                                    <code class="large">const link = document.createElement("a");
+link.href = canvas.toDataURL("image/png");
+link.download = "canvas_image.png"; // Имя файла
+document.body.append(link);
+link.click();
+document.body.remove(link);</code>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
