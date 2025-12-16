@@ -1116,11 +1116,6 @@ console.log( window.name ); // Sergey</code>
     name: "John"
 };
 console.log(currentUser.name); // John (либо window.currenUser.name)</code>
-                                    <h5>Использование для полифилов</h5>
-                                    <p>Глобальный объект можно использовать, чтобы проверить поддержку современных возможностей языка.</p>
-                                    <code class="large">if (!window.Promise) { // проверка наличия встроенного объекта Promise
-    window.Promise = ... // собственная реализация современной возможности языка
-} // создаем полифил и добавляем функции, существующие в современном стандарте</code>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
