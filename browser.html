@@ -206,6 +206,9 @@
                                         <a href="#selection-range" class="nav__link">Selection и Range</a>
                                     </li>
                                     <li>
+                                        <a href="#page-visibility" class="nav__link">Page Visibility API</a>
+                                    </li>
+                                    <li>
                                         <a href="#event-loop" class="nav__link">Событийный цикл: микрозадачи и макрозадачи</a>
                                     </li>
                                     <li>
@@ -1571,6 +1574,35 @@ document.getSelection().addRange(range);</code>
                                         <li>Предотвратить действие по умолчанию в событии <code>onselectstart</code> (не поддерживается в Safari на iOS) или <code>mousedown</code>.</li>
                                         <li>Очистить выделение после срабатывания с помощью <code>document.getSelection().empty()</code>. Используется редко, так как вызывает нежелаемое мерцание при появлении и исчезновении выделения.</li>
                                     </ol>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="page-visibility" class="chapter__title">Page Visibility API</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <h4>Свойства</h4>
+                                    <p><code>document.visibilityState</code> – возвращает текущее состояние видимости документа. Значения:</p>
+                                    <ul>
+                                        <li><code>'visible'</code> – страница видна пользователю</li>
+                                        <li><code>'hidden'</code> – страница не видна (открыта другая вкладка, браузер свернут и тд)</li>
+                                        <li><code>'prerender'</code> – содержимое страницы проходит предварительную обработку и не видно пользователю</li>
+                                        <li><code>'unloaded'</code> – страница находится в процессе удаления из памяти</li>
+                                    </ul>
+                                    <p><code>document.hidden</code> – упрощенный вариант, поддерживается для совместимости. Значения:</p>
+                                    <ul>
+                                        <li><code>true</code> – эквивалент <code>visibilityState === "hidden"</code></li>
+                                        <li><code>false</code> – эквивалент <code>visibilityState !== "hidden"</code></li>
+                                    </ul>
+                                    <h4>visibilitychange</h4>
+                                    <p>Событие <code>visibilitychange</code> срабатывает на объекте <code>document</code> при изменении видимости страницы.</p>
+                                    <code class="large">document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        console.log('Вкладка не активна');
+    } else {
+        console.log('Вкладка активна');
+    }
+});</code>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
