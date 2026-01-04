@@ -203,6 +203,9 @@
                                         <a href="#mutation-observer" class="nav__link">MutationObserver: наблюдатель за изменениями</a>
                                     </li>
                                     <li>
+                                        <a href="#intersection-observer" class="nav__link">Intersection Observer API</a>
+                                    </li>
+                                    <li>
                                         <a href="#selection-range" class="nav__link">Selection и Range</a>
                                     </li>
                                     <li>
@@ -1489,6 +1492,54 @@ document.body.append(script);</code>
                                     <p><code>mutationRecords = observer.takeRecords()</code> – получает список необработанных записей изменений, которые произошли, но колбэк для них ещё не выполнился.</p>
                                     <h4>Сборка мусора</h4>
                                     <p>Объекты <code>MutationObserver</code> используют внутри себя так называемые «слабые ссылки» на узлы, за которыми смотрят. Если узел удалён из DOM и больше не достижим, то он будет удалён из памяти вне зависимости от наличия наблюдателя.</p>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="intersection-observer" class="chapter__title">Intersection Observer API</h3>
+                                </div>
+                                <div class="chapter__content">  
+                                    <p><code>IntersectionObserver</code> – объект, предоставляющий способ асинхронного наблюдения за изменениями в пересечении элемента с предком или с viewport.</p>
+                                    <h4>Синтаксис</h4>
+                                    <p><code>let observer = new IntersectionObserver(callback, options)</code> - создание наблюдателя за пересечениями.</p>
+                                    <p><code>observer.observe(target)</code> - прикрепление к элементу <code>target</code>.</p>
+                                    <p><code>observer.unobserve(target)</code> - открепление от элемента <code>target</code>.</p>
+                                    <p><code>observer.disconnect()</code> - отключение наблюдателя от всех элементов.</p>
+                                    <h5>options</h5>
+                                    <p>Объект <code>options</code> содержит параметры <code>observer</code>. Основные из них:</p>
+                                    <ul>
+                                        <li><code>root</code> – элемент, который используется в качестве окна просмотра для проверки видимости целевого объекта <code>target</code>, должен быть предком <code>target</code>. Если <code>root</code> не задан или равен <code>null</code>, используется окно просмотра браузера (viewport)</li>
+                                        <li><code>threshold</code> – степень пересечения <code>target</code> и <code>root</code>. Задаётся в диапазоне <code>0 &lt;= n &lt;= 1</code>, где <code>1</code> означает, что 100% элемента <code>target</code> находится в пределах <code>root</code>. Можно задать массив значений, при которых будет запускаться <code>callback</code>. Значение по умолчанию: <code>0</code></li>
+                                        <li><code>rootMargin</code> – отступ вокруг элемента <code>root</code>. Строка от одного до четырех значений, аналогичных CSS-свойству margin. Значения могут быть указаны только в пикселях или процентах. Используется для увеличения или уменьшения (если значение отрицательное) сторон элемента <code>root</code> перед вычислением пересечений. Значение по умолчанию: <code>"0px 0px 0px 0px"</code></li>
+                                    </ul>
+                                    <h5>callback</h5>
+                                    <p><code>function callback(entries, observer) {}</code> – функция, которая вызывается каждый раз при изменении элементом <code>target</code> статуса пересечения.</p>
+                                    <p><code>entries</code> – массив объектов со свойствами:</p>
+                                    <ul>
+                                        <li><code>time</code> – число миллисекунд <code>DOMHightResTimeStamp</code>, указывающее, когда произошло пересечение</li>
+                                        <li><code>rootBounds</code> – объект <code>DOMRectReadOnly</code> (имеет свойства <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code>, <code>bottom</code>, <code>right</code>) элемента <code>root</code></li>
+                                        <li><code>boundingClientRect</code> – объект <code>DOMRectReadOnly</code> элемента <code>target</code></li>
+                                        <li><code>intersectionRect</code> – объект <code>DOMRectReadOnly</code> области пересечения <code>target</code> с <code>root</code></li>
+                                        <li><code>intersectionRatio</code> – число от 0 до 1 включительно, указывающее, какая доля площади <code>target</code> видна в пределах области пересечения</li>
+                                        <li><code>target</code> – сам элемент, к которому прикреплен <code>observer</code></li>
+                                        <li><code>isIntersecting</code> – <code>true</code>, если <code>target</code> пересекается с <code>root</code>, иначе <code>false</code></li>
+                                    </ul>
+                                    <p><code>observer</code> – сам наблюдатель за пересечениями.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.src = entry.target.dataset.src;
+
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    rootMargin: "50px 0px"
+});
+
+document.querySelectorAll('img')
+    .forEach(img => imageObserver.observe(img));</code>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
