@@ -64,10 +64,9 @@ p {
 }
 
 ol>li {
-    position: relative;
-    left: 20px;
+    width: calc(100% - 40px);
+    transform: translateX(20px);
     margin-left: 20px;
-    padding-right: 20px;
 }
 
 li {
