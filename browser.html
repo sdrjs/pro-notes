@@ -291,7 +291,7 @@ console.log(elems.length); // 2</code>
                                 <div class="chapter__content">
                                     <h4>Тип, тег и содержимое</h4>
                                     <p>Каждый DOM-узел принадлежит соответствующему встроенному классу. Корнем иерархии является <code>EventTarget</code>. От него наследует <code>Node</code>, от которого наследуют остальные узлы.</p>
-                                    <div class="ibg">
+                                    <div class="chapter__image">
                                         <img src="img/DOM/Документ/Атрибуты и свойства узлов/Наследование основных классов.PNG" alt="Наследование основных классов">
                                     </div>
                                     <h5>Свойство «nodeType»</h5>
@@ -423,7 +423,7 @@ console.log( document.body.getAttribute('style') ); // 'width: 200px; background
                                 <div class="chapter__content">
                                     <h4>Метрики</h4>
                                     <p>Существует множество JavaScript-свойств, которые позволяют получить геометрические характеристики элемента: ширину, высоту и тд. В этой главе они будут называться «метрики».</p>
-                                    <div class="ibg ibg90">
+                                    <div class="chapter__image">
                                         <img src="img/DOM/Документ/Размеры и прокрутка элементов/Метрики.PNG" alt="Метрики">
                                     </div>
                                     <h4>offsetParent, offsetLeft/offsetTop</h4>
@@ -613,7 +613,7 @@ console.log( document.body.getAttribute('style') ); // 'width: 200px; background
                                         <li>Bubbling phase – фаза всплытия.</li>
                                     </ol>
                                     <p>Свойство объекта события <code>eventPhase</code> содержит номер фазы, на которой событие было поймано.</p>
-                                    <div class="ibg ibg90">
+                                    <div class="chapter__image">
                                         <img src="img/DOM/Введение в события/Всплытие и погружение/Фазы события.PNG" alt="Фазы события">
                                     </div>
                                     <p>Чтобы поймать событие на стадии погружения, необходимо назначить обработчик через <code>addEventListener</code>, указав <code>capture: true</code>.</p>
@@ -1163,7 +1163,7 @@ elem.hidden = false;</code>
                                 <div class="chapter__content">
                                     <p>События указателя позволяют одновременно обрабатывать действия с помощью мыши, касания и пера.</p>
                                     <h4>Типы событий указателя</h4>
-                                    <div class="ibg">
+                                    <div class="chapter__image chapter__image_left">
                                         <img src="img/DOM/Интерфейсные события/События указателя/Типы событий указателя.PNG" alt="Типы событий указателя">
                                     </div>
                                     <p>Можно заменить события <code>mouse</code> на аналогичные <code>pointer</code> с уверенностью, что с мышью по-прежнему всё будет работать нормально.</p>
@@ -1675,7 +1675,7 @@ document.getSelection().addRange(range);</code>
                                     <p>Микрозадачи приходят только из кода. Обычно они создаются промисами.</p>
                                     <p>Также есть специальная функция <code>queueMicrotask(func)</code>, которая помещает <code>func</code> в очередь микрозадач.</p>
                                     <p>Сразу после каждой макрозадачи движок исполняет все задачи из очереди микрозадач до обработки каких-либо событий или рендеринга, или перехода к другой макрозадаче.</p>
-                                    <div class="ibg ibg100">
+                                    <div class="chapter__image">
                                         <img src="img/DOM/Разное/Событийный цикл/Событийный цикл.PNG" alt="Событийный цикл">
                                     </div>
                                     <p>Используя <code>setTimeout(f)</code> с нулевой задержкой, можно разбить большую вычислительную задачу на части, чтобы браузер мог реагировать на пользовательские события и показывать прогресс выполнения этой задачи.</p>
