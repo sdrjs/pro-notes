@@ -1,11 +1,12 @@
-.nav {
-    padding: 40px 0px 0px 0px;
+.page__nav {
+    margin: 0px 0px calc(110 / 16 * 1em) 0px;
 }
 
+/* .nav {} */
 /* .nav__container {} */
 
 .nav__header {
-    margin: 0px 0px 30px 0px;
+    margin: 0px 0px calc(30 / 16 * 1em) 0px;
 }
 
 /* .header-nav {} */
@@ -16,7 +17,7 @@
 }
 
 .header-nav__title:not(:last-child) {
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px calc(20 / 16 / 1.5 * 1em) 0px;
 }
 
 /* .header-nav__description {} */
@@ -28,11 +29,11 @@
 /* .nav__row {} */
 
 .nav__row:not(:last-child) {
-    margin: 0px 0px 30px 0px;
+    margin: 0px 0px calc(30 / 16 * 1em) 0px;
 }
 
 .nav__title {
-    margin: 0px 0px 15px 0px;
+    margin: 0px 0px calc(15 / 16 * 1em) 0px;
     font-weight: 700;
 }
 
@@ -59,15 +60,15 @@
 
 .nav__list li {
     position: relative;
-    margin: 0px 0px 5px 0px;
-    padding: 0px 10px 0px 35px;
+    margin: 0px 0px calc(5 / 16 * 1em) 0px;
+    padding: 0px calc(10 / 16 * 1em) 0px calc(35 / 16 * 1em);
     line-height: 1.5;
 }
 
 .nav__list li::before {
     position: absolute;
     left: 0;
-    top: 3.2px;
+    top: calc(5 / 16 * 1em);
 
     content: counter(a)"."counter(b);
     counter-increment: b;
