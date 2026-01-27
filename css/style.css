@@ -3,7 +3,7 @@
 
 @media (max-width: 575px) {
     html {
-        font-size: 14px;
+        font-size: calc(14 / 16 * 1em);
     }
 }
 
@@ -45,6 +45,7 @@ a:hover {
 }
 
 h4 {
+    overflow: auto;
     margin: calc(15 / 16 / 1.45 * 1em) 0px calc(12 / 16 / 1.45 * 1em) 0px;
     font-size: 1.45rem;
     font-weight: 600;
