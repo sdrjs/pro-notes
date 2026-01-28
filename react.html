@@ -972,14 +972,48 @@ export default function Form() {
 }
 </code>
                                     <h4>Accessing another component’s DOM nodes</h4>
-                                    <p>С помощью атрибута <code>ref</code> можно легко получать ссылки на встроенные компоненты. Если же передать атрибут <code>ref</code> другому компоненту, в <code>myRef.current</code> запишется <code>null</code>, потому что элемент явно не указан.</p>
-                                    <p>Компонент, которому передан атрибут <code>ref</code>, должен явно указать элемент, который будет записан в <code>myRef.current</code>. Для этого он:</p>
-                                    <ol>
-                                        <li>Должен быть объявлен с помощью <code>forwardRef</code>, получив <code>myRef</code> вторым аргументом.</li>
-                                        <li>Передать <code>myRef</code> нужному элементу.</li>
-                                    </ol>
+                                    <p>Атрибут <code>ref</code> можно передавать из родительского компонента в дочерние точно так же, как и остальные атрибуты.</p>
                                     <h5>Пример</h5>
-                                    <code class="large">import { useRef, forwardRef } from 'react';
+                                    <code class="large">import { useRef } from 'react';
+
+export default function Form() {
+    const inputRef = useRef(null);
+
+    function handleClick() {
+        inputRef.current.focus();
+    }
+
+    return (
+        &lt;>
+            &lt;MyInput ref={inputRef} />
+            &lt;button onClick={handleClick}>Focus the input&lt;/button>
+        &lt;/>
+    );
+}
+
+function MyInput({ ref }) {
+    return &lt;input ref={ref} />;
+}</code>
+                                    <p>В примере выше поскольку <code>&lt;input></code> является встроенным DOM-элементом, React сохраняет ссылку на него в <code>ref.current</code>.</p>
+                                    <p>В старых версиях React для передачи <code>ref</code> дочернему компоненту использовался <code>forwardRef</code>. С выходом React 19 этот API считается устаревшим и необходимости в его использовании больше нет.</p>
+                                    <div class="spoiler spoiler_legacy">
+                                        <button class="spoiler__header" aria-expanded="false">
+                                            <span class="spoiler__title">ForwardRef (React &lt;19)</span>
+                                            <span class="spoiler__image">
+                                                <img src="img/icons/chevron-down.svg" alt="">
+                                            </span>
+                                        </button>
+                                        <div class="spoiler__body">
+                                            <div>
+                                                <div class="spoiler__content">
+                                                    <p>С помощью атрибута <code>ref</code> можно легко получать ссылки на встроенные компоненты. Если же передать атрибут <code>ref</code> другому компоненту, в <code>myRef.current</code> запишется <code>null</code>, потому что элемент явно не указан.</p>
+                                                    <p>Компонент, которому передан атрибут <code>ref</code>, должен явно указать элемент, который будет записан в <code>myRef.current</code>. Для этого он:</p>
+                                                    <ol>
+                                                        <li>Должен быть объявлен с помощью <code>forwardRef</code>, получив <code>myRef</code> вторым аргументом.</li>
+                                                        <li>Передать <code>myRef</code> нужному элементу.</li>
+                                                    </ol>
+                                                    <h5>Пример</h5>
+                                                    <code class="large">import { useRef, forwardRef } from 'react';
 
 export default function Form() {
     const inputRef = useRef(null);
@@ -999,6 +1033,10 @@ export default function Form() {
 const MyInput = forwardRef((props, ref) => {
     return &lt;input ref={ref} />;
 });</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <h5>Exposing a subset of the API with an imperative handle</h5>
                                     <p>С помощью хука <code>useImperativeHandle</code> можно предоставлять только необходимую часть функциональности для взаимодействия с элементом.</p>
                                     <h4>How to manage a list of refs using a ref callback</h4>
