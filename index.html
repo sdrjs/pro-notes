@@ -2131,7 +2131,7 @@ console.log( Rabbit.prototype.constructor == Rabbit ); // true</code>
                                     <p>Другие встроенные объекты, такие как <code>Array</code>, <code>Date</code>, <code>Function</code> и другие, также хранят свои методы в прототипах.</p>
                                     <p>Согласно спецификации, наверху иерархии встроенных прототипов находится <code>Object.prototype</code>.</p>
                                     <div class="chapter__image">
-                                        <img src="img/JS/Прототипы, наследование/Наследование встроенных объектов.PNG" alt="Наследование встроенных объектов">
+                                        <img src="img/content/JS/Прототипы, наследование/Наследование встроенных объектов.PNG" alt="Наследование встроенных объектов">
                                     </div>
                                     <p>При создании массива <code>[1, 2, 3]</code> используется конструктор массива <code>Array</code>. Поэтому прототипом массива становится <code>Array.prototype</code>.</p>
                                     <code class="large">let arr = [1, 2, 3];
@@ -2399,7 +2399,7 @@ console.log( Article.publisher ); // Илья Кантор</code>
                                     <p>Ключевое слово <code>extends</code> дает дочернему классу ссылку <code>[[Prototype]]</code> на родительский.</p>
                                     <p>В результате наследование работает как для обычных, так и для статических методов.</p>
                                     <div class="chapter__image">
-                                        <img src="img/JS/Классы/Наследование классов.PNG" alt="Наследование классов">
+                                        <img src="img/content/JS/Классы/Наследование классов.PNG" alt="Наследование классов">
                                     </div>
                                 </div>
                             </section>
@@ -2458,7 +2458,7 @@ console.log(arr.constructor === Array); // true</code>
                                     <p>Обычно, когда один класс наследует другой, то наследуются и статические методы. Но встроенные классы не наследуют статические методы друг друга.</p>
                                     <p>В этом отличие наследования встроенных объектов от наследования посредством <code>extends</code>.</p>
                                     <div class="chapter__image">
-                                        <img src="img/JS/Классы/Наследование встроенных классов.PNG" alt="Наследование встроенных классов">
+                                        <img src="img/content/JS/Классы/Наследование встроенных классов.PNG" alt="Наследование встроенных классов">
                                     </div>
                                 </div>
                             </section>
@@ -3201,7 +3201,7 @@ for (let key in proxy) console.log(key); // test</code>
                                     <p>Например, <code>[[Get]]</code> – внутренний метод для чтения свойства, <code>[[Set]]</code> – для записи и тд.</p>
                                     <p>Ловушки перехватывают вызовы этих внутренних методов. Полный список методов, которые можно перехватывать, перечислен в таблице. Для каждого внутреннего метода указана ловушка, то есть имя метода, который можно добавить в параметр <code>handler</code> при создании <code>new Proxy</code>, чтобы перехватывать данную операцию.</p>
                                     <div class="chapter__image">
-                                        <img src="img/JS/Разное/Proxy/ловушки.JPG" alt="Ловушки Proxy">
+                                        <img src="img/content/JS/Разное/Proxy/ловушки.JPG" alt="Ловушки Proxy">
                                     </div>
                                     <p>JavaScript налагает некоторые условия – инварианты на реализацию внутренних методов и ловушек.</p>
                                     <p><code>[[Set]]</code> должен возвращать <code>truthy</code>, если значение было успешно записано, иначе <code>falsish</code>.</p>
@@ -3398,7 +3398,7 @@ sayHi("Вася"); // Привет, Вася! (через 2 секунды)</cod
                                     <p><code>Reflect</code> – встроенный объект, упрощающий создание прокси.</p>
                                     <p><code>Reflect</code> делает возможным обращение к внутренним методам, таким как <code>[[Get]]</code>, <code>[[Set]]</code> напрямую. Его методы – минимальные обёртки вокруг внутренних методов.</p>
                                     <div class="chapter__image chapter__image_left">
-                                        <img src="img/JS/Разное/Proxy/Методы Reflect.PNG" alt="Методы Reflect">
+                                        <img src="img/content/JS/Разное/Proxy/Методы Reflect.PNG" alt="Методы Reflect">
                                     </div>
                                     <code class="large">let user = {};
 Reflect.set(user, 'name', 'Вася');
