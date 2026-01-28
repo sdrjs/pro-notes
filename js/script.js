@@ -19,3 +19,13 @@ navBody.onclick = function(e) {
     const elem = document.querySelector(`[data-title="${title}"]`);
     elem.scrollIntoView({block: "start", behavior: "smooth"});
 }
+
+const spoilerHeader = document.querySelectorAll('.spoiler__header');
+spoilerHeader.forEach(spoiler => {
+    spoiler.addEventListener('click', function(e) {
+        e.currentTarget.closest('.spoiler').classList.toggle('active');
+
+        const isExpanded = e.currentTarget.ariaExpanded === 'true';
+        e.currentTarget.ariaExpanded = !isExpanded;
+    });
+});

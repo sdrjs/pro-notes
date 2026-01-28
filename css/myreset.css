@@ -19,3 +19,11 @@ img { vertical-align: top; }
 ul li { list-style: none; }
 
 input::-webkit-inner-spin-button { display: none; }
+
+button {
+  border: none;
+  font: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
