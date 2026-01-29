@@ -1299,7 +1299,7 @@ export default function ScrollToBottom() {
                                 <div class="chapter__content">
                                     <p>Хук <code>useImperativeHandle</code> позволяет настроить предоставляемый в <code>ref</code> функционал.</p>
                                     <code class="large">useImperativeHandle(ref, createHandle, dependencies?)</code>
-                                    <p><code>ref</code> - ссылка, которую нужно изменить. Как правило, это второй аргумент компонента, обернутого в <code>forwardRef</code>.</p>
+                                    <p><code>ref</code> - ссылка, которую нужно изменить.</p>
                                     <p><code>createHandle</code> - функция без аргументов, которая возвращает то, что будет записано в <code>ref.current</code>.</p>
                                     <p><code>dependencies</code> - необязательный аргумент с массивом зависимостей.</p>
                                     <p>Использование:</p>
@@ -1308,7 +1308,7 @@ export default function ScrollToBottom() {
                                         <li>Предоставление кастомных императивных методов.</li>
                                     </ol>
                                     <h5>Пример</h5>
-                                    <code class="large">import { useRef, forwardRef, useImperativeHandle } from 'react';
+                                    <code class="large">import { useRef, useImperativeHandle } from 'react';
 
 export default function Form() {
     const inputRef = useRef(null);
@@ -1322,7 +1322,7 @@ export default function Form() {
     );
 }
 
-const MyInput = forwardRef((props, ref) => {
+function MyInput({ ref }) {
     const realInputRef = useRef(null);
 
     useImperativeHandle(ref, () => ({
@@ -1332,7 +1332,7 @@ const MyInput = forwardRef((props, ref) => {
     }));
 
     return &lt;input ref={realInputRef} />;
-});</code>
+};</code>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
