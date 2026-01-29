@@ -1438,7 +1438,7 @@ export default function App() {
 
 const SlowList = memo(function SlowList({ text }) {
     let items = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i &lt; 25; i++) {
         items.push(&lt;SlowItem key={i} text={text} />);
     }
 
@@ -1449,7 +1449,7 @@ const SlowList = memo(function SlowList({ text }) {
 
 function SlowItem({ text }) {
     let startTime = performance.now();
-    while (performance.now() - startTime < 10) {
+    while (performance.now() - startTime &lt; 10) {
         // Do nothing for 10 ms per item to emulate extremely slow code
     }
 
@@ -1533,7 +1533,7 @@ function AboutTab() {
 const PostsTab = memo(function PostsTab() {
     let items = [];
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i &lt; 50; i++) {
         items.push(&lt;SlowPost key={i} index={i} />);
     }
 
@@ -1544,7 +1544,7 @@ const PostsTab = memo(function PostsTab() {
 
 function SlowPost({ index }) {
     let startTime = performance.now();
-    while (performance.now() - startTime < 10) {
+    while (performance.now() - startTime &lt; 10) {
         // Do nothing for 10 ms per item to emulate extremely slow code
     }
 
