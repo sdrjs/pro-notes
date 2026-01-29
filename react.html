@@ -1095,9 +1095,9 @@ export default function CatFriends() {
     return (
         &lt;>
             &lt;nav>
-                &lt;button onClick={() => scrollToCat(catList[0])}>Tom&lt;/button>
-                &lt;button onClick={() => scrollToCat(catList[5])}>Maru&lt;/button>
-                &lt;button onClick={() => scrollToCat(catList[9])}>Jellylorum&lt;/button>
+                &lt;button onClick={() => scrollToCat(catList[0])}>First Neo&lt;/button>
+                &lt;button onClick={() => scrollToCat(catList[5])}>Millie&lt;/button>
+                &lt;button onClick={() => scrollToCat(catList[9])}>Bella&lt;/button>
             &lt;/nav>
             &lt;div style={{ display: 'flex', overflow: 'auto' }}>
                 {catList.map(cat => (
@@ -1121,8 +1121,17 @@ export default function CatFriends() {
 
 function setupCatList() {
     const catList = [];
-    for (let i = 0; i < 10; i++) {
-        catList.push("https://loremflickr.com/320/240/cat?lock=" + i);
+
+    for (let i = 0; i &lt; 10; i++) {
+        let catName = 'neo';
+
+        if (i === 5) {
+            catName = 'millie';
+        } else if (i === 9) {
+            catName = 'bella';
+        }
+
+        catList.push(`https://placecats.com/${catName}/250/200#${i}`);
     }
 
     return catList;
