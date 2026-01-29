@@ -1039,6 +1039,45 @@ const MyInput = forwardRef((props, ref) => {
                                     </div>
                                     <h5>Exposing a subset of the API with an imperative handle</h5>
                                     <p>С помощью хука <code>useImperativeHandle</code> можно предоставлять только необходимую часть функциональности для взаимодействия с элементом.</p>
+                                    <h4>Flushing state updates synchronously with flushSync</h4>
+                                    <p>Функция <code>flushSync</code> дает команду React обновить DOM сразу после выполнения кода, заключенного в <code>flushSync</code>.</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useState, useRef } from 'react';
+import { flushSync } from 'react-dom';
+
+export default function TodoList() {
+    const listRef = useRef(null);
+    const [list, setList] = useState(initialList);
+
+    function handleAdd() {
+        const newTodo = getNextItem();
+
+        flushSync(() => {
+            setList([...list, newTodo]);
+        });
+
+        listRef.current.lastChild.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    return (
+        &lt;>
+            &lt;button onClick={handleAdd}>Add&lt;/button>
+            &lt;ul ref={listRef}>
+                {list.map(item => (
+                    &lt;li key={item.id}>{item.text}&lt;/li>
+                ))}
+            &lt;/ul>
+        &lt;/>
+    );
+}
+
+let nextId = 0;
+let initialList = [];
+
+const getNextItem = () => ({ id: nextId++, text: `Item #${nextId}`});
+for (let i = 0; i &lt; 25; i++) {
+    initialList.push(getNextItem());
+}</code>
                                     <h4>How to manage a list of refs using a ref callback</h4>
                                     <p>Чтобы получить ссылку на каждый элемент списка, длина которого неизвестна, следует передавать в атрибут <code>ref</code> callback. Callback будет запускаться при рендеринге со значением элемента и при удалении из React DOM со значением <code>null</code>.</p>
                                     <h5>Пример</h5>
