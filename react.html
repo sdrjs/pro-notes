@@ -1326,6 +1326,7 @@ export default function ScrollToBottom() {
                                         <li>Предотвращение слишком частого срабатывания эффекта.</li>
                                         <li>Оптимизация кастомного хука. Рекомендуется обернуть все функции, которые возвращает кастомный хук, в <code>useCallback</code>.</li>
                                     </ol>
+                                    <p>Выражения <code>useCallback(fn, deps)</code> и <code>useMemo(() => fn, deps)</code> эквивалентны.</p>
                                     <h5>Пример</h5>
                                     <code class="large">function ProductPage({ productId, referrer, theme }) {
     const handleSubmit = useCallback(orderDetails => {
