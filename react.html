@@ -156,6 +156,9 @@
                                         <a href="#hooks-transition" class="nav__link">useTransition</a>
                                     </li>
                                     <li>
+                                        <a href="#hooks-actionstate" class="nav__link">useActionState</a>
+                                    </li>
+                                    <li>
                                         <a href="#hooks-insertioneffect" class="nav__link">useInsertionEffect</a>
                                     </li>
                                     <li>
@@ -1567,6 +1570,57 @@ function ContactTab() {
             &lt;/ul>
         &lt;/>
     );
+}</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="hooks-actionstate" class="chapter__title">useActionState</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Хук <code>useActionState</code> позволяет обновлять state на основе результата отправки формы.</p>
+                                    <code class="large">const [state, formAction, isPending] = useActionState(fn, initialState, permalink?)</code>
+                                    <p><code>fn</code> - функция, которая будет вызвана при отправке формы. Первым аргументом получает предыдущее значение <code>state</code>  (<code>initialState</code> при первом вызове). Вторым аргументом получает объект FormData, содержащий данные отправленной формы.</p>
+                                    <p><code>initialState</code> - начальное значение <code>state</code> формы. Должно быть сериализуемым (сериализуемое значение можно преобразовать в строку с помощью <code>JSON.stringify()</code>).</p>
+                                    <p><code>permalink</code> - строка, содержащая уникальный URL страницы, которую изменяет эта форма.</p>
+                                    <p><code>state</code> - текущее состояние формы. Результат вызова функции <code>formAction</code>.</p>
+                                    <p><code>formAction</code> - функция, которую можно передать в качестве атрибута <code>action</code> элементу <code>&lt;form></code> или атрибута <code>formAction</code> кнопке <code>&lt;button></code> внутри формы.</p>
+                                    <p><code>isPending</code> - флаг, который сообщает, есть ли there is a pending Transition. (отправленная форма без ответа).</p>
+                                    <h5>Пример</h5>
+                                    <code class="large">import { useActionState } from "react";
+
+export default function App() {
+    return (
+        &lt;>
+            &lt;AddToCartForm itemID="1" itemTitle="JavaScript: The Definitive Guide" />
+            &lt;AddToCartForm itemID="2" itemTitle="JavaScript: The Good Parts" />
+        &lt;/>
+    )
+}
+
+function AddToCartForm({ itemID, itemTitle }) {
+    const [message, formAction, isPending] = useActionState(addToCart, null);
+    return (
+        &lt;form action={formAction}>
+            &lt;h2>{itemTitle}&lt;/h2>
+            &lt;input type="hidden" name="itemID" value={itemID} />
+            &lt;button type="submit">Add to Cart&lt;/button>
+            {isPending ? "Loading..." : message}
+        &lt;/form>
+    );
+}
+
+async function addToCart(prevState, queryData) {
+    "use server";
+    const itemID = queryData.get('itemID');
+    if (itemID === "1") {
+        return "Added to cart";
+    } else {
+        await new Promise(resolve => {
+            setTimeout(resolve, 2000);
+        }); // Add a fake delay to make waiting noticeable.
+        return "Couldn't add to cart: the item is sold out.";
+    }
 }</code>
                                 </div>
                             </section>
