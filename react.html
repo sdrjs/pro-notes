@@ -1395,13 +1395,13 @@ function MyInput({ ref }) {
                                     <h3 data-title="hooks-debugvalue" class="chapter__title">useDebugValue</h3>
                                 </div>
                                 <div class="chapter__content">
-                                    <p>Хук <code>useDebugValue</code> позволяет упростить отладку кода при использовании React Dev Tools.</p>
+                                    <p>Хук <code>useDebugValue</code> позволяет отобразить метку для кастомного хука в React Dev Tools.</p>
                                     <code class="large">useDebugValue(value, format?)</code>
                                     <p><code>value</code> - значение, которое нужно отобразить.</p>
                                     <p><code>format</code> - необязательная функция, которая вызывается только при инспектировании компонента. Принимает <code>value</code> и возвращает значение, которое будет отображено в итоге. Позволяет избежать потенциально дорогостоящей операции форматирования до того, как компонент будет проинспектирован в React Dev Tools.</p>
                                     <p>Использование:</p>
                                     <ol>
-                                        <li>Отображение метки для кастомного хука в React Dev Tools.</li>
+                                        <li>Упрощение отладки кастомного хука в React Dev Tools.</li>
                                     </ol>
                                     <h5>Пример</h5>
                                     <code class="large">function useCustomHook() {
