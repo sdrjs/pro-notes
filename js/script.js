@@ -1,5 +1,11 @@
 'use strict';
 
+window.addEventListener('load', function(e) {
+    const title = location.hash.slice(1);
+    const elem = document.querySelector(`[data-title="${title}"]`);
+    if (elem) elem.scrollIntoView();
+});
+
 const burgerMenu = document.querySelector('.menu__burger');
 const menuBody = document.querySelector('.menu__body');
 burgerMenu.onclick = function(e) {
