@@ -1,37 +1,43 @@
 'use strict';
 
 window.addEventListener('load', function(e) {
-    const title = location.hash.slice(1);
-    const elem = document.querySelector(`[data-title="${title}"]`);
-    if (elem) elem.scrollIntoView();
+    scrollToSection(location.hash);
 });
 
 const burgerMenu = document.querySelector('.menu__burger');
 const menuBody = document.querySelector('.menu__body');
-burgerMenu.onclick = function(e) {
-    menuBody.classList.toggle('_active');
-    burgerMenu.classList.toggle('_active');
-    if (document.body.style.overflow === '') {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
+
+document.addEventListener('click', function (e) {
+    if (burgerMenu.contains(e.target)) {
+        menuBody.classList.toggle('_active');
+        burgerMenu.classList.toggle('_active');
+
+        if (document.body.style.overflow === '') {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (e.target.classList.contains('nav__link')) {
+        scrollToSection(e.target.getAttribute('href'), true);
+    }
+
+    const spoilerHeader = e.target.closest('.spoiler__header');
+    if (spoilerHeader) {
+        spoilerHeader.closest('.spoiler').classList.toggle('active');
+
+        const isExpanded = spoilerHeader.ariaExpanded === 'true';
+        spoilerHeader.ariaExpanded = !isExpanded;
+    }
+});
+
+function scrollToSection(hash, isSmooth) {
+    const title = hash.slice(1);
+    const elem = document.querySelector(`[data-title="${title}"]`);
+
+    if (elem) {
+        const behavior = isSmooth ? "smooth" : "instant";
+        elem.scrollIntoView({ block: "start", behavior });
     }
 }
-
-const navBody = document.querySelector('.nav__body');
-navBody.onclick = function(e) {
-    if (!e.target.classList.contains('nav__link')) return;
-    const title = e.target.getAttribute('href').slice(1);
-    const elem = document.querySelector(`[data-title="${title}"]`);
-    elem.scrollIntoView({block: "start", behavior: "smooth"});
-}
-
-const spoilerHeader = document.querySelectorAll('.spoiler__header');
-spoilerHeader.forEach(spoiler => {
-    spoiler.addEventListener('click', function(e) {
-        e.currentTarget.closest('.spoiler').classList.toggle('active');
-
-        const isExpanded = e.currentTarget.ariaExpanded === 'true';
-        e.currentTarget.ariaExpanded = !isExpanded;
-    });
-});
