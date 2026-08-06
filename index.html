@@ -347,7 +347,7 @@
                                     <p>Символы нужны для создания уникальных идентификаторов. Использование:</p>
                                     <ol>
                                         <li>«Скрытые» свойства объектов.</li>
-                                        <li>Системные символолы, доступные как <code>Symbol.*</code> , например:
+                                        <li>Системные символы, доступные как <code>Symbol.*</code> , например:
                                             <ul>
                                                 <li>
                                                     <code>Symbol.isConcatSpreadable</code>
@@ -611,8 +611,8 @@ new Array("Яблоко", "Груша", "и тд"); // можно сразу д�
                                    <p><code>arr.splice(index[, deleteCount, elem1, ..., elemN])</code> - удаляет <code>deleteCount</code> элементов начиная с <code>index</code> и заменяет на <code>elemN</code> эл-ты. Возвращает массив удаленных элементов. Может вставлять элементы без удаления если установить <code>deleteCount</code> в <code>0</code>.</p>
                                    <p><code>arr.slice(start, end)</code> - возвращает новый массив, в который копирует элементы, начиная с индекса <code>start</code> и до (не включая) <code>end</code>. Без аргументов создаёт копию массива <code>arr</code>.</p>
                                    <p><code>arr.concat(arg1, arg2...)</code> - создаёт новый массив, в который распаковывает данные из других массивов и добавляет дополнительные значения. Другие объекты добавляются как есть.</p>
-                                   <p>Если псевдомассив имеет специальное свойство <code>Symbol.isConcatSpreadable</code> со значением <code>truthy</code>, он обрабатывается как массив.</p>
                                    <code class="large">[1, 2].concat([[3, 4], 5], 6, {7: 8}) // вернет [1, 2, [3, 4], 5, 6, {7: 8}]</code>
+                                   <p>Если псевдомассив имеет специальное свойство <code>Symbol.isConcatSpreadable</code> со значением <code>truthy</code>, он обрабатывается как массив.</p>
                                    <p><code>arr.forEach(function(item, index, array) {...})</code> - позволяет запускать функцию для каждого элемента массива. Результат функции, если она что-то возвращает, игнорируется.</p>
                                    <p><code>arr.indexOf(item, from)</code> - ищет <code>item</code> в массиве, начиная с позиции <code>from</code> и возвращает индекс найденного элемента, либо <code>-1</code> если ничего не найдено.</p>
                                    <p><code>arr.lastIndexOf(item, from)</code> - поиск выполняется начиная с <code>from</code> и заканчивая началом массива.</p>
@@ -803,14 +803,14 @@ console.log(rest); // ['Consul', 'Me']</code>
                                    <code class="large">let [name = "Guest", info = prompt('')] = []; // info - результат prompt</code>
                                    <h4>Деструктуризация объекта</h4>
                                    <p>Деструктурирующее присваивание также работает с объектами.</p>
-                                   <code class="large">let {height = 100, width} = { width: 200 }; // height === 100, width === 200</code>
+                                   <code class="large">let { height = 100, width } = { width: 200 }; // height === 100, width === 200</code>
                                    <p>Можно присвоить свойство объекта переменной с другим названием.</p>
                                    <code class="large">let { title: t } = { title: "Menu" }; // t === "Menu"</code>
                                    <p>Для получения остатка объекта можно использовать троеточие, как и для массивов.</p>
-                                   <code class="large">let {one, ...rest} = { one: 1, two: 2, three: 3 };
+                                   <code class="large">let { one, ...rest } = { one: 1, two: 2, three: 3 };
 console.log(rest); // {two: 2, three: 3}</code>
                                    <h4>Вложенная деструктуризация</h4>
-                                   <code class="large">let options = { size: {width: 100, height: 200} };
+                                   <code class="large">let options = { size: { width: 100, height: 200 } };
 
 let {
     size: {
@@ -826,17 +826,17 @@ console.log(title); // "Menu"
 console.log(size); // ReferenceError: size is not defined
 console.log(width); // ReferenceError: width is not defined</code>
                                    <h4>Умные параметры функций</h4>
-                                   <p>Есть ситуации, когда функция имеет много параметров, большинство из которых не обязательны.</p>
+                                   <p>Есть ситуации, когда функция имеет много параметров, большинство из которых необязательны.</p>
                                    <code class="large">function showMenu(title = "Untitled", width = 200, height = 100, items = []) {...}</code>
                                    <p>Можно передать параметры как объект, и функция немедленно деструктурирует его в переменные.</p>
-                                   <code class="large">function showMenu({title = "Untitled", width = 200, height = 100, items = []}) {...}
+                                   <code class="large">function showMenu({ title = "Untitled", width = 200, height = 100, items = [] }) {...}
 showMenu({ title: "My menu", items: ["Item1", "Item2"] });</code>
                                    <p>Если нужны значения по умолчанию, то следует передать пустой объект.</p>
                                    <code class="large">showMenu({}); // все значения - по умолчанию
 showMenu(); // TypeError: Cannot read properties of undefined (reading 'title')</code>
-                                   <p>Ошибку можно исправить, сделав {} значением по умолчанию для всего объекта параметров.</p>
+                                   <p>Ошибку можно исправить, сделав <code>{}</code> значением по умолчанию для всего объекта параметров.</p>
                                    <code class="large">function showMenu({ title = "Menu", width = 100, height = 200 } = {}) {
-    console.log( `${title} ${width} ${height}` );
+    console.log(`${title} ${width} ${height}`);
 }
 
 showMenu(); // Menu 100 200</code>
@@ -877,7 +877,7 @@ showMenu(); // Menu 100 200</code>
                                     <code class="large">new Date().getHours(); // 9
 new Date().getUTCHours(); // 6</code>
                                     <p>2 особых методы без UTC-варианта:</p>
-                                    <p><code>getTime()</code> - для заданной даты возвращает таймстамп</p>
+                                    <p><code>getTime()</code> - для заданной даты возвращает таймстамп.</p>
                                     <code class="large">new Date().getTime(); // 1688275690962</code>
                                     <p><code>getTimezoneOffset()</code> - возвращает разницу в минутах между местным часовым поясом и UTC.</p>
                                     <code class="large">new Date().getTimezoneOffset(); // -180</code>
@@ -968,7 +968,7 @@ JSON.stringify(meetup); // {"title":"Conference","room":23}</code>
                                     <p><code>reviver</code> - необязательная ф-ция, которая будет вызываться для каждой пары <code>(ключ, значение)</code> и преобразовывать значения.</p>
                                     <p>Например, используется чтобы значения объектов <code>date</code> не оставались строками после преобразования:</p>
                                     <code class="large">let obj = {date: new Date()};
-let json = JSON.stringify(obj); // "2023-07-02T09:37:28.557Z"
+let json = JSON.stringify(obj); // {"date":"2023-07-02T09:37:28.557Z"}
 JSON.parse(json, function(key, value) {
     if (key === 'date') return new Date(value);
     return value;
