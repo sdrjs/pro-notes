@@ -1419,8 +1419,8 @@ user.sayNow("Hello"); // [10:00] John: Hello!</code>
                                     <p>Для каррирования необходима функция с фиксированным количеством аргументов. Функцию, которая использует остаточные параметры, типа <code>f(...args)</code>, каррировать не получится.</p>
                                     <p>Создадим вспомогательную функцию <code>curry(f)</code>, которая выполняет каррирование функции <code>f</code> с двумя аргументами. Другими словами, <code>curry(f)</code> для функции <code>f(a, b)</code> трансформирует её в <code>f(a)(b)</code>.</p>
                                     <code class="large">function curry(f) {
-    return function(b) {
-            return function(a) {
+    return function (b) {
+        return function (a) {
             return f(a, b);
         };
     };
