@@ -1695,11 +1695,11 @@ let regexp = /&lt;a href="[^"]*" class="doc">/g; // null (верный резу�
                                     <p>Например, регулярное выражение для поиска доменов (mail.com, my-site.users.mail.com):</p>
                                     <code class="large">let regexp = /([\w-]+\.)+\w+/g;</code>
                                     <p>Пример можно расширить, создав регулярное выражение для поиска email (формат: <code>имя@домен</code>):</p>
-                                    <code class="large">let regexp = /[-.\w]+@([\w-]+\.)+[\w-]+/g;</code>
+                                    <code class="large">let regexp = /[-.\w]+@([\w-]+\.)+\w+/g;</code>
                                     <h4>Содержимое скобок в match</h4>
                                     <p>Метод <code>str.match(regexp)</code> (для <code>regexp</code> без флага <code>g</code>) ищет первое совпадение и возвращает его в виде массива: на позиции <code>0</code> будет всё совпадение целиком, на позиции <code>1</code> – содержимое первой скобочной группы, на позиции <code>2</code> –  второй и тд.</p>
                                     <p>Скобки могут быть и вложенными (их номера идут слева направо, по открывающей скобке).</p>
-                                    <p>Если скобочная группа необязательна (стоит квантификатор <code>(...)?</code>), соответствующий элемент массива существует и равен <code>undefined</code>.</p>
+                                    <p>Если скобочная группа необязательна (стоит квантификатор <code>(...)?</code>) и для нее не найдено совпадения в строке, то соответствующий элемент массива равен <code>undefined</code>.</p>
                                     <code class="large">let match = 'ab'.match(/a(z)?(b)/);
 [...match]; // ['ab', undefined, 'b']</code></code>
                                     <h4>Поиск всех совпадений с группами: matchAll</h4>
@@ -1714,9 +1714,9 @@ let regexp = /&lt;a href="[^"]*" class="doc">/g; // null (верный резу�
                                     <code class="large">alert(results); // [object RegExp String Iterator]</code>
                                     <p>Получить результаты можно так:</p>
                                     <ol>
-                                        <li><code>results = Array.from(results);</code> // превращаем в массив</li>
-                                        <li><code>for(let result of results);</code> // перебираем в цикле</li>
-                                        <li><code>let [tag1, tag2] = results;</code> // или используем деструктуризацию</li>
+                                        <li><code>let arr = Array.from(results);</code> // превратить в массив</li>
+                                        <li><code>for (let result of results);</code> // перебрать в цикле</li>
+                                        <li><code>let [first, second] = results;</code> // использовать деструктуризацию</li>
                                     </ol>
                                     <h4>Именованные группы</h4>
                                     <p>Для удобства скобкам можно присваивать имена добавлением <code>?&lt;name></code> после открытия скобки.</p>
@@ -1728,7 +1728,7 @@ let regexp = /&lt;a href="[^"]*" class="doc">/g; // null (верный резу�
                                     <p>Для именованных скобок можно также использовать ссылку как <code>$&lt;имя></code>.</p>
                                     <code class="large">let regexp = /(?&lt;year>[0-9]{4})-(?&lt;month>[0-9]{2})-(?&lt;day>[0-9]{2})/g;
 "2019-10-30".replace(regexp, '$3.$&lt;month>.$&lt;year>'); // 30.10.2019</code>
-                                    <h4>Исключение из запоминания через :?</h4>
+                                    <h4>Исключение из запоминания через ?:</h4>
                                     <p>Скобочную группу можно исключить из запоминаемых и нумеруемых, добавив в её начало <code>?:</code>.</p>
                                     <code class="large">let regexp = /(?:go)+ (\w+)/i;
 "Gogogo John!".match(regexp).length; // 2 (Gogogo John, John)</code>
