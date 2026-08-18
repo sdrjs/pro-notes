@@ -321,7 +321,7 @@
                                     <h4>Вспомогательные команды</h4>
                                     <p><code>git check-ignore -v &lt;file></code> Если файл попадает под правило в <code>.gitignore</code>, выводит строку с шаблоном, который за это отвечает (номер строки обернут в двоеточие).</p>
                                     <p>Чтобы применить шаблоны в <code>.gitignore</code> к уже отслеживаемым файлам, необходимо выполнить команды <code>git rm --cached &lt;file></code> + <code>git commit</code>.</p>
-                                    <p><code>git update-index --skip-worktree &lt;file></code> Временнно прекратить отслеживание файла в репозитории.</p>
+                                    <p><code>git update-index --skip-worktree &lt;file></code> Временно прекратить отслеживание файла в репозитории.</p>
                                     <p><code>git update-index --no-skip-worktree &lt;file></code> Возобновить отслеживание.</p>
                                     <p><code>git ls-files -v . | findstr "^S"</code> Найти все временно неотслеживаемые файлы.</p>
                                     <h4>.git/info/exclude</h4>
@@ -431,12 +431,12 @@
                                     <p><code>git stash list</code> Просмотр припрятанных изменений.</p>
                                     <p><code>git stash apply &lt;num></code> Извлекает изменения, которые хранятся под номером <code>num</code> (или <code>0</code>, если <code>num</code> не указан) в рабочую директорию и Индекс.</p>
                                     <p><code>git checkout stash@{&lt;num>} -- &lt;file></code> Применить <code>git stash apply &lt;num></code> только для отслеживаемого файла <code>&lt;file></code>.</p>
-                                    <p><code>git stash pop &lt;num></code> Выполняет <code>git shash apply &lt;num></code> и очищает архив под указанным номером.</p>
+                                    <p><code>git stash pop &lt;num></code> Выполняет <code>git stash apply &lt;num></code> и очищает архив под указанным номером.</p>
                                     <h5>Примеры</h5>
                                     <p><code>git stash save 'my changes' -u</code> Сохранить все изменения, включая неотслеживаемые файлы под именем <code>my changes</code>.</p>
                                     <p><code>git stash apply</code> Применить последнее изменение, не удаляя его из архива.</p>
                                     <p><code>git stash pop 2</code> Применить изменение, сохраненное под номером <code>2</code> и удалить его из архива.</p>
-                                    <p><code>git checkout stash@{0} -- index.html</code> Достать из последних припрятаных изменений только файл <code>index.html</code>.</p>
+                                    <p><code>git checkout stash@{0} -- index.html</code> Достать из последних припрятанных изменений только файл <code>index.html</code>.</p>
                                 </div>
                             </section>
                         </div>
@@ -497,7 +497,7 @@
                                     <h4>Смешанный reset</h4>
                                     <p><code>git reset &lt;hash></code> Передвигает указатель текущей ветки на коммит <code>hash</code>, обновляя файлы только в Индексе (не меняет состояние файлов в рабочей директории). Отменяет изменения в Индексе.</p>
                                     <p><code>git reset &lt;hash> &lt;file></code> Изменяет файл в Индексе на момент коммита <code>hash</code>. Указатель ветки не передвигается.</p>
-                                    <p><code>git reset -- &lt;file></code> Отменяет изменения файла в Индексе. Аналог команды <code>get restore --staged &lt;file></code>. Если <code>file</code> не указан, отменяет все изменения в Индексе.</p>
+                                    <p><code>git reset -- &lt;file></code> Отменяет изменения файла в Индексе. Аналог команды <code>git restore --staged &lt;file></code>. Если <code>file</code> не указан, отменяет все изменения в Индексе.</p>
                                 </div>
                             </section>
                         </div>
@@ -676,7 +676,7 @@
                                     <h4>Фильтр по изменениям в коммите</h4>
                                     <p><code>-S &lt;str></code> Выводит коммиты, изменяющие строку <code>str</code> в их содержимом.</p>
                                     <p><code>-G&lt;regexp></code> Позволяет отфильтровать коммиты по изменениям содержимого в них. Специальные символы необходимо экранировать с помощью <code>\</code>.</p>
-                                    <p><code>-L &lt;start>,&lt;end>:&lt;file></code> Выводит все коммиты, в <code>file</code> которых были измены строки от <code>start</code> до <code>end</code> (включительно) и покажет эти строки в формате <code>diff</code>.</p>
+                                    <p><code>-L &lt;start>,&lt;end>:&lt;file></code> Выводит все коммиты, в <code>file</code> которых были изменены строки от <code>start</code> до <code>end</code> (включительно) и покажет эти строки в формате <code>diff</code>.</p>
                                     <p><code>-L '/&lt;regexp1>/','/&lt;regexp2>/':&lt;file></code> Выведет все коммиты, в которых были изменения между <code>regexp1</code> и <code>regexp2</code> в файле <code>file</code>.</p>
                                     <h5>Примеры</h5>
                                     <p><code>git log -GsayHi -p</code> Вывод изменений <code>diff</code> коммитов, в которых была изменена строка <code>sayHi</code>.</p>
@@ -685,7 +685,7 @@
                                     <p><code>git log -L '/&lt;head>/','/&lt;\/head>/':index.html</code> Поиск коммитов, изменяющих содержимое тега <code>head</code> в <code>index.html</code>.</p>
                                     <p><code>git log -L '/^function sayHi/','/^}/':script.js</code> Поиск коммитов, изменяющих функцию <code>sayHi</code> в <code>script.js</code>.</p>
                                     <h4>Другие фильтры</h4>
-                                    <p><code>-&lt;n></code> Ограничить количиство выводимых коммитов числом <code>n</code>.</p>
+                                    <p><code>-&lt;n></code> Ограничить количество выводимых коммитов числом <code>n</code>.</p>
                                     <p><code>--author</code> Фильтровать коммиты по имени или email автора.</p>
                                     <p><code>--committer</code> Фильтровать коммиты по имени или email коммитера.</p>
                                     <p><code>--before</code> (или <code>--until</code>) Фильтрация коммитов до определенной даты включительно.</p>
@@ -739,7 +739,7 @@ git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)| %C(cyan)%s%d %
                                 </div>
                                 <div class="chapter__content">
                                     <p><code>git merge &lt;hash></code> Сливает текущую ветку с <code>hash</code>, создает коммит слияния и переносит туда указатель текущей ветки.</p>
-                                    <p><code>git merge-base &lt;hash1> &lt;hash2></code> Выведет общий для двух указатей хэш коммита, который будет использоваться при слиянии.</p>
+                                    <p><code>git merge-base &lt;hash1> &lt;hash2></code> Выведет общий для двух указателей хэш коммита, который будет использоваться при слиянии.</p>
                                     <p><code>git reset --merge</code> (или <code>git merge --abort</code> (после <code>merge</code> без флага <code>--squash</code>)) Позволяет отменить слияние и откатить состояние файлов на момент до его начала вместе с незакоммиченными изменениями.</p>
                                     <p><code>git merge --continue</code> Соответствует команде <code>git commit</code>, работает только из состояния слияния.</p>
                                     <h4>Флаги</h4>
@@ -787,7 +787,7 @@ git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)| %C(cyan)%s%d %
                                     <h4>Флаги</h4>
                                     <p><code>-e</code> (или <code>--edit</code>) Изменить описание коммита.</p>
                                     <p><code>-n</code> (или <code>--no-commit</code>) Добавить все изменения в Индекс, но не делать коммит.</p>
-                                    <p><code>-x</code> Добавить в описание коммита строку c <code>&lt;hash></code> скопированного коммита.</p>
+                                    <p><code>-x</code> Добавить в описание коммита строку с <code>&lt;hash></code> скопированного коммита.</p>
                                     <h4>Команды при возникновении конфликта</h4>
                                     <p><code>git cherry-pick --abort</code> Отменить применение изменений и вернуть состояние файлов обратно.</p>
                                     <p><code>git cherry-pick --continue</code> Продолжить выполнение <code>cherry-pick</code>, когда конфликт разрешен.</p>
@@ -814,14 +814,14 @@ git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)| %C(cyan)%s%d %
                                         <li><code>pick</code> Опция по умолчанию, применяет коммит без изменений</li>
                                         <li><code>reword</code> Изменить только описание коммита</li>
                                         <li><code>edit</code> Приостанавливает слияние, позволяя изменить коммит</li>
-                                        <li><code>squash</code> Объединить коммит с предыдующим, сохраняя описания обоих коммитов</li>
+                                        <li><code>squash</code> Объединить коммит с предыдущим, сохраняя описания обоих коммитов</li>
                                         <li><code>fixup</code> Объединить коммит с предыдущим, не сохраняя описание текущего коммита</li>
                                     </ul>
                                     <h5>Пример</h5>
                                     <p><code>git reflog feature</code> Найти старую вершину <code>feature</code>, чтобы отменить <code>rebase</code> переносом указателя <code>feature</code> обратно. В простых ситуациях, когда конфликтов не было, можно использовать <code>git reset --hard ORIG_HEAD</code>.</p>
                                     <h5>Другие флаги</h5>
                                     <p><code>--fixup=&lt;hash></code> Используется вместе с командой <code>git commit</code> чтобы при следующем интерактивном перебазировании с флагом <code>--autosquash</code> Git автоматически поставил этот коммит после коммита <code>hash</code> (который нужно исправить) с опцией <code>fixup</code>. <code>--squash=&lt;hash></code> делает то же самое, но для <code>hash</code> поставит опцию <code>squash</code>.</p>
-                                    <p><code>--autosquash</code> Берет все коммиты, сделанные с флагом <code>--fixup</code> или <code>--squah</code> и добавляет их в список в нужном месте с соответствующей опцией.</p>
+                                    <p><code>--autosquash</code> Берет все коммиты, сделанные с флагом <code>--fixup</code> или <code>--squash</code> и добавляет их в список в нужном месте с соответствующей опцией.</p>
                                     <h4>Команды при возникновении конфликта</h4>
                                     <p><code>git rebase --abort</code> Отмена перебазирования с возвращением в исходное состояние.</p>
                                     <p><code>git rebase --quit</code> Отмена перебазирования, файлы в рабочем каталоге и указатель <code>HEAD</code> остаются как есть.</p>
@@ -898,12 +898,12 @@ git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)| %C(cyan)%s%d %
                                     <h3 data-title="remote-fetch-pull" class="chapter__title">git fetch и git pull</h3>
                                 </div>
                                 <div class="chapter__content">
-                                    <p>Команды <code>git fetch</code> и <code>get pull</code> получают изменения из удаленного репозитория.</p>
+                                    <p>Команды <code>git fetch</code> и <code>git pull</code> получают изменения из удаленного репозитория.</p>
                                     <p><code>git fetch &lt;remote></code> Синхронизирует ветки слежения с удаленным репозиторием, передвигая их указатели.</p>
-                                    <p><code>git fetch --all</code> Сихронизировать ветки слежения со всеми удаленными репозиториями.</p>
+                                    <p><code>git fetch --all</code> Синхронизировать ветки слежения со всеми удаленными репозиториями.</p>
                                     <p><code>git pull &lt;remote> &lt;branch></code> Синхронизирует изменения для ветки <code>branch</code> и пытается слить их с текущим кодом.</p>
                                     <h5>Примеры</h5>
-                                    <p><code>git pull</code> Сихронизирует изменения веток слежения с <code>origin</code> и включает их в локальную копию проекта.</p>
+                                    <p><code>git pull</code> Синхронизирует изменения веток слежения с <code>origin</code> и включает их в локальную копию проекта.</p>
                                     <p><code>git pull upstream master</code> Получает все изменения для ветки <code>master</code> в репозитории <code>upstream</code> и делает <code>merge</code>.</p>
                                     <h4>Терминология</h4>
                                     <p>pull request — живой запрос на прием последних изменений из нашего удаленного fork репозитория в исходный, обычно называющийся <code>upstream</code>. При обновлении fork обновляется и pull request.</p>
@@ -917,10 +917,10 @@ git log --pretty=format:'%C(yellow)%h %C(dim green)%cd %C(reset)| %C(cyan)%s%d %
                                 <div class="chapter__content">
                                     <p>Команда <code>git push</code> отправляет изменения на удаленный сервер.</p>
                                     <p><code>git push &lt;remote> &lt;branch></code> Добавляет изменения на удаленный репозиторий.</p>
-                                    <p><code>git push -f</code> Позволяет переписать историю в удаленной ветке, сихронизируя ее с локальной.</p>
+                                    <p><code>git push -f</code> Позволяет переписать историю в удаленной ветке, синхронизируя ее с локальной.</p>
                                     <p><code>git push &lt;remote> --delete &lt;branch></code> Удаляет ветку из удаленного репозитория.</p>
                                     <h5>Добавление веток слежения</h5>
-                                    <p><code>git push --set-upstream &lt;remote> &lt;branch></code> (или <code>git push -u &lt;remote> &lt;branch></code>) Связывает локальную ветку <code>branch</code> с удаленной и выполняет <code>push</code>. В дальнейшем, для добавления измененений из такой ветки, достаточно команды <code>git push</code>.</p>
+                                    <p><code>git push --set-upstream &lt;remote> &lt;branch></code> (или <code>git push -u &lt;remote> &lt;branch></code>) Связывает локальную ветку <code>branch</code> с удаленной и выполняет <code>push</code>. В дальнейшем, для добавления изменений из такой ветки, достаточно команды <code>git push</code>.</p>
                                     <h4>Обмен тегами</h4>
                                     <p><code>git push &lt;remote> &lt;tag></code> Добавление тега в удаленный репозиторий.</p>
                                     <p><code>git push &lt;remote> --delete &lt;tag></code> Удаление тега из удаленного репозитория.</p>

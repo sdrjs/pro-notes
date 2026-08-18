@@ -509,7 +509,7 @@ module.exports = {
                                     <p>Хук <code>useState</code> решает обе этих задачи, предоставляя:</p>
                                     <ol>
                                         <li>Переменную <code>state</code> для сохранения данных между рендерингами.</li>
-                                        <li>Фукнцию для обновления <code>state</code> и запуска нового рендеринга.</li>
+                                        <li>Функцию для обновления <code>state</code> и запуска нового рендеринга.</li>
                                     </ol>
                                     <h4>Первый хук</h4>
                                     <p>В React <code>useState</code>, как и любая другая функция, начинающаяся с <code>use</code>, называется хуком.</p>
@@ -636,7 +636,7 @@ const [state, dispatch] = useReducer(reducer, initialState);</code>
                                     <p><code>reducer</code> - функция, которая принимает <code>prevState</code> и <code>action</code>. Возвращает новый state.</p>
                                     <ul>
                                         <li><code>prevState</code> - старое состояние state</li>
-                                        <li><code>action</code> - изменения, который отправлены с помощью <code>dispatch</code></li>
+                                        <li><code>action</code> - изменения, которые отправлены с помощью <code>dispatch</code></li>
                                     </ul>
                                     <h5>useState -> useReducer</h5>
                                     <p><code>useReducer</code> - иной способ управления состоянием. Чтобы перейти от использования <code>useState</code> к <code>useReducer</code> необходимо:</p>
@@ -946,7 +946,7 @@ export default function App() {
                                         <li>Хранение других объектов, которые не нужны для вычисления JSX.</li>
                                     </ol>
                                     <h5>useRef изнутри</h5>
-                                    <p>Фунциональность <code>useRef</code> можно реализовать при помощи <code>useState</code>, создав кастомный хук:</p>
+                                    <p>Функциональность <code>useRef</code> можно реализовать при помощи <code>useState</code>, создав кастомный хук:</p>
                                     <code class="large">function useRef(initialValue) {
     const [ref, unused] = useState({current: initialValue});
     return ref;
@@ -1182,7 +1182,7 @@ export default function ChatRoom() {
     return &lt;h1>Welcome to the chat!&lt;/h1>;
 }</code>
                                     <h5>Глобальные переменные</h5>
-                                    <p>Изменяемые глобальные переменные нельзя указывать в зависимостях. Во-первых, они вне потока данных, о которых известно React, во-вторых тем замым нарушается принцип "чистого" рендеринга.</p>
+                                    <p>Изменяемые глобальные переменные нельзя указывать в зависимостях. Во-первых, они вне потока данных, о которых известно React, во-вторых тем самым нарушается принцип "чистого" рендеринга.</p>
                                     <p>Если необходимо узнавать об изменении внешней переменной, стоит использовать хук <code>useSyncExternalStore</code>.</p>
                                     <h4>Выполнение асинхронных запросов</h4>
                                     <p>С помощью <code>useEffect</code> можно отправлять <code>fetch</code>-запросы, но необходимо предусмотреть отмену:</p>
@@ -1657,7 +1657,7 @@ async function addToCart(prevState, queryData) {
                                     <p><code>getServerSnapshot</code> - необязательная функция, которая возвращает первоначальное состояние данных в хранилище. Без этого аргумента рендеринг компонента на стороне сервера выбросит ошибку.</p>
                                     <p>Использование:</p>
                                     <ol>
-                                        <li>Позволяет подписаться на некоторое изменяющееся значение, предоставлямое внешним хранилищем.</li>
+                                        <li>Позволяет подписаться на некоторое изменяющееся значение, предоставляемое внешним хранилищем.</li>
                                     </ol>
                                     <h5>Пример</h5>
                                     <code class="large">import { useCallback, useSyncExternalStore } from 'react';
@@ -1876,7 +1876,7 @@ function createConnection(roomId) {
                                     </ol>
                                     <h4>Хуки</h4>
                                     <h5>useNavigate</h5>
-                                    <p>Хук <code>useNavigate</code> возвращает функцию, которую можно использовать для программной навигации (в императивном ключе, в отличии навигации с помощью компонента <code>&lt;Link /></code>).</p>
+                                    <p>Хук <code>useNavigate</code> возвращает функцию, которую можно использовать для программной навигации (в императивном ключе, в отличие от навигации с помощью компонента <code>&lt;Link /></code>).</p>
                                     <code class="large">function Info() {
     const navigate = useNavigate();
 

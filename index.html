@@ -105,7 +105,7 @@
                             <nav class="nav__content">
                                 <ul class="nav__list">
                                     <li>
-                                        <a href="#advanced-functions-rest-spread" class="nav__link">Остаточные параметры и spead оператор</a>
+                                        <a href="#advanced-functions-rest-spread" class="nav__link">Остаточные параметры и spread оператор</a>
                                     </li>
                                     <li>
                                         <a href="#advanced-functions-closure" class="nav__link">Область видимости переменных, замыкание</a>
@@ -385,7 +385,7 @@ user[id] = 123;</code>
                                     <h3 data-title="data-types-object" class="chapter__title">Объекты</h3>
                                 </div>
                                 <div class="chapter__content">
-                                    <p><code>"key" in object // оператор "in" определяет существование свойста</code></p>
+                                    <p><code>"key" in object // оператор "in" определяет существование свойства</code></p>
                                     <p>Глубокое клонирование объектов можно осуществить с помощью рекурсии, воспользовавшись глобальным методом <code>structuredClone(obj)</code>, либо использовать метод <code>_.cloneDeep(obj)</code> из JavaScript-библиотеки lodash.</p>
                                     <h4>Получение свойств объекта</h4>
                                     <p><code>Object.getOwnPropertyNames(obj)</code> возвращает не-символьные ключи.</p>
@@ -500,7 +500,7 @@ num.toFixed(2) === '1.40';</code>
                                     <p>Число хранится в памяти в бинарной форме.</p>
                                     <p>Дроби, такие как 0.1 и 0.2 являются бесконечной дробью в двоичной форме.</p>
                                     <p>В JavaScript нет возможности для хранения точных значений 0.1 или 0.2, используя двоичную систему, так же, как нет возможности хранить одну третью в десятичной системе счисления.</p>
-                                    <p>Из 64 бит, отведённых на число, сами цифры числа занимают до 52 бит, остальные 11 бит хранят позицию десятичной точки и один бит – знак. Eсли 52 бит не хватает на цифры, то при записи пропадут младшие разряды.</p>
+                                    <p>Из 64 бит, отведённых на число, сами цифры числа занимают до 52 бит, остальные 11 бит хранят позицию десятичной точки и один бит – знак. Если 52 бит не хватает на цифры, то при записи пропадут младшие разряды.</p>
                                     <code class="large">9999999999999999 === 1e16; // true</code>
                                     <h4>Проверка: isFinite и isNaN</h4>
                                     <p>Значение <code>NaN</code> уникально тем, что оно не равно ничему, даже самому себе.</p>
@@ -513,7 +513,7 @@ num.toFixed(2) === '1.40';</code>
                                     <code class="large">Object.is(NaN, NaN) === true;
 Object.is(-0, 0) === false; // технически эти значения разные</code>
                                     <h4>parseInt и parseFloat</h4>
-                                    <p><code>parseInt(str, base)</code> и <code>parseFloat(str)</code> «читают» число из строки. Если в процессе чтения возникает ошибка, они возвращают полученное до ошибки число. Eсли первый символ - не число, возвращают <code>NaN</code>.</p>
+                                    <p><code>parseInt(str, base)</code> и <code>parseFloat(str)</code> «читают» число из строки. Если в процессе чтения возникает ошибка, они возвращают полученное до ошибки число. Если первый символ - не число, возвращают <code>NaN</code>.</p>
                                     <p><code>parseInt</code> возвращает целое число, второй параметр определяет систему счисления (от 2 до 36).</p>
                                     <p><code>parseFloat</code> возвращает число с плавающей точкой.</p>
                                     <code class="large">parseInt('100px') === 100
@@ -577,11 +577,11 @@ parseInt('2n9c', 36) === 123456</code>
                                     <code class="large">"12345".split('', 2); // ['1', '2']</code>
                                     <p><code>str.trim()</code> — убирает пробелы в начале и конце строки</p>
                                     <p><code>str.repeat(n)</code> — повторяет строку <code>n</code> раз</p>
-                                    <h4>Стравнение строк</h4>
+                                    <h4>Сравнение строк</h4>
                                     <p>Строки кодируются в UTF-16. У любого символа есть соответствующий код.</p>
                                     <p><code>str.codePointAt(pos)</code> возвращает код для символа, находящегося на позиции <code>pos</code>.</p>
                                     <code class="large">"z".codePointAt(0) === 122;
-"a".codePointAt() === 97; // pos === 0 при отсутсвии аргумента
+"a".codePointAt() === 97; // pos === 0 при отсутствии аргумента
 "Z".codePointAt(0) === 90;</code>
                                     <p><code>String.fromCodePoint(code)</code> создаёт символ по его коду <code>code</code>.</p>
                                     <code class="large">String.fromCodePoint(90) === "Z"</code>
@@ -928,8 +928,8 @@ console.log(date); // Tue Mar 01 2016 ...</code>
                                     <code class="large">JSON.stringify(user, null, 2);</code>
                                     <p>JSON является независимой от языка спецификацией для данных, поэтому <code>JSON.stringify</code> пропускает некоторые специфические свойства объектов JavaScript:</p>
                                     <ul>
-                                        <li>cвойства-функции (методы)</li>
-                                        <li>cимвольные ключи и значения</li>
+                                        <li>свойства-функции (методы)</li>
+                                        <li>символьные ключи и значения</li>
                                         <li>свойства со значением <code>undefined</code></li>
                                     </ul>
                                     <p>Ограничение: не должно быть циклических ссылок.</p>
@@ -984,7 +984,7 @@ JSON.parse(json, function(key, value) {
                         <div class="content__body">
                             <section class="content__chapter chapter">
                                 <div class="chapter__header">
-                                    <h3 data-title="advanced-functions-rest-spread" class="chapter__title">Остаточные параметры и spead оператор</h3>
+                                    <h3 data-title="advanced-functions-rest-spread" class="chapter__title">Остаточные параметры и spread оператор</h3>
                                 </div>
                                 <div class="chapter__content">
                                     <h4>Остаточные параметры (...)</h4>
@@ -2167,7 +2167,7 @@ let rabbit = Object.create(animal, {
   
 console.log(rabbit.jumps); // true</code>
                                     <h5>Не нужно менять [[Prototype]] существующих объектов, если важна скорость</h5>
-                                    <p><code>JavaScript</code> движки хорошо оптимизированы для того, чтобы устанавливвать прототип только во время создания объекта, после не меняя.</p>
+                                    <p><code>JavaScript</code> движки хорошо оптимизированы для того, чтобы устанавливать прототип только во время создания объекта, после не меняя.</p>
                                     <p>Изменение прототипа «на лету» с помощью <code>Object.setPrototypeOf</code> или <code>obj.__proto__</code> – очень медленная операция, которая ломает внутренние оптимизации для операций доступа к свойствам объекта.</p>
                                     <h4>"Простейший" объект</h4>
                                     <p>Если хранить созданные пользователями ключи в качестве свойств объекта, окажется, что не все ключи работают как ожидается. Если пользователь введёт свойство <code>__proto__</code>, присвоение проигнорируется.</p>
@@ -3728,7 +3728,7 @@ console.log( formatter.format( new Date() ) ); // 07.07.23</code>
                                     <p><code>formatter.format(number)</code> - форматирование</p>
                                     <p><code>options</code> - объект, который может иметь следующие свойства:</p>
                                     <ul>
-                                        <li><code>style</code> – cтиль форматирования – [<code>decimal</code>], <code>percent</code>, <code>currency</code></li>
+                                        <li><code>style</code> – стиль форматирования – [<code>decimal</code>], <code>percent</code>, <code>currency</code></li>
                                         <li><code>currency</code> – алфавитный код валюты (<code>RUB</code>, <code>USD</code> и тд)</li>
                                         <li><code>currencyDisplay</code> – как отображать валюту – [<code>symbol</code>], <code>code</code>,  <code>name</code></li>
                                         <li><code>useGrouping</code> – разделение цифр по три – [<code>true</code>], <code>false</code></li>

@@ -239,7 +239,7 @@
                                 </div>
                                 <div class="chapter__content">
                                     <h4>Свойства узлов</h4>
-                                    <h5>Свойства для поика любых узлов</h5>
+                                    <h5>Свойства для поиска любых узлов</h5>
                                     <p><code>childNodes</code> возвращает <code>NodeList</code> всех дочерних узлов, включая текстовые.</p>
                                     <p><code>firstChild</code>, <code>lastChild</code> – первый и последний дочерние узлы.</p>
                                     <p><code>previousSibling</code>, <code>nextSibling</code> – соседи-узлы.</p>
@@ -260,7 +260,7 @@ document.documentElement.parentNode === document</code>
                                     <p><code>tr.sectionRowIndex</code> – номер строки <code>&lt;tr></code> в текущей секции <code>&lt;thead></code>/<code>&lt;tbody></code>/<code>&lt;tfoot></code>.</p>
                                     <p><code>tr.rowIndex</code> – номер строки <code>&lt;tr></code> в таблице (включая все строки таблицы).</p>
                                     <p><code>td.cellIndex</code> – номер ячейки в строке <code>&lt;tr></code>.</p>
-                                    <h5>HTLMCollection vs NodeList</h5>
+                                    <h5>HTMLCollection vs NodeList</h5>
                                     <p>"Живая" коллекция - всегда отражает текущее состояние документа и автоматически обновляется при его изменении.</p>
                                     <p><code>HTMLCollection</code> - всегда "живая" коллекция и хранит только узлы-элементы.</p>
                                     <p><code>NodeList</code> может быть как "живой", так и статической коллекцией и хранит любые типы узлов. Есть методы <code>forEach()</code>, <code>entries()</code>, <code>keys()</code> и <code>values()</code>.</p>
@@ -441,7 +441,7 @@ console.log( document.body.getAttribute('style') ); // 'width: 200px; background
                                     </ol>
                                     <p>Свойства <code>offsetLeft</code>/<code>offsetTop</code> содержат координаты <code>x</code>/<code>y</code> относительно верхнего левого угла <code>offsetParent</code> (<code>0</code>, если <code>offsetParent === null</code>).</p>
                                     <h4>offsetWidth/offsetHeight</h4>
-                                    <p>Свойства <code>offsetWidth</code>/<code>offsetHeight</code> cодержат «внешнюю» ширину/высоту элемента, то есть его полный размер, включая рамки.</p>
+                                    <p>Свойства <code>offsetWidth</code>/<code>offsetHeight</code> содержат «внешнюю» ширину/высоту элемента, то есть его полный размер, включая рамки.</p>
                                     <p>Если элемент (или любой его родитель) имеет <code>display:none</code> или отсутствует в документе, то все его метрики равны нулю.</p>
                                     <h4>clientTop/clientLeft</h4>
                                     <p>Свойства <code>clientLeft</code>/<code>clientTop</code> возвращают отступы внутренней части элемента от внешней.</p>
@@ -604,7 +604,7 @@ console.log( document.body.getAttribute('style') ); // 'width: 200px; background
                                     <p>Всплытие идёт с «целевого» элемента <code>event.target</code> прямо наверх. Событие будет всплывать вплоть до глобального объекта <code>window</code>, вызывая все обработчики на своём пути. Но любой промежуточный обработчик может остановить всплытие.</p>
                                     <p><code>event.stopPropagation()</code> - прекращает всплытие события.</p>
                                     <p>Если у элемента есть несколько обработчиков на одно событие, то даже при прекращении всплытия все они будут выполнены.</p>
-                                    <p><code>event.stopImmediatePropagation()</code> - прекращает всплытие и станавливает обработку событий на текущем элементе.</p>
+                                    <p><code>event.stopImmediatePropagation()</code> - прекращает всплытие и останавливает обработку событий на текущем элементе.</p>
                                     <h4>Погружение (capturing)</h4>
                                     <p>Стандарт DOM Events описывает 3 фазы прохода события:</p>
                                     <ol>
