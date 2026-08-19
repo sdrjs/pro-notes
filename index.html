@@ -324,6 +324,9 @@
                                         <a href="#binary" class="nav__link">Бинарные данные и файлы</a>
                                     </li>
                                     <li>
+                                        <a href="#tagged-template-literals" class="nav__link">Тегированные шаблонные строки</a>
+                                    </li>
+                                    <li>
                                         <a href="#fetch" class="nav__link">Fetch</a>
                                     </li>
                                 </ul>
@@ -3898,6 +3901,24 @@ fileReader.readAsArrayBuffer(blob);
 fileReader.onload = function(event) {
     let arrayBuffer = fileReader.result;
 };</code>
+                                </div>
+                            </section>
+                            <section class="content__chapter chapter">
+                                <div class="chapter__header">
+                                    <h3 data-title="tagged-template-literals" class="chapter__title">Тегированные шаблонные строки</h3>
+                                </div>
+                                <div class="chapter__content">
+                                    <p>Тегированная шаблонная строка — это специальный синтаксис вызова функции, при котором шаблонная строка передается функции. В этом случае шаблонная строка не превращается сразу в обычную строку. JavaScript передаёт функции отдельно статические части строки и значения выражений.</p>
+                                    <code class="large">const name = 'Pete';
+const age = 18;
+
+sql`SELECT * FROM users WHERE name = ${name} AND age = ${age}`;
+
+function sql(strings, ...values) {
+    console.log(strings); // ["SELECT * FROM users WHERE name = ", " AND age = ", ""]
+    console.log(values); // ["Pete", 18]
+}</code>
+                                    <p>Подробнее можно почитать <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates">здесь</a>.</p>
                                 </div>
                             </section>
                             <section class="content__chapter chapter">
