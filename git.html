@@ -674,8 +674,8 @@
                                     <p><code>git log --grep add --grep hi --all-match</code> Выведет коммиты, в которых есть оба слова <code>hi</code> и <code>add</code>.</p>
                                     <p><code>git log --grep 'h(i|ello)' -P -i</code> Выведет коммиты со словами <code>hi</code> и <code>hello</code> в любом регистре.</p>
                                     <h4>Фильтр по изменениям в коммите</h4>
-                                    <p><code>-S &lt;str></code> Выводит коммиты, изменяющие строку <code>str</code> в их содержимом.</p>
-                                    <p><code>-G&lt;regexp></code> Позволяет отфильтровать коммиты по изменениям содержимого в них. Специальные символы необходимо экранировать с помощью <code>\</code>.</p>
+                                    <p><code>-S '&lt;str>'</code> Выводит коммиты, изменяющие строку <code>str</code> в их содержимом.</p>
+                                    <p><code>-G'&lt;regexp>'</code> Позволяет отфильтровать коммиты по изменениям содержимого в них. Специальные символы необходимо экранировать с помощью <code>\</code>.</p>
                                     <p><code>-L &lt;start>,&lt;end>:&lt;file></code> Выводит все коммиты, в <code>file</code> которых были изменены строки от <code>start</code> до <code>end</code> (включительно) и покажет эти строки в формате <code>diff</code>.</p>
                                     <p><code>-L '/&lt;regexp1>/','/&lt;regexp2>/':&lt;file></code> Выведет все коммиты, в которых были изменения между <code>regexp1</code> и <code>regexp2</code> в файле <code>file</code>.</p>
                                     <h5>Примеры</h5>
